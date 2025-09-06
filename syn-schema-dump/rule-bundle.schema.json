@@ -1,0 +1,225 @@
+{
+  "$defs": {
+    "RuleSchema": {
+      "additionalProperties": false,
+      "description": "Representation of a single rule within a bundle.",
+      "properties": {
+        "effects": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Effects applied when the rule is triggered",
+          "title": "Effects"
+        },
+        "execution": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Execution environment for the rule",
+          "title": "Execution"
+        },
+        "expr": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            },
+            {
+              "contentMediaType": "application/json",
+              "contentSchema": {
+                "type": "object"
+              },
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Expression defining the rule logic",
+          "title": "Expr"
+        },
+        "id": {
+          "description": "Unique rule identifier",
+          "title": "Id",
+          "type": "string"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Parameter path the rule targets",
+          "title": "Target"
+        },
+        "trigger": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Trigger configuration for the rule",
+          "title": "Trigger"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "title": "RuleSchema",
+      "type": "object"
+    }
+  },
+  "$id": "https://schemas.synesthetic.dev/rulebundleschema.schema.json",
+  "additionalProperties": false,
+  "example": {
+    "description": "A rule that maps interactions on a virtual grid to multimodal outputs by defining channels that link grid pressure to parameter changes.",
+    "meta_info": {
+      "category": "rule_bundle",
+      "complexity": "high",
+      "tags": [
+        "grid",
+        "interaction",
+        "multimodal",
+        "mapping",
+        "client-side"
+      ]
+    },
+    "name": "SDF Grid Rules",
+    "rules": [
+      {
+        "effects": [
+          {
+            "channel": "audioTrigger",
+            "op": "triggerAttackRelease",
+            "target": "tone.synth",
+            "value": {
+              "duration": "8n",
+              "note": "<grid.note>",
+              "velocity": {
+                "curve": "linear",
+                "scale": 1.0,
+                "source": "grid.pressure",
+                "threshold": 0.02
+              }
+            }
+          }
+        ],
+        "execution": "client",
+        "id": "grid_to_multimodal_mapping",
+        "trigger": {
+          "params": {
+            "cooldown": 100,
+            "gridSize": 8
+          },
+          "type": "grid_cell"
+        }
+      }
+    ]
+  },
+  "properties": {
+    "created_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Creation time",
+      "title": "Created At"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Bundle details",
+      "title": "Description"
+    },
+    "id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Database ID",
+      "title": "Id"
+    },
+    "meta_info": {
+      "description": "Metadata about the rule bundle",
+      "title": "Meta Info",
+      "type": "object"
+    },
+    "name": {
+      "description": "Human readable bundle name",
+      "title": "Name",
+      "type": "string"
+    },
+    "rules": {
+      "description": "List of rules",
+      "items": {
+        "$ref": "#/$defs/RuleSchema"
+      },
+      "title": "Rules",
+      "type": "array"
+    },
+    "updated_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Last update time",
+      "title": "Updated At"
+    }
+  },
+  "required": [
+    "name",
+    "rules"
+  ],
+  "title": "RuleBundleSchema",
+  "type": "object"
+}

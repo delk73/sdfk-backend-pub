@@ -1,0 +1,67 @@
+{
+  "task": "documentation_clean_edit_pass",
+  "context": "Synesthetic Backend mono‑repo",
+  "objective": "Audit every user‑facing doc for accuracy, consistency, and logical placement; fix mistakes and move files into their proper folders (e.g. db_schema.md belongs under docs/architecture/).",
+  "scope": {
+    "roots": ["README.md", "docs/"],
+    "include_patterns": ["*.md", "*.mdx"],
+    "exclude_patterns": ["CHANGELOG.md", "third_party/**"]
+  },
+
+  "actions": [
+    {
+      "action": "Lint & spell‑check",
+      "tool": "markdownlint + codespell",
+      "fix": true,
+      "note": "Apply --fix where safe; leave inline TODOs for domain‑specific wording."
+    },
+    {
+      "action": "Cross‑check code accuracy",
+      "steps": [
+        "Import SQLAlchemy models and FastAPI routers.",
+        "For each diagram/table snippet in docs, verify fields & endpoints exist. If mismatch: update the snippet and append a one‑line commit comment.",
+        "Automatically refresh Mermaid ER blocks by running the generator script in docs/scripts/generate_db_schema.py."
+      ]
+    },
+    {
+      "action": "Re‑organize doc tree",
+      "moves": [
+        { "from": "docs/db_schema.md",            "to": "docs/architecture/db_schema.md" },
+        { "from": "docs/api_reference.md",        "to": "docs/api/" },
+        { "from": "docs/developer_setup.md",      "to": "docs/getting_started/" }
+      ],
+      "create_folders_if_missing": true,
+      "update_links": true
+    },
+    {
+      "action": "Unify front‑matter & headings",
+      "rule": "First heading must be H1, immediately followed by a 1‑sentence purpose paragraph.",
+      "apply_to": "all docs"
+    },
+    {
+      "action": "Generate master index",
+      "file": "docs/README.md",
+      "contents": "Auto‑build a bullet list TOC linking every .md file under docs/, grouped by subfolder."
+    }
+  ],
+
+  "constraints": [
+    "No content drift: every change must be based on live code.",
+    "Don’t rewrite design‑history pages; add a top banner if they’re deprecated.",
+    "Keep line‑length ≤ 100 chars.",
+    "Mermaid blocks must stay fenced in ```mermaid."
+  ],
+
+  "success_criteria": [
+    "Running `mkdocs serve` (or `markdownlint docs/`) shows zero linter errors.",
+    "`grep -R 'meta_info.modulations' docs/` returns nothing.",
+    "All intra‑repo links resolve (no 404 in MkDocs build).",
+    "db_schema.md now lives in docs/architecture/ and matches current ORM tables."
+  ],
+
+  "mode": "fail_fast",
+  "notes": [
+    "Treat this as an editorial pass, not a full rewrite—keep author voice where possible.",
+    "Add inline HTML comments <!-- TODO 2025‑Q4: expand section --> rather than half‑written stubs."
+  ]
+}

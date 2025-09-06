@@ -1,0 +1,68 @@
+# Project is managed with Poetry. Keep coverage config below.
+
+[tool.poetry]
+name = "sdfk-backend"
+version = "0.1.0"
+description = "FastAPI backend for the Synesthetic System (SDFK)"
+authors = []
+readme = "README.md"
+# This is an application (not a library package)
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+fastapi = ">=0.110,<1.0"
+starlette = ">=0.36"
+fastapi-admin = ">=1.0.4"
+uvicorn = { version = ">=0.24.0", extras = ["standard"] }
+sqlalchemy = ">=2.0.23"
+psycopg2-binary = ">=2.9.9"
+pyjwt = ">=2.8.0"
+python-dotenv = ">=1.0.0"
+pydantic = ">=2,<3"
+pydantic-core = ">=2,<3"
+pydantic-settings = ">=2.0.3"
+alembic = ">=1.12.1"
+redis = ">=5.0.1"
+httpx = ">=0.26.0"
+deepdiff = ">=6.7.1"
+protobuf = ">=4.25.8,<5.0"
+grpcio-tools = ">=1.62.0,<1.63.0"
+grpcio-status = ">=1.48.2,<1.71.0"
+google-generativeai = ">=0.8.5"
+jsonpatch = ">=1.33"
+pgvector = ">=0.4.1"
+
+# Local synesthetic-schemas as editable path dependency
+synesthetic-schemas = { path = "libs/synesthetic-schemas/python", develop = true }
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.4.4"
+pytest-asyncio = ">=0.23.3"
+hypothesis = ">=6.98.0"
+pytest-cov = ">=4.1.0"
+flake8 = ">=7.2.0"
+black = ">=25.1.0"
+mypy = ">=1.16.1"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+omit = [
+    "*/load_examples.py",
+    "*/__pycache__/*",
+    "*/tests/*",
+    "*/.venv/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+    "raise ImportError",
+]

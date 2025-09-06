@@ -1,0 +1,28 @@
+Synesthetic Backend Public License - 0.4
+Copyright (c) 2025 Dan Elkins
+
+This backend software is provided solely for evaluation, demonstration, and collaboration purposes. Your access and use are strictly limited by the terms herein.
+
+You are permitted to:
+
+View, run, and interact with the software and its APIs in non-commercial, non-production contexts.
+Connect with authorized frontend systems exclusively for testing and evaluation purposes.
+You may NOT:
+
+Modify, copy, redistribute, sublicense, or publicly perform the backend code or any of its components.
+Use the backend in any commercial, production, or customer-facing environment.
+Decompile, reverse engineer, or attempt to derive or alter the source code.
+Circumvent access controls, sandboxing mechanisms, or API rate limits.
+Copy, redistribute, or create derivative works of any documentation, designs, diagrams, or other non-code intellectual property found within this repository, beyond what is strictly necessary to perform the permitted evaluation of the software.
+
+License Characteristics:
+This license is non-transferable and may be revoked by Dan Elkins at any time without notice.
+This software may include third-party dependencies under weak-copyleft licenses (e.g., LGPL, MPL 2.0). These are redistributed unmodified and in compliance with their respective licenses.
+No dependencies under strong-copyleft licenses (e.g., GPL, AGPL) are intentionally included.
+
+This license grants no rights to, nor implies any license for, any patents, trademarks, trade secrets, or other intellectual property rights, except for the limited copyright license to the software code expressly provided herein for evaluation purposes.
+
+A full open source license is planned for a future release.
+For access requests, commercial use, or licensing discussions, please contact: danelkins@gmail.com
+
+All rights reserved.

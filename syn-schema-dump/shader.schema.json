@@ -1,0 +1,214 @@
+{
+  "$defs": {
+    "InputParameter": {
+      "properties": {
+        "default": {
+          "title": "Default",
+          "type": "number"
+        },
+        "max": {
+          "title": "Max",
+          "type": "number"
+        },
+        "min": {
+          "title": "Min",
+          "type": "number"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "parameter": {
+          "title": "Parameter",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "smoothingTime": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Smoothingtime"
+        },
+        "step": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Step"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "parameter",
+        "path",
+        "type",
+        "default",
+        "min",
+        "max"
+      ],
+      "title": "InputParameter",
+      "type": "object"
+    },
+    "UniformDef": {
+      "properties": {
+        "default": {
+          "title": "Default"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "stage": {
+          "title": "Stage",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type",
+        "stage",
+        "default"
+      ],
+      "title": "UniformDef",
+      "type": "object"
+    }
+  },
+  "$id": "https://schemas.synesthetic.dev/shader.schema.json",
+  "properties": {
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Description"
+    },
+    "fragment_shader": {
+      "description": "GLSL fragment shader code",
+      "examples": [
+        "// fragment shader example"
+      ],
+      "title": "Fragment Shader",
+      "type": "string"
+    },
+    "input_parameters": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/InputParameter"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Input Parameters"
+    },
+    "meta_info": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Metadata about the shader",
+      "examples": [
+        {
+          "category": "visual",
+          "complexity": "low",
+          "tags": [
+            "circle",
+            "sdf"
+          ]
+        }
+      ],
+      "title": "Meta Info"
+    },
+    "name": {
+      "description": "Name of the shader",
+      "examples": [
+        "Circle Shader"
+      ],
+      "title": "Name",
+      "type": "string"
+    },
+    "shader_id": {
+      "title": "Shader Id",
+      "type": "integer"
+    },
+    "shader_lib_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Shader Lib Id"
+    },
+    "uniforms": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/UniformDef"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Uniforms"
+    },
+    "vertex_shader": {
+      "description": "GLSL vertex shader code",
+      "examples": [
+        "// vertex shader example"
+      ],
+      "title": "Vertex Shader",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "vertex_shader",
+    "fragment_shader",
+    "shader_id"
+  ],
+  "title": "Shader",
+  "type": "object"
+}

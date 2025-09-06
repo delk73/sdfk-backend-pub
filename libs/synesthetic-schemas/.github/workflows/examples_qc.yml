@@ -1,0 +1,36 @@
+name: Examples QC
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install 'jsonschema>=4.22,<4.23'
+      - name: Run QC
+        run: |
+          python scripts/examples_qc.py --ci || true
+          test -f meta/output/SCHEMAS_EXAMPLES_QA.json
+          test -f meta/output/SCHEMAS_EXAMPLES_QA.md
+          test -f meta/output/BLESSED_EXAMPLES.json
+          test -f meta/output/EXAMPLE_FIELD_MATRIX.json
+      - name: Upload QA artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: examples-qc
+          path: |
+            meta/output/SCHEMAS_EXAMPLES_QA.json
+            meta/output/SCHEMAS_EXAMPLES_QA.md
+            meta/output/BLESSED_EXAMPLES.json
+            meta/output/EXAMPLE_FIELD_MATRIX.json
+

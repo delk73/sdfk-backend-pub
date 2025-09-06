@@ -1,0 +1,768 @@
+{
+  "$defs": {
+    "Modulation": {
+      "properties": {
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Description of the modulation set",
+          "title": "Description"
+        },
+        "meta_info": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Metadata about the modulation set",
+          "examples": [
+            {
+              "category": "modulation",
+              "complexity": "medium",
+              "tags": [
+                "multimodal",
+                "dynamic"
+              ]
+            }
+          ],
+          "title": "Meta Info"
+        },
+        "modulation_id": {
+          "title": "Modulation Id",
+          "type": "integer"
+        },
+        "modulations": {
+          "description": "List of modulations",
+          "examples": [
+            {
+              "amplitude": 0.5,
+              "frequency": 0.5,
+              "id": "wave_speed_pulse",
+              "max": 1.0,
+              "min": 0.0,
+              "offset": 1.0,
+              "phase": 0.0,
+              "scale": 1.0,
+              "scaleProfile": "linear",
+              "target": "visual.u_wave_speed",
+              "type": "additive",
+              "waveform": "triangle"
+            },
+            {
+              "amplitude": 400,
+              "frequency": 0.25,
+              "id": "filter_sweep",
+              "max": 1.0,
+              "min": 0.0,
+              "offset": 800,
+              "phase": 0.0,
+              "scale": 1.0,
+              "scaleProfile": "exponential",
+              "target": "tone.filter.frequency",
+              "type": "additive",
+              "waveform": "triangle"
+            },
+            {
+              "amplitude": 0.2,
+              "frequency": 1.0,
+              "id": "haptic_pulse",
+              "max": 1.0,
+              "min": 0.0,
+              "offset": 0.6,
+              "phase": 0.0,
+              "scale": 1.0,
+              "scaleProfile": "linear",
+              "target": "haptic.intensity",
+              "type": "additive",
+              "waveform": "sine"
+            }
+          ],
+          "items": {
+            "$ref": "#/$defs/ModulationItem"
+          },
+          "title": "Modulations",
+          "type": "array"
+        },
+        "name": {
+          "description": "Name of the modulation set",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "modulations",
+        "modulation_id"
+      ],
+      "title": "Modulation",
+      "type": "object"
+    },
+    "ModulationItem": {
+      "properties": {
+        "amplitude": {
+          "description": "Amplitude of the modulation",
+          "title": "Amplitude",
+          "type": "number"
+        },
+        "frequency": {
+          "description": "Frequency of the modulation in Hz",
+          "title": "Frequency",
+          "type": "number"
+        },
+        "id": {
+          "description": "Unique identifier for the modulation",
+          "title": "Id",
+          "type": "string"
+        },
+        "max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Maximum allowable value for the modulation",
+          "title": "Max"
+        },
+        "min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Minimum allowable value for the modulation",
+          "title": "Min"
+        },
+        "offset": {
+          "description": "Offset/base value of the modulation",
+          "title": "Offset",
+          "type": "number"
+        },
+        "phase": {
+          "description": "Phase offset in radians",
+          "title": "Phase",
+          "type": "number"
+        },
+        "scale": {
+          "default": 1.0,
+          "description": "Scaling factor applied to the modulation output",
+          "title": "Scale",
+          "type": "number"
+        },
+        "scaleProfile": {
+          "default": "linear",
+          "description": "Response profile to shape the modulation output",
+          "enum": [
+            "linear",
+            "exponential",
+            "logarithmic",
+            "sine",
+            "cosine"
+          ],
+          "title": "Scaleprofile",
+          "type": "string"
+        },
+        "target": {
+          "description": "Target parameter path (e.g., 'visual.u_wave_speed', 'tone.filter.frequency')",
+          "title": "Target",
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of modulation",
+          "enum": [
+            "additive",
+            "multiplicative"
+          ],
+          "title": "Type",
+          "type": "string"
+        },
+        "waveform": {
+          "description": "Waveform type",
+          "enum": [
+            "sine",
+            "triangle",
+            "square",
+            "sawtooth"
+          ],
+          "title": "Waveform",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "target",
+        "type",
+        "waveform",
+        "frequency",
+        "amplitude",
+        "offset",
+        "phase"
+      ],
+      "title": "ModulationItem",
+      "type": "object"
+    },
+    "NestedControlResponse": {
+      "properties": {
+        "control_parameters": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Control Parameters"
+        },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "meta_info": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Meta Info"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "NestedControlResponse",
+      "type": "object"
+    },
+    "NestedHapticResponse": {
+      "properties": {
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "device": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Device"
+        },
+        "input_parameters": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Parameters"
+        },
+        "meta_info": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Meta Info"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "NestedHapticResponse",
+      "type": "object"
+    },
+    "NestedShaderResponse": {
+      "properties": {
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "fragment_shader": {
+          "title": "Fragment Shader",
+          "type": "string"
+        },
+        "input_parameters": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Input Parameters"
+        },
+        "meta_info": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Meta Info"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "shader_lib_id": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shader Lib Id"
+        },
+        "uniforms": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": [],
+          "title": "Uniforms"
+        },
+        "vertex_shader": {
+          "title": "Vertex Shader",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "vertex_shader",
+        "fragment_shader"
+      ],
+      "title": "NestedShaderResponse",
+      "type": "object"
+    },
+    "NestedToneResponse": {
+      "additionalProperties": true,
+      "properties": {
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Description"
+        },
+        "effects": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Effects"
+        },
+        "input_parameters": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Input Parameters",
+          "type": "array"
+        },
+        "meta_info": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Meta Info"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "parts": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Parts"
+        },
+        "patterns": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Patterns"
+        },
+        "synth": {
+          "title": "Synth",
+          "type": "object"
+        }
+      },
+      "required": [
+        "name",
+        "synth"
+      ],
+      "title": "NestedToneResponse",
+      "type": "object"
+    }
+  },
+  "$id": "https://schemas.synesthetic.dev/synestheticasset.schema.json",
+  "properties": {
+    "control": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NestedControlResponse"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "control_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Control Id"
+    },
+    "control_parameters": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Control Parameters"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Description of the asset's purpose",
+      "examples": [
+        "A circle that pulses and changes color and sound frequency based on user controls"
+      ],
+      "title": "Description"
+    },
+    "haptic": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NestedHapticResponse"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "haptic_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Haptic Id"
+    },
+    "meta_info": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Metadata about the asset",
+      "examples": [
+        {
+          "category": "visual",
+          "complexity": "medium",
+          "tags": [
+            "geometric",
+            "reactive",
+            "audio"
+          ]
+        }
+      ],
+      "title": "Meta Info"
+    },
+    "modulation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Modulation"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "modulation_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Modulation Id"
+    },
+    "modulations": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Array of modulations for this asset",
+      "examples": [
+        {
+          "amplitude": 0.5,
+          "frequency": 0.5,
+          "id": "wave_speed_pulse",
+          "max": 1.0,
+          "min": 0.0,
+          "offset": 1.0,
+          "phase": 0.0,
+          "scale": 1.0,
+          "scaleProfile": "linear",
+          "target": "visual.u_wave_speed",
+          "type": "additive",
+          "waveform": "triangle"
+        }
+      ],
+      "title": "Modulations"
+    },
+    "name": {
+      "description": "Name of the synesthetic asset",
+      "examples": [
+        "Circle Pulsar"
+      ],
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "rule_bundle_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rule Bundle Id"
+    },
+    "shader": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NestedShaderResponse"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "shader_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Shader Id"
+    },
+    "synesthetic_asset_id": {
+      "title": "Synesthetic Asset Id",
+      "type": "integer"
+    },
+    "tone": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/NestedToneResponse"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "tone_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tone Id"
+    },
+    "updated_at": {
+      "format": "date-time",
+      "title": "Updated At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "synesthetic_asset_id",
+    "created_at",
+    "updated_at"
+  ],
+  "title": "SynestheticAsset",
+  "type": "object"
+}

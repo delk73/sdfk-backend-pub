@@ -1,0 +1,8617 @@
+{
+  "": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/$schemaRef": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/0/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/0/label": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/0/mappings": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/action": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/action/axis": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/action/curve": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/action/scale": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/action/sensitivity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/combo": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/combo/mouseButtons": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/0/mappings/0/combo/strict": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/0/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/0/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/0/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/0/smoothingTime": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/0/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/0/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/0/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/1/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/1/label": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/1/mappings": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/action": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/action/axis": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/action/curve": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/action/scale": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/action/sensitivity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/combo": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/combo/mouseButtons": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/1/mappings/0/combo/strict": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/1/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/1/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/1/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/1/smoothingTime": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/1/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/1/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/1/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/10": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/10/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/10/label": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/10/mappings": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/10/max": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/10/min": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/10/parameter": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/10/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/10/step": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/10/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/10/unit": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/11": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/11/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/11/label": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/11/mappings": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/11/max": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/11/min": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/11/parameter": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/11/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/11/step": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/11/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/11/unit": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/12": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/12/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/12/label": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/12/mappings": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/12/max": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/12/min": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/12/parameter": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/12/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/12/step": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/12/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/12/unit": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/13": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/13/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/13/label": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/13/mappings": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/action": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/action/axis": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/action/curve": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/action/scale": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/action/sensitivity": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/combo": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/combo/keys": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/combo/keys/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/combo/mouseButtons": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/13/mappings/0/combo/strict": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/13/max": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/13/min": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/13/parameter": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/13/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/13/step": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/13/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/13/unit": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/14/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/14/label": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14/mappings": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/action": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/action/axis": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/action/curve": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/action/scale": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/action/sensitivity": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/combo": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/combo/keys": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/combo/keys/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/combo/keys/1": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/combo/mouseButtons": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14/mappings/0/combo/strict": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/14/max": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/14/min": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/14/parameter": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/14/step": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/14/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/14/unit": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/15": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/15/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/15/label": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/15/mappings": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/action": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/action/axis": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/action/curve": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/action/scale": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/action/sensitivity": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/combo": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/combo/keys": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/combo/keys/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/combo/mouseButtons": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/15/mappings/0/combo/strict": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/15/max": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/15/min": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/15/parameter": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/15/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/15/step": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/15/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/15/unit": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/2/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/label": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/action": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/action/axis": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/action/curve": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/action/scale": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/action/sensitivity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/combo": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/combo/keys": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/combo/keys/0": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/combo/mouseButtons": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/combo/strict": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/2/mappings/0/combo/wheel": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/action": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/action/axis": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/action/curve": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/action/scale": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/action/sensitivity": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/combo": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/combo/keys": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/combo/keys/0": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/combo/mouseButtons": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/combo/mouseButtons/0": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/combo/strict": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/2/mappings/1/combo/wheel": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/2/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/smoothingTime": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/2/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/2/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/3": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/3/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/3/label": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/3/mappings": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/action": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/action/axis": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/action/curve": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/action/scale": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/action/sensitivity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/combo": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/combo/keys": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/combo/keys/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/combo/mouseButtons": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/combo/strict": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/3/mappings/0/combo/wheel": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/3/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/3/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/3/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/3/smoothingTime": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/3/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/3/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/3/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/4/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/4/label": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4/mappings": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/action": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/action/axis": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/action/curve": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/action/scale": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/action/sensitivity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/combo": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/combo/keys": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/combo/keys/0": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/combo/keys/1": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/combo/mouseButtons": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/combo/strict": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/4/mappings/0/combo/wheel": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/4/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/4/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/4/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4/smoothingTime": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/4/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/4/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/4/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/5/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/5/label": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5/mappings": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/action": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/action/axis": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/action/curve": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/action/scale": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/action/sensitivity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/combo": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/combo/keys": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/combo/keys/0": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/combo/keys/1": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/combo/mouseButtons": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5/mappings/0/combo/strict": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/5/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/5/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/5/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5/smoothingTime": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/5/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/5/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/5/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/6/default": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/6/label": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6/mappings": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/action": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/action/axis": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/action/curve": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/action/scale": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/action/sensitivity": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/combo": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/combo/keys": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/combo/keys/0": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/combo/keys/1": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/combo/mouseButtons": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/combo/strict": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/6/mappings/0/combo/wheel": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/6/max": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/6/min": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/6/parameter": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6/smoothingTime": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/6/step": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/6/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/6/unit": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/7/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/7/label": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7/mappings": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/action": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/action/axis": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/action/curve": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/action/scale": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/action/sensitivity": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/combo": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/combo/keys": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/combo/keys/0": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/combo/keys/1": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/combo/mouseButtons": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7/mappings/0/combo/strict": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/7/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/7/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/7/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7/smoothingTime": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/7/step": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/7/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/7/unit": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/8": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/8/default": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/8/label": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/8/mappings": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/action": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/action/axis": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/action/curve": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/action/scale": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/action/sensitivity": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/combo": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/combo/keys": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/combo/keys/0": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/combo/mouseButtons": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/combo/mouseButtons/0": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/8/mappings/0/combo/strict": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/control/control_parameters/8/max": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/8/min": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/8/parameter": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/8/smoothingTime": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/8/step": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/8/type": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/8/unit": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/9": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/control_parameters/9/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/9/label": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/9/mappings": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/control_parameters/9/max": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/9/min": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/9/parameter": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/9/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/9/step": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/control/control_parameters/9/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/control_parameters/9/unit": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/description": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/meta_info": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/control/meta_info/category": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/meta_info/complexity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/meta_info/tags": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/control/meta_info/tags/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/meta_info/tags/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/meta_info/tags/2": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/meta_info/tags/3": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/meta_info/tags/4": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/control/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/description": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/haptic/description": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/device": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/haptic/device/options": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/haptic/device/options/maxFrequency": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/haptic/device/options/maxFrequency/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/device/options/maxFrequency/value": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/device/options/maxIntensity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/haptic/device/options/maxIntensity/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/device/options/maxIntensity/value": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/device/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/haptic/input_parameters/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/haptic/input_parameters/0/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/0/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/0/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/0/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/0/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/0/path": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/0/smoothingTime": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/0/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/0/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/0/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/haptic/input_parameters/1/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/1/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/1/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/1/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/1/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/1/path": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/1/smoothingTime": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/1/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/haptic/input_parameters/1/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/input_parameters/1/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/meta_info": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/haptic/meta_info/category": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/meta_info/complexity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/meta_info/tags": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/haptic/meta_info/tags/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/meta_info/tags/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/meta_info/tags/2": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/meta_info/tags/3": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/haptic/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/meta_info/category": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/complexity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/tags": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/meta_info/tags/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/tags/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/tags/2": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/tags/3": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/tags/4": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/tags/5": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/tags/6": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/meta_info/tags/7": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/modulations/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/modulations/0/amplitude": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/0/frequency": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/0/id": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/0/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/0/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/0/offset": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/0/phase": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/0/scale": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/0/scaleProfile": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/0/target": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/0/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/0/waveform": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/modulations/1/amplitude": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/1/frequency": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/1/id": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/1/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/1/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/1/offset": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/1/phase": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/1/scale": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/1/scaleProfile": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/1/target": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/1/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/1/waveform": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/2": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/modulations/2/amplitude": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/2/frequency": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/2/id": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/2/max": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/2/min": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/2/offset": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/2/phase": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/2/scale": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/modulations/2/scaleProfile": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/2/target": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/2/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/modulations/2/waveform": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/description": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/meta_info": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/meta_info/category": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/meta_info/complexity": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/meta_info/tags": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "array"
+    ]
+  },
+  "/rule_bundle/meta_info/tags/0": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/meta_info/tags/1": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/meta_info/tags/2": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/meta_info/tags/3": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/name": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "array"
+    ]
+  },
+  "/rule_bundle/rules/0": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/effects": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "array"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/channel": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/op": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/target": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/value": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/value/duration": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/value/note": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/value/velocity": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/value/velocity/curve": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/value/velocity/scale": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/value/velocity/source": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/0/value/velocity/threshold": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/1": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/1/channel": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/1/op": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/1/target": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/1/value": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/1/value/scale": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/1/value/source": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/2": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/2/channel": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/2/op": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/2/target": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/2/value": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/2/value/scale": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/rule_bundle/rules/0/effects/2/value/source": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/execution": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/id": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/rule_bundle/rules/0/trigger": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/trigger/params": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/rule_bundle/rules/0/trigger/params/cooldown": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/rule_bundle/rules/0/trigger/params/gridSize": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/rule_bundle/rules/0/trigger/type": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/fragment_shader": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/shader/input_parameters/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/0/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/0/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/0/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/0/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/0/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/0/path": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/0/smoothingTime": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/0/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/0/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/1/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/1/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/1/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/1/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/1/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/1/path": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/1/smoothingTime": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/1/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/1/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/10": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/10/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/10/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/10/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/10/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/10/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/10/path": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/10/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/10/step": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/10/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/11": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/11/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/11/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/11/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/11/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/11/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/11/path": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/11/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/11/step": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/11/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/12": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/12/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/12/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/12/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/12/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/12/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/12/path": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/12/smoothingTime": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/12/step": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/12/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/13": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/13/default": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/13/max": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/13/min": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/13/name": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/13/parameter": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/13/path": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/13/smoothingTime": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/13/step": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/13/type": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/14": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/14/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/14/max": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/14/min": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/14/name": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/14/parameter": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/14/path": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/14/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/14/step": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/14/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/15": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/15/default": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/15/max": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/15/min": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/15/name": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/15/parameter": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/15/path": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/15/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/15/step": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/15/type": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/16": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/16/default": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/16/max": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/16/min": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/16/name": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/16/parameter": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/16/path": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/16/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/16/step": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/16/type": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/2": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/2/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/2/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/2/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/2/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/2/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/2/path": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/2/smoothingTime": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/2/step": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/2/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/3": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/3/default": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/3/max": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/3/min": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/3/name": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/3/parameter": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/3/path": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/3/smoothingTime": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/3/step": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/3/type": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/4": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/4/default": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/4/max": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/4/min": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/4/name": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/4/parameter": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/4/path": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/4/smoothingTime": {
+    "occurrences": 4,
+    "presence_pct": 44.44,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/4/step": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/4/type": {
+    "occurrences": 6,
+    "presence_pct": 66.67,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/5": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/5/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/5/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/5/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/5/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/5/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/5/path": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/5/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/5/step": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/5/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/6": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/6/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/6/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/6/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/6/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/6/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/6/path": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/6/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/6/step": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/6/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/7": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/7/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/7/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/7/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/7/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/7/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/7/path": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/7/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/7/step": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/7/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/8": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/8/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/8/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/8/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/8/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/8/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/8/path": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/8/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/8/step": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/8/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/9": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/input_parameters/9/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/9/max": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/9/min": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/9/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/9/parameter": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/9/path": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/input_parameters/9/smoothingTime": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/9/step": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/input_parameters/9/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/shader/uniforms/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/0/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/0/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/0/stage": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/0/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/1/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/shader/uniforms/1/default/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/1/default/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/1/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/1/stage": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/1/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/10": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/10/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/10/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/10/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/10/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/10/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/11": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/11/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/11/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/11/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/11/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/11/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/12": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/12/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/12/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/12/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/12/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/12/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/13": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/13/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/13/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/13/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/13/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/13/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/14": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/14/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/14/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/14/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/14/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/14/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/15": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/15/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/15/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/15/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/15/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/15/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/16": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/16/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/16/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/16/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/16/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/16/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/17": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/17/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/17/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/17/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/17/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/17/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/18": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/18/default": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/18/description": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/18/name": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/18/stage": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/18/type": {
+    "occurrences": 3,
+    "presence_pct": 33.33,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/19": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/19/default": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/19/name": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/19/stage": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/19/type": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/2": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/2/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number",
+      "string"
+    ]
+  },
+  "/shader/uniforms/2/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/2/stage": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/2/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/3": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/3/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/3/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/3/stage": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/3/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/4": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/4/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array",
+      "number"
+    ]
+  },
+  "/shader/uniforms/4/default/0": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/4/default/1": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/4/default/2": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/4/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/4/stage": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/4/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/5": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/5/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/5/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/5/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/5/stage": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/5/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/6": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/6/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/6/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/6/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/6/stage": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/6/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/7": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/7/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/7/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/7/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/7/stage": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/7/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/8": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/8/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/8/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/8/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/8/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/8/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/9": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "object"
+    ]
+  },
+  "/shader/uniforms/9/default": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "number"
+    ]
+  },
+  "/shader/uniforms/9/description": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/9/name": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/9/stage": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/uniforms/9/type": {
+    "occurrences": 5,
+    "presence_pct": 55.56,
+    "types": [
+      "string"
+    ]
+  },
+  "/shader/vertex_shader": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/description": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/effects/0": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/0/options": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/0/options/decay": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number",
+      "object"
+    ]
+  },
+  "/tone/effects/0/options/decay/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/0/options/decay/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/0/options/preDelay": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number",
+      "object"
+    ]
+  },
+  "/tone/effects/0/options/preDelay/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/0/options/preDelay/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/0/options/wet": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number",
+      "object"
+    ]
+  },
+  "/tone/effects/0/options/wet/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/0/options/wet/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/0/order": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/0/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/1": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/1/options": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/1/options/delayTime": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number",
+      "object"
+    ]
+  },
+  "/tone/effects/1/options/delayTime/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/1/options/delayTime/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/1/options/depth": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/1/options/feedback": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/1/options/feedback/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/1/options/feedback/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/1/options/frequency": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/1/options/wet": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number",
+      "object"
+    ]
+  },
+  "/tone/effects/1/options/wet/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/1/options/wet/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/1/order": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/1/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/2": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/2/options": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/2/options/delayTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/2/options/delayTime/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/2/options/delayTime/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/2/options/depth": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/2/options/depth/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/2/options/depth/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/2/options/frequency": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/2/options/frequency/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/2/options/frequency/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/2/options/spread": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/2/options/spread/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/2/options/spread/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/2/options/type": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/2/options/wet": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/effects/2/options/wet/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/effects/2/options/wet/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/2/order": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/effects/2/type": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/input_parameters/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/0/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/0/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/0/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/0/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/0/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/0/path": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/0/smoothingTime": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/0/step": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/0/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/0/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/1/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/1/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/1/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/1/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/1/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/1/path": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/1/smoothingTime": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/1/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/1/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/1/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/10/default": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/name": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/input_parameters/10/options/0": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/1": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/10": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/11": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/12": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/13": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/14": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/15": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/16": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/17": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/2": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/3": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/4": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/5": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/6": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/7": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/8": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/options/9": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/parameter": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/path": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/10/unit": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/11/default": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/name": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/options": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/input_parameters/11/options/0": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/options/1": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/options/2": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/options/3": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/parameter": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/path": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/11/unit": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/12": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/12/default": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/12/max": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/12/min": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/12/name": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/12/parameter": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/12/path": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/12/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/12/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/12/unit": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/13": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/13/default": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/13/max": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/13/min": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/13/name": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/13/parameter": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/13/path": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/13/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/13/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/13/unit": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/14": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/14/default": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/14/max": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/14/min": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/14/name": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/14/parameter": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/14/path": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/14/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/14/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/14/unit": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/15": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/15/default": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/15/max": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/15/min": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/15/name": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/15/parameter": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/15/path": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/15/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/15/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/15/unit": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/16": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/16/default": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/16/max": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/16/min": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/16/name": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/16/parameter": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/16/path": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/16/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/16/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/16/unit": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/2": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/2/default": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/2/max": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/2/min": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/2/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/2/parameter": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/2/path": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/2/smoothingTime": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/2/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/2/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/2/unit": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/3": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/3/default": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/3/max": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/3/min": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/3/name": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/3/parameter": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/3/path": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/3/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/3/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/3/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/3/unit": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/4/default": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number",
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/max": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/4/min": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/4/name": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/options": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/input_parameters/4/options/0": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/options/1": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/options/2": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/options/3": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/options/4": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/options/5": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/options/6": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/parameter": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/path": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/4/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/4/unit": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/5/default": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number",
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/max": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/5/min": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/5/name": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/options": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/input_parameters/5/options/0": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/options/1": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/options/2": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/options/3": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/parameter": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/path": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/5/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/5/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/5/unit": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/6": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/6/default": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number",
+      "string"
+    ]
+  },
+  "/tone/input_parameters/6/max": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/6/min": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/6/name": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/6/options": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/input_parameters/6/options/0": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/6/options/1": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/6/parameter": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/6/path": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/6/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/6/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/6/unit": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/7": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/7/default": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/7/max": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/7/min": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/7/name": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/7/parameter": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/7/path": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/7/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/7/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/7/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/7/unit": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/8": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/8/default": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/8/max": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/8/min": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/8/name": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/8/parameter": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/8/path": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/8/smoothingTime": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/8/step": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/input_parameters/8/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/8/unit": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/input_parameters/9/default": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/name": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/options": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/input_parameters/9/options/0": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/options/1": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/options/2": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/options/3": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/options/4": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/options/5": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/options/6": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/parameter": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/path": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/input_parameters/9/unit": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/meta_info": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/meta_info/category": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/meta_info/complexity": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/meta_info/tags": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/meta_info/tags/0": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/meta_info/tags/1": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/meta_info/tags/2": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/meta_info/tags/3": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/meta_info/tags/4": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/name": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/parts/0": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/parts/0/duration": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/0/id": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/0/loop": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/tone/parts/0/pattern": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/0/start": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/1": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/parts/1/duration": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/1/id": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/1/loop": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/tone/parts/1/pattern": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/1/start": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/2": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/parts/2/duration": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/2/id": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/2/loop": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "boolean"
+    ]
+  },
+  "/tone/parts/2/pattern": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/parts/2/start": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/patterns/0": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/0/id": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/0/options/duration": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object",
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/duration/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/duration/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/interval": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "object",
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/interval/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/interval/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/pattern": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/probability": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/0/options/probability/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/probability/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/patterns/0/options/values": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/patterns/0/options/values/0": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/values/1": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/values/2": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/values/3": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/values/4": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/values/5": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/values/6": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/velocity": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/0/options/velocity/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/0/options/velocity/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/patterns/0/type": {
+    "occurrences": 8,
+    "presence_pct": 88.89,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/1/id": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/1/options/duration": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/1/options/duration/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/duration/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/interval": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/1/options/interval/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/interval/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/pattern": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/probability": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/1/options/probability/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/probability/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/patterns/1/options/values": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/patterns/1/options/values/0": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/values/1": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/values/2": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/values/3": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/values/4": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/values/5": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/values/6": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/values/7": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/velocity": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/patterns/1/options/velocity/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/patterns/1/options/velocity/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/patterns/1/type": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/detune": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/envelope": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/envelope/attack": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/envelope/attackCurve": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/envelope/decay": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/envelope/decayCurve": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/envelope/release": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/envelope/releaseCurve": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/envelope/sustain": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/count": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/envelope": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/envelope/attack": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/envelope/attack/unit": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/envelope/attack/value": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/envelope/attackCurve": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/envelope/decay": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/envelope/decay/unit": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/envelope/decay/value": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/envelope/decayCurve": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/envelope/release": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/envelope/release/unit": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/envelope/release/value": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/envelope/releaseCurve": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/envelope/sustain": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/envelope/sustain/unit": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/envelope/sustain/value": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filter": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filter/Q": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filter/Q/unit": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filter/Q/value": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filter/frequency": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filter/frequency/unit": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filter/frequency/value": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filter/rolloff": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filter/rolloff/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filter/rolloff/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filter/type": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/attack": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/attack/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/attack/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/baseFrequency": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/baseFrequency/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/baseFrequency/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/decay": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/decay/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/decay/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/exponent": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/exponent/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/exponent/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/octaves": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/octaves/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/octaves/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/release": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/release/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/release/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/sustain": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/sustain/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/filterEnvelope/sustain/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/oscillator": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/oscillator/detune": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/oscillator/detune/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/oscillator/detune/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/oscillator/frequency": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/oscillator/frequency/unit": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/oscillator/frequency/value": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/oscillator/phase": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/oscillator/phase/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/oscillator/phase/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/oscillator/type": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/portamento": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/portamento/unit": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/portamento/value": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/options/voice": {
+    "occurrences": 1,
+    "presence_pct": 11.11,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/volume": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/options/volume/unit": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/options/volume/value": {
+    "occurrences": 2,
+    "presence_pct": 22.22,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/oscillator": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "object"
+    ]
+  },
+  "/tone/synth/oscillator/harmonicity": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/oscillator/modulationType": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/oscillator/partials": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "array"
+    ]
+  },
+  "/tone/synth/oscillator/phase": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/oscillator/type": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/portamento": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  },
+  "/tone/synth/type": {
+    "occurrences": 9,
+    "presence_pct": 100.0,
+    "types": [
+      "string"
+    ]
+  },
+  "/tone/synth/volume": {
+    "occurrences": 7,
+    "presence_pct": 77.78,
+    "types": [
+      "number"
+    ]
+  }
+}

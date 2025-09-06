@@ -1,0 +1,46 @@
+{
+  "$schemaRef": "jsonschema/control-bundle.schema.json",
+  "name": "Example Controls",
+  "description": "Interactive controls for shape transformation and manipulation",
+  "meta_info": {
+    "category": "control",
+    "tags": ["interactive", "transform", "mapping", "multimodal"],
+    "complexity": "medium"
+  },
+  "control_parameters": [
+    {
+      "parameter": "visual.px",
+      "label": "Position X",
+      "type": "float",
+      "unit": "linear",
+      "default": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "step": 0.01,
+      "smoothingTime": 0.1,
+      "mappings": [
+        {
+          "combo": { "mouseButtons": ["left"], "strict": true },
+          "action": { "axis": "mouse.x", "sensitivity": 0.001, "scale": 1.0, "curve": "linear" }
+        }
+      ]
+    },
+    {
+      "parameter": "visual.py",
+      "label": "Position Y",
+      "type": "float",
+      "unit": "linear",
+      "default": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "step": 0.01,
+      "smoothingTime": 0.1,
+      "mappings": [
+        {
+          "combo": { "mouseButtons": ["left"], "strict": true },
+          "action": { "axis": "mouse.y", "sensitivity": -0.001, "scale": 1.0, "curve": "linear" }
+        }
+      ]
+    }
+  ]
+}

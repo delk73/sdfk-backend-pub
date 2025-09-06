@@ -1,0 +1,3 @@
+[submodule "libs/synesthetic-schemas"]
+	path = libs/synesthetic-schemas
+	url = https://github.com/delk73/synesthetic-schemas.git

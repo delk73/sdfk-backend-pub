@@ -1,0 +1,745 @@
+{
+  "name": "Circle Harmony22",
+  "description": "A circular pattern that pulses with polyphonic audio sequences, enriched with effects, and synchronized haptic feedback",
+  "meta_info": {
+    "category": "multimodal",
+    "tags": [
+      "circle",
+      "sdf",
+      "audio",
+      "interactive",
+      "haptic",
+      "polyphonic"
+    ],
+    "complexity": "medium"
+  },
+   "shader": {
+    "name": "CircleSDF_ASCII_v3",
+    "vertex_shader": "void main() { gl_Position = vec4(position, 1.0); }",
+    "fragment_shader": "uniform vec2 u_resolution; uniform float u_time; uniform vec3 u_backgroundColor; uniform float u_px; uniform float u_py; uniform float u_r; uniform float u_asciiSegmentSize; uniform float u_asciiTextSize; float circleSDF(vec2 p, float r) { return length(p) - r; } float getCharSDF(int index, vec2 uv) { uv /= max(u_asciiTextSize, 0.1); if (index == 9) { float r1 = length(uv); float r2 = length(uv-vec2(0.0, 0.1)); return min(abs(r1-0.7)-0.2, abs(r2-0.3)-0.1); } if (index == 8) { float s = 0.5; float w = 0.15; return min(min(abs(uv.x-s*0.5)-w, abs(uv.x+s*0.5)-w), min(abs(uv.y-s*0.5)-w, abs(uv.y+s*0.5)-w)); } if (index == 7) { return min(min(abs(uv.x)-0.15, abs(uv.y)-0.5), min(abs(uv.y)-0.15, abs(uv.x)-0.5)); } if (index == 6) { float a = atan(uv.y, uv.x); float r = length(uv); return abs(r - 0.5) - (sin(a*4.0)*0.1+0.1); } if (index == 5) { return min(abs(uv.x)-0.1, abs(uv.y)-0.1); } if (index == 4) { return min(abs(uv.y-0.3)-0.1, abs(uv.y+0.3)-0.1); } if (index == 3) { return abs(uv.y) - 0.1; } if (index == 2) { return length(uv) - 0.15; } return 1.0; } void main() { vec2 st = gl_FragCoord.xy / u_resolution.xy; vec2 tile_uv = st * u_asciiSegmentSize; vec2 tile_id = floor(tile_uv); vec2 intra_tile_uv = fract(tile_uv) * 2.0 - 1.0; vec2 sample_st = (tile_id + 0.5) / u_asciiSegmentSize; sample_st = sample_st * 2.0 - 1.0; sample_st.x *= u_resolution.x / u_resolution.y; vec2 p = sample_st - vec2(u_px, u_py); float d = circleSDF(p, u_r); vec3 sceneColor = vec3(1.0 - smoothstep(-0.05, 0.05, d)); sceneColor *= mix(vec3(0.3, 0.7, 1.0), vec3(1.0, 0.4, 0.6), sin(u_time + d * 10.0) * 0.5 + 0.5); float luminance = dot(sceneColor, vec3(0.299, 0.587, 0.114)); int char_index = int(luminance * 10.0); float char_sdf = 1.0; if (char_index > 1) { char_sdf = getCharSDF(char_index, intra_tile_uv); } float mask = 1.0 - smoothstep(0.0, 0.1, char_sdf); vec3 color = mix(u_backgroundColor, sceneColor, mask); gl_FragColor = vec4(color, 1.0); }",
+    "uniforms": [
+      {
+        "name": "u_time",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_resolution",
+        "type": "vec2",
+        "stage": "fragment",
+        "default": [
+          800.0,
+          600.0
+        ]
+      },
+      {
+        "name": "u_backgroundColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": "#1a1a1a"
+      },
+      {
+        "name": "u_px",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_py",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_r",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.5
+      },
+      {
+        "name": "u_asciiSegmentSize",
+        "type": "float",
+        "stage": "fragment",
+        "default": 80.0
+      },
+      {
+        "name": "u_asciiTextSize",
+        "type": "float",
+        "stage": "fragment",
+        "default": 1.2
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "positionX",
+        "parameter": "u_px",
+        "path": "u_px",
+        "type": "float",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "positionY",
+        "parameter": "u_py",
+        "path": "u_py",
+        "type": "float",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "radius",
+        "parameter": "u_r",
+        "path": "u_r",
+        "type": "float",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "asciiSegmentSize",
+        "parameter": "u_asciiSegmentSize",
+        "path": "u_asciiSegmentSize",
+        "type": "float",
+        "default": 80.0,
+        "min": 20.0,
+        "max": 200.0,
+        "step": 1.0,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "asciiTextSize",
+        "parameter": "u_asciiTextSize",
+        "path": "u_asciiTextSize",
+        "type": "float",
+        "default": 1.2,
+        "min": 0.5,
+        "max": 2.5,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "tone": {
+    "name": "Canonical Tone.Synth2",
+    "description": "A canonical Tone.Synth patch representing the full parameter space for runtime modulation and control.",
+    "meta_info": {
+      "category": "tone",
+      "tags": [
+        "canonical",
+        "tone.synth",
+        "template",
+        "full-control"
+      ],
+      "complexity": "high"
+    },
+    "synth": {
+      "type": "Tone.Synth",
+      "volume": -12,
+      "detune": 0,
+      "portamento": 0.05,
+      "envelope": {
+        "attack": 0.05,
+        "attackCurve": "exponential",
+        "decay": 0.2,
+        "decayCurve": "exponential",
+        "sustain": 0.2,
+        "release": 1.5,
+        "releaseCurve": "exponential"
+      },
+      "oscillator": {
+        "type": "amtriangle",
+        "modulationType": "sine",
+        "harmonicity": 0.5,
+        "partials": [],
+        "phase": 0
+      }
+    },
+    "effects": [
+      {
+        "type": "Tone.Reverb",
+        "options": {
+          "decay": 2.0,
+          "preDelay": 0.01,
+          "wet": 0.3
+        },
+        "order": 0
+      },
+      {
+        "type": "Tone.Chorus",
+        "options": {
+          "frequency": 1.5,
+          "delayTime": 2.5,
+          "depth": 0.7,
+          "wet": 0.2
+        },
+        "order": 1
+      }
+    ],
+    "patterns": [
+      {
+        "id": "canonical_loop",
+        "type": "Tone.Pattern",
+        "options": {
+          "pattern": "up",
+          "values": [
+            "C4",
+            "E4",
+            "G4",
+            "B4"
+          ],
+          "interval": "4n",
+          "duration": "8n"
+        }
+      }
+    ],
+    "parts": [
+      {
+        "id": "loop",
+        "pattern": "canonical_loop",
+        "start": "0:0:0",
+        "duration": "2m",
+        "loop": true
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "Volume",
+        "parameter": "volume",
+        "path": "tone.volume",
+        "type": "float",
+        "unit": "dB",
+        "default": -12,
+        "min": -60,
+        "max": 6,
+        "step": 0.1
+      },
+      {
+        "name": "Detune",
+        "parameter": "detune",
+        "path": "tone.detune",
+        "type": "float",
+        "unit": "cents",
+        "default": 0,
+        "min": -1200,
+        "max": 1200,
+        "step": 1
+      },
+      {
+        "name": "Portamento",
+        "parameter": "portamento",
+        "path": "tone.portamento",
+        "type": "float",
+        "unit": "s",
+        "default": 0.05,
+        "min": 0,
+        "max": 1,
+        "step": 0.01
+      },
+      {
+        "name": "Attack",
+        "parameter": "envelope.attack",
+        "path": "tone.envelope.attack",
+        "type": "float",
+        "unit": "s",
+        "default": 0.05,
+        "min": 0.01,
+        "max": 2.0,
+        "step": 0.01
+      },
+      {
+        "name": "Attack Curve",
+        "parameter": "envelope.attackCurve",
+        "path": "tone.envelope.attackCurve",
+        "type": "string",
+        "unit": "curve",
+        "default": "exponential",
+        "options": [
+          "linear",
+          "exponential",
+          "sine",
+          "cosine",
+          "bounce",
+          "ripple",
+          "step"
+        ]
+      },
+      {
+        "name": "Decay",
+        "parameter": "envelope.decay",
+        "path": "tone.envelope.decay",
+        "type": "float",
+        "unit": "s",
+        "default": 0.2,
+        "min": 0.01,
+        "max": 2.0,
+        "step": 0.01
+      },
+      {
+        "name": "Decay Curve",
+        "parameter": "envelope.decayCurve",
+        "path": "tone.envelope.decayCurve",
+        "type": "string",
+        "unit": "curve",
+        "default": "exponential",
+        "options": [
+          "linear",
+          "exponential"
+        ]
+      },
+      {
+        "name": "Sustain",
+        "parameter": "envelope.sustain",
+        "path": "tone.envelope.sustain",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.2,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01
+      },
+      {
+        "name": "Release",
+        "parameter": "envelope.release",
+        "path": "tone.envelope.release",
+        "type": "float",
+        "unit": "s",
+        "default": 1.5,
+        "min": 0.01,
+        "max": 5.0,
+        "step": 0.01
+      },
+      {
+        "name": "Release Curve",
+        "parameter": "envelope.releaseCurve",
+        "path": "tone.envelope.releaseCurve",
+        "type": "string",
+        "unit": "curve",
+        "default": "exponential",
+        "options": [
+          "linear",
+          "exponential",
+          "sine",
+          "cosine",
+          "bounce",
+          "ripple",
+          "step"
+        ]
+      },
+      {
+        "name": "Oscillator Type",
+        "parameter": "oscillator.type",
+        "path": "tone.oscillator.type",
+        "type": "string",
+        "unit": "type",
+        "default": "amtriangle",
+        "options": [
+          "sine",
+          "square",
+          "triangle",
+          "sawtooth",
+          "pulse",
+          "pwm",
+          "fmsine",
+          "fmsquare",
+          "fmtriangle",
+          "fmsawtooth",
+          "amsine",
+          "amsquare",
+          "amtriangle",
+          "amsawtooth",
+          "fatsine",
+          "fatsquare",
+          "fattriangle",
+          "fatsawtooth"
+        ]
+      },
+      {
+        "name": "Modulation Type",
+        "parameter": "oscillator.modulationType",
+        "path": "tone.oscillator.modulationType",
+        "type": "string",
+        "unit": "type",
+        "default": "sine",
+        "options": [
+          "sine",
+          "square",
+          "triangle",
+          "sawtooth"
+        ]
+      },
+      {
+        "name": "Harmonicity",
+        "parameter": "oscillator.harmonicity",
+        "path": "tone.oscillator.harmonicity",
+        "type": "float",
+        "unit": "ratio",
+        "default": 0.5,
+        "min": 0,
+        "max": 4,
+        "step": 0.01
+      },
+      {
+        "name": "Oscillator Phase",
+        "parameter": "oscillator.phase",
+        "path": "tone.oscillator.phase",
+        "type": "float",
+        "unit": "degrees",
+        "default": 0,
+        "min": 0,
+        "max": 360,
+        "step": 1
+      },
+      {
+        "name": "Reverb Decay",
+        "parameter": "effects.0.decay",
+        "path": "tone.effects.0.decay",
+        "type": "float",
+        "unit": "s",
+        "default": 2.0,
+        "min": 0.1,
+        "max": 10.0,
+        "step": 0.1
+      },
+      {
+        "name": "Reverb PreDelay",
+        "parameter": "effects.0.preDelay",
+        "path": "tone.effects.0.preDelay",
+        "type": "float",
+        "unit": "s",
+        "default": 0.01,
+        "min": 0,
+        "max": 0.5,
+        "step": 0.001
+      },
+      {
+        "name": "Reverb Wet",
+        "parameter": "effects.0.wet",
+        "path": "tone.effects.0.wet",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.3,
+        "min": 0,
+        "max": 1.0,
+        "step": 0.01
+      }
+    ]
+  },
+  "haptic": {
+    "name": "Circle Feedback2",
+    "description": "Haptic feedback tied to circle properties and audio rhythm",
+    "meta_info": {
+      "category": "haptic",
+      "tags": [
+        "pulse",
+        "vibration",
+        "rhythmic"
+      ],
+      "complexity": "medium"
+    },
+    "device": {
+      "type": "generic",
+      "options": {
+        "maxIntensity": {
+          "value": 1.0,
+          "unit": "linear"
+        },
+        "maxFrequency": {
+          "value": 250.0,
+          "unit": "Hz"
+        }
+      }
+    },
+    "input_parameters": [
+      {
+        "name": "Intensity",
+        "parameter": "haptic.intensity",
+        "path": "haptic.intensity",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.7,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Frequency",
+        "parameter": "haptic.frequency",
+        "path": "haptic.frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 150.0,
+        "min": 10.0,
+        "max": 250.0,
+        "step": 1,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "control": {
+    "name": "Circle Harmony Controls2",
+    "description": "Interactive controls for manipulating circle visuals, audio synthesis, and haptic feedback",
+    "meta_info": {
+      "category": "control",
+      "tags": [
+        "interactive",
+        "multimodal",
+        "visual",
+        "audio",
+        "haptic"
+      ],
+      "complexity": "medium"
+    },
+    "control_parameters": [
+      {
+        "parameter": "shader.u_px",
+        "label": "Position X",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_py",
+        "label": "Position Y",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_r",
+        "label": "Radius",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.01, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "tone.detune",
+        "label": "Detune",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": 0.0,
+        "max": 444.0,
+        "step": 1.0,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 3.0, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_r",
+        "label": "Radius",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "wheel": true,
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.wheel",
+              "sensitivity": 0.01, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "haptic.intensity",
+        "label": "Vibration Intensity",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.7,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Ctrl",
+                "Alt"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.01, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "haptic.frequency",
+        "label": "Vibration Frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 150.0,
+        "min": 10.0,
+        "max": 250.0,
+        "step": 1.0,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "right"
+              ],
+              "keys": [
+                "Ctrl"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.5, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "modulations": [
+    {
+      "id": "radius_pulse",
+      "target": "shader.u_r",
+      "type": "additive",
+      "waveform": "triangle",
+      "frequency": 0.05,
+      "amplitude": 0.1,
+      "offset": 0.5,
+      "phase": 0.0,
+      "scale": 0.001,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "detune_pulse",
+      "target": "tone.detune",
+      "type": "additive",
+      "waveform": "triangle",
+      "frequency": 0.05,
+      "amplitude": 0.1,
+      "offset": 0.5,
+      "phase": 0.0,
+      "scale": 0.001,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 100.0
+    },
+    {
+      "id": "haptic_pulse",
+      "target": "haptic.intensity",
+      "type": "additive",
+      "waveform": "sine",
+      "frequency": 1.0,
+      "amplitude": 0.2,
+      "offset": 0.7,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    }
+  ]
+}

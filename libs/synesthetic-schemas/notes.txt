@@ -1,0 +1,16 @@
+# run the normalizer
+python scripts/normalize_schemas.py
+
+# regenerate python (pydantic v2) and TS
+conda activate schemas311
+bash codegen/gen_py.sh
+bash codegen/gen_ts.sh
+
+
+
+grep -R ": Optional\\[.*\\] = '.*'" -n python/src || echo "OK: no optional-enum string defaults"
+
+
+npm init -y
+npm pkg set type=module
+npm i -D @apidevtools/json-schema-ref-parser json-schema-to-typescript

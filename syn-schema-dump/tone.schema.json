@@ -1,0 +1,472 @@
+{
+  "$defs": {
+    "SynthType": {
+      "description": "Allowed Tone.js synth types.",
+      "enum": [
+        "Tone.Synth",
+        "Tone.PolySynth",
+        "Tone.MonoSynth",
+        "Tone.FMSynth",
+        "Tone.AMSynth",
+        "Tone.DuoSynth",
+        "Tone.MembraneSynth",
+        "Tone.MetalSynth",
+        "Tone.PluckSynth"
+      ],
+      "title": "SynthType",
+      "type": "string"
+    },
+    "ToneEffect": {
+      "additionalProperties": true,
+      "properties": {
+        "options": {
+          "title": "Options",
+          "type": "object"
+        },
+        "order": {
+          "title": "Order",
+          "type": "integer"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "options",
+        "order"
+      ],
+      "title": "ToneEffect",
+      "type": "object"
+    },
+    "ToneMetaInfo": {
+      "additionalProperties": true,
+      "properties": {
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "complexity": {
+          "title": "Complexity",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "category",
+        "tags",
+        "complexity"
+      ],
+      "title": "ToneMetaInfo",
+      "type": "object"
+    },
+    "ToneParameter": {
+      "additionalProperties": true,
+      "properties": {
+        "default": {
+          "title": "Default"
+        },
+        "max": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max"
+        },
+        "min": {
+          "anyOf": [
+            {},
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Min"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "options": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Options"
+        },
+        "parameter": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parameter"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "smoothingTime": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Smoothingtime"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        }
+      },
+      "required": [
+        "name",
+        "path",
+        "type",
+        "default"
+      ],
+      "title": "ToneParameter",
+      "type": "object"
+    },
+    "TonePart": {
+      "additionalProperties": true,
+      "properties": {
+        "duration": {
+          "title": "Duration",
+          "type": "string"
+        },
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "loop": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Loop"
+        },
+        "pattern": {
+          "title": "Pattern",
+          "type": "string"
+        },
+        "start": {
+          "title": "Start",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "pattern",
+        "start",
+        "duration"
+      ],
+      "title": "TonePart",
+      "type": "object"
+    },
+    "TonePattern": {
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "options": {
+          "title": "Options",
+          "type": "object"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "options"
+      ],
+      "title": "TonePattern",
+      "type": "object"
+    },
+    "ToneSynth": {
+      "additionalProperties": true,
+      "properties": {
+        "options": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ToneSynthOptions"
+            },
+            {
+              "type": "object"
+            }
+          ],
+          "title": "Options"
+        },
+        "type": {
+          "$ref": "#/$defs/SynthType"
+        }
+      },
+      "required": [
+        "type",
+        "options"
+      ],
+      "title": "ToneSynth",
+      "type": "object"
+    },
+    "ToneSynthOptions": {
+      "additionalProperties": true,
+      "properties": {
+        "envelope": {
+          "title": "Envelope",
+          "type": "object"
+        },
+        "filter": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Filter"
+        },
+        "filterEnvelope": {
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Filterenvelope"
+        },
+        "oscillator": {
+          "title": "Oscillator",
+          "type": "object"
+        },
+        "portamento": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Portamento"
+        },
+        "volume": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "object"
+            }
+          ],
+          "title": "Volume"
+        }
+      },
+      "required": [
+        "oscillator",
+        "envelope",
+        "volume"
+      ],
+      "title": "ToneSynthOptions",
+      "type": "object"
+    }
+  },
+  "$id": "https://schemas.synesthetic.dev/tone.schema.json",
+  "additionalProperties": true,
+  "properties": {
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Description of the tone",
+      "title": "Description"
+    },
+    "effects": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ToneEffect"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Effects configuration",
+      "title": "Effects"
+    },
+    "input_parameters": {
+      "description": "Tone input parameters",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/ToneParameter"
+          },
+          {
+            "type": "object"
+          }
+        ]
+      },
+      "title": "Input Parameters",
+      "type": "array"
+    },
+    "meta_info": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ToneMetaInfo"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Additional metadata about the tone",
+      "title": "Meta Info"
+    },
+    "name": {
+      "description": "Name of the tone",
+      "title": "Name",
+      "type": "string"
+    },
+    "parts": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/TonePart"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Parts configuration",
+      "title": "Parts"
+    },
+    "patterns": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/TonePattern"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Patterns configuration",
+      "title": "Patterns"
+    },
+    "synth": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ToneSynth"
+        },
+        {
+          "type": "object"
+        }
+      ],
+      "description": "Synth configuration",
+      "title": "Synth"
+    },
+    "tone_id": {
+      "title": "Tone Id",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name",
+    "synth",
+    "tone_id"
+  ],
+  "title": "Tone",
+  "type": "object"
+}

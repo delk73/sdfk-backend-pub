@@ -1,0 +1,109 @@
+{
+  "task": "refactor_grid_control_to_rule_bundle",
+  "target_system": "Synesthetic Backend — ORM + Pydantic + FastAPI + Docs",
+  "objective": "Replace the specialised grid_control component with a generic rule_bundle that can hold grid rules (and future rule families).",
+  "actions": [
+    {
+      "action": "Create new ORM model",
+      "files": ["app/models/rule_bundle.py"],
+      "changes": [
+        "Define RuleBundle(Base): id PK, name, description, meta_info JSON, rules JSON, created_at, updated_at.",
+        "Back‑populate relationship to SynestheticAsset (asset.rule_bundle one‑to‑one)."
+      ]
+    },
+    {
+      "action": "Modify SynestheticAsset model",
+      "files": ["app/models/synesthetic_asset.py"],
+      "changes": [
+        "Remove grid_control_id column/relationship.",
+        "Add rule_bundle_id column (nullable for now) + relationship('RuleBundle', back_populates='asset', cascade='all, delete-orphan').",
+        "__allow_unmapped__ = False to fail if grid_control attrs linger."
+      ],
+      "note": "No Alembic migration in dev; metadata.create_all() rebuilds."
+    },
+    {
+      "action": "Add RuleBundleSchema",
+      "files": ["app/schemas/rule_bundle.py"],
+      "changes": [
+        "class RuleBundleSchema(BaseModel): id, name, description, meta_info, rules: list[RuleSchema], created_at, updated_at; Config.orm_mode=True, extra='forbid'."
+      ]
+    },
+    {
+      "action": "Replace grid_control fields",
+      "files": [
+        "app/schemas/nested_synesthetic_asset.py",
+        "app/schemas/synesthetic_asset.py"
+      ],
+      "changes": [
+        "Delete grid_control: GridControlSchema",
+        "Add rule_bundle: RuleBundleSchema | None = None"
+      ]
+    },
+    {
+      "action": "Update routers",
+      "files": ["app/routers/synesthetic_assets.py"],
+      "changes": [
+        "Remove any path operations / query params mentioning grid_control.",
+        "Add CRUD endpoints for rule_bundles analogous to previous grid_control routes."
+      ]
+    },
+    {
+      "action": "Remove grid_control helpers",
+      "files": ["app/services/grid_control_utils.py"],
+      "delete": true
+    },
+    {
+      "action": "Search‑and‑fail build",
+      "grep": "(grid_control|gridControls|grid_controls)",
+      "paths": ["app/", "docs/", "tests/"],
+      "fail_pipeline_if_found": true
+    },
+    {
+      "action": "Rewrite integration tests",
+      "files": ["tests/integration/test_synesthetic_asset_response.py"],
+      "changes": [
+        "Remove grid_control assertions.",
+        "Add tests ensuring rule_bundle round‑trips and grid_control key never appears."
+      ],
+      "example": "resp = client.get('/synesthetic-assets/nested/1').json(); assert 'rule_bundle' in resp; assert 'grid_control' not in resp"
+    },
+    {
+      "action": "Generate fresh DB docs",
+      "files": ["tools/generate_db_docs.py"],
+      "note": "Run after the refactor so docs/architecture/db_schema.md regenerates without grid_controls table."
+    },
+    {
+      "action": "Move old design note",
+      "moves": [
+        { "from": "docs/architecture/grid_control.md",
+          "to":   "docs/legacy/grid_control.md" }
+      ],
+      "note": "Add banner: > **Deprecated** — superseded by rule_bundle in July 2025."
+    }
+  ],
+
+  "tests": [
+    {
+      "name": "reject_legacy_payload",
+      "code": "bad = {'grid_control': {'type':'sdfGrid'}}; r = client.post('/synesthetic-assets', json=bad); assert r.status_code == 422"
+    },
+    {
+      "name": "rule_bundle_round_trip",
+      "code": "asset = factories.make_asset_with_rule_bundle(); resp = client.get(f'/synesthetic-assets/nested/{asset.id}').json(); assert resp['rule_bundle']['rules'][0]['id']"
+    }
+  ],
+
+  "success_criteria": [
+    "grep -R '(grid_control|grid_controls)' app/ docs/ tests/ returns no matches (except legacy doc path).",
+    "SynestheticAsset now has rule_bundle_id FK and .rule_bundle relationship.",
+    "All endpoints accept/return rule_bundle data; grid_control payloads are rejected with 422.",
+    "DB docs regenerate with a RuleBundle table and no grid_controls table.",
+    "Test suite passes."
+  ],
+
+  "mode": "fail_fast",
+  "notes": [
+    "Keep rule_bundle.rules as JSON for now; typed RuleSchema can evolve later.",
+    "If production DB exists, write a one‑off migration script outside this prompt; dev uses rebuild."
+  ]
+}

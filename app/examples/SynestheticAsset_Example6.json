@@ -1,0 +1,1183 @@
+{
+  "name": "Iterative Apex",
+  "description": "A dynamic, multi-layered rhombus pattern with iterative modifications, using a canonical Tone.Synth for rich audio and synchronized haptic feedback.",
+  "meta_info": {
+    "category": "multimodal",
+    "tags": [
+      "geometric",
+      "sdf",
+      "interactive",
+      "haptic",
+      "fractal",
+      "rhombus",
+      "canonical-audio"
+    ],
+    "complexity": "medium"
+  },
+  "shader": {
+    "name": "RhombusMinIterativeSDF",
+    "vertex_shader": "void main() { gl_Position = vec4(position, 1.0); }",
+    "fragment_shader": "uniform vec2 u_resolution;uniform float u_time;uniform float u_px;uniform float u_py;uniform float u_initial_r;uniform float u_aspect;uniform float u_poX;uniform float u_poY;uniform float u_ro;uniform float u_str;uniform float u_stro;uniform float u_m;uniform float u_mo;uniform float u_sub;uniform float u_subo;uniform int u_iterations;float sdRhombus(in vec2 p, in vec2 b){p=abs(p);float h=clamp((dot(b-2.0*p,b))/dot(b,b),-1.0,1.0);float d=length(p-0.5*b*vec2(1.0-h,1.0+h));return d*sign(p.x*b.y+p.y*b.x-b.x*b.y);}float applyRhombusMinLogic(vec2 p_val,float r_val,float aspect_val,float str_val,float m_val,float sub_val){vec2 b=vec2(r_val,r_val/aspect_val);float base_sdf=sdRhombus(p_val,b);if(str_val==0.0)return base_sdf*m_val-sub_val;else return(abs(base_sdf)-str_val)*m_val-sub_val;}void main(){vec2 st=gl_FragCoord.xy/u_resolution.xy;st=st*2.0-1.0;st.x*=u_resolution.x/u_resolution.y;vec2 p=st-vec2(u_px,u_py);float r=u_initial_r;float str=u_str;float m=u_m;float sub=u_sub;float d=applyRhombusMinLogic(p,r,u_aspect,str,m,sub);for(int i=1;i<u_iterations;i++){p+=vec2(u_poX,u_poY);r+=u_ro;str+=u_stro*float(i);m+=u_mo*float(i);sub+=u_subo*float(i);d=min(applyRhombusMinLogic(p,r,u_aspect,str,m,sub),d);}vec3 color=vec3(1.0-smoothstep(-0.05,0.05,d));color*=mix(vec3(0.3,0.7,1.0),vec3(1.0,0.4,0.6),sin(u_time+d*10.0)*0.5+0.5);gl_FragColor=vec4(color,1.0);}",
+  
+    "uniforms": [
+      {
+        "name": "u_time",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_resolution",
+        "type": "vec2",
+        "stage": "fragment",
+        "default": [
+          800.0,
+          600.0
+        ]
+      },
+      {
+        "name": "u_backgroundColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": "#1a1a1a"
+      },
+      {
+        "name": "u_gridSize",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_gridColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": [
+          0.9,
+          0.9,
+          0.9
+        ]
+      },
+      {
+        "name": "u_px",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0,
+        "description": "X position offset for the SDF rhombus pattern."
+      },
+      {
+        "name": "u_py",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0,
+        "description": "Y position offset for the SDF rhombus pattern."
+      },
+      {
+        "name": "u_initial_r",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.5,
+        "description": "Initial size for the SDF rhombus calculation."
+      },
+      {
+        "name": "u_aspect",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.7,
+        "description": "Aspect ratio of the rhombus."
+      },
+      {
+        "name": "u_poX",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0,
+        "description": "X component of position offset per iteration."
+      },
+      {
+        "name": "u_poY",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.05,
+        "description": "Y component of position offset per iteration."
+      },
+      {
+        "name": "u_ro",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.02,
+        "description": "Size/radius offset per iteration."
+      },
+      {
+        "name": "u_str",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.01,
+        "description": "Initial stroke thickness parameter for the SDF."
+      },
+      {
+        "name": "u_stro",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.005,
+        "description": "Stroke thickness offset per iteration."
+      },
+      {
+        "name": "u_m",
+        "type": "float",
+        "stage": "fragment",
+        "default": 1.0,
+        "description": "Initial multiplier parameter for the SDF."
+      },
+      {
+        "name": "u_mo",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0,
+        "description": "Multiplier offset per iteration."
+      },
+      {
+        "name": "u_sub",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0,
+        "description": "Initial subtraction parameter for the SDF."
+      },
+      {
+        "name": "u_subo",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0,
+        "description": "Subtraction offset per iteration."
+      },
+      {
+        "name": "u_iterations",
+        "type": "int",
+        "stage": "fragment",
+        "default": 5,
+        "description": "Number of iterations for the SDF calculation."
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "positionX",
+        "parameter": "u_px",
+        "path": "u_px",
+        "type": "float",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "positionY",
+        "parameter": "u_py",
+        "path": "u_py",
+        "type": "float",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "initialSize",
+        "parameter": "u_initial_r",
+        "path": "u_initial_r",
+        "type": "float",
+        "default": 0.5,
+        "min": 0.01,
+        "max": 1.0,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "aspectRatio",
+        "parameter": "u_aspect",
+        "path": "u_aspect",
+        "type": "float",
+        "default": 0.7,
+        "min": 0.2,
+        "max": 5.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "poX",
+        "parameter": "u_poX",
+        "path": "u_poX",
+        "type": "float",
+        "default": 0.0,
+        "min": -0.1,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "poY",
+        "parameter": "u_poY",
+        "path": "u_poY",
+        "type": "float",
+        "default": 0.05,
+        "min": -0.1,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "sizeOffset",
+        "parameter": "u_ro",
+        "path": "u_ro",
+        "type": "float",
+        "default": 0.02,
+        "min": -0.05,
+        "max": 0.05,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "initialStroke",
+        "parameter": "u_str",
+        "path": "u_str",
+        "type": "float",
+        "default": 0.01,
+        "min": 0.01,
+        "max": 0.5,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "strokeOffset",
+        "parameter": "u_stro",
+        "path": "u_stro",
+        "type": "float",
+        "default": 0.005,
+        "min": 0.0,
+        "max": 0.05,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "initialM",
+        "parameter": "u_m",
+        "path": "u_m",
+        "type": "float",
+        "default": 1.0,
+        "min": 0.1,
+        "max": 5.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "mOffset",
+        "parameter": "u_mo",
+        "path": "u_mo",
+        "type": "float",
+        "default": 0.0,
+        "min": -0.1,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "initialSub",
+        "parameter": "u_sub",
+        "path": "u_sub",
+        "type": "float",
+        "default": 0.0,
+        "min": -0.1,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "subOffset",
+        "parameter": "u_subo",
+        "path": "u_subo",
+        "type": "float",
+        "default": 0.0,
+        "min": -0.05,
+        "max": 0.05,
+        "step": 0.001,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "iterations",
+        "parameter": "u_iterations",
+        "path": "u_iterations",
+        "type": "int",
+        "default": 5,
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "tone": {
+    "name": "Canonical Tone.Synth",
+    "description": "A canonical Tone.Synth patch representing the full parameter space for runtime modulation and control.",
+    "meta_info": {
+      "category": "tone",
+      "tags": [
+        "canonical",
+        "tone.synth",
+        "template",
+        "full-control"
+      ],
+      "complexity": "high"
+    },
+    "synth": {
+      "type": "Tone.Synth",
+      "volume": -12,
+      "detune": 0,
+      "portamento": 0.05,
+      "envelope": {
+        "attack": 0.05,
+        "attackCurve": "exponential",
+        "decay": 0.2,
+        "decayCurve": "exponential",
+        "sustain": 0.2,
+        "release": 1.5,
+        "releaseCurve": "exponential"
+      },
+      "oscillator": {
+        "type": "amtriangle",
+        "modulationType": "sine",
+        "harmonicity": 0.5,
+        "partials": [],
+        "phase": 0
+      }
+    },
+    "effects": [
+      {
+        "type": "Tone.Reverb",
+        "options": {
+          "decay": 2.0,
+          "preDelay": 0.01,
+          "wet": 0.3
+        },
+        "order": 0
+      },
+      {
+        "type": "Tone.Chorus",
+        "options": {
+          "frequency": 1.5,
+          "delayTime": 2.5,
+          "depth": 0.7,
+          "wet": 0.2
+        },
+        "order": 1
+      }
+    ],
+    "patterns": [
+      {
+        "id": "canonical_loop",
+        "type": "Tone.Pattern",
+        "options": {
+          "pattern": "up",
+          "values": [
+            "C4",
+            "E4",
+            "G4",
+            "B4"
+          ],
+          "interval": "4n",
+          "duration": "8n"
+        }
+      }
+    ],
+    "parts": [
+      {
+        "id": "loop",
+        "pattern": "canonical_loop",
+        "start": "0:0:0",
+        "duration": "2m",
+        "loop": true
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "Volume",
+        "parameter": "volume",
+        "path": "tone.volume",
+        "type": "float",
+        "unit": "dB",
+        "default": -12,
+        "min": -60,
+        "max": 6,
+        "step": 0.1
+      },
+      {
+        "name": "Detune",
+        "parameter": "detune",
+        "path": "tone.detune",
+        "type": "float",
+        "unit": "cents",
+        "default": 0,
+        "min": -1200,
+        "max": 1200,
+        "step": 1
+      },
+      {
+        "name": "Portamento",
+        "parameter": "portamento",
+        "path": "tone.portamento",
+        "type": "float",
+        "unit": "s",
+        "default": 0.05,
+        "min": 0,
+        "max": 1,
+        "step": 0.01
+      },
+      {
+        "name": "Attack",
+        "parameter": "envelope.attack",
+        "path": "tone.envelope.attack",
+        "type": "float",
+        "unit": "s",
+        "default": 0.05,
+        "min": 0.01,
+        "max": 2.0,
+        "step": 0.01
+      },
+      {
+        "name": "Attack Curve",
+        "parameter": "envelope.attackCurve",
+        "path": "tone.envelope.attackCurve",
+        "type": "string",
+        "unit": "curve",
+        "default": "exponential",
+        "options": [
+          "linear",
+          "exponential",
+          "sine",
+          "cosine",
+          "bounce",
+          "ripple",
+          "step"
+        ]
+      },
+      {
+        "name": "Decay",
+        "parameter": "envelope.decay",
+        "path": "tone.envelope.decay",
+        "type": "float",
+        "unit": "s",
+        "default": 0.2,
+        "min": 0.01,
+        "max": 2.0,
+        "step": 0.01
+      },
+      {
+        "name": "Decay Curve",
+        "parameter": "envelope.decayCurve",
+        "path": "tone.envelope.decayCurve",
+        "type": "string",
+        "unit": "curve",
+        "default": "exponential",
+        "options": [
+          "linear",
+          "exponential"
+        ]
+      },
+      {
+        "name": "Sustain",
+        "parameter": "envelope.sustain",
+        "path": "tone.envelope.sustain",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.2,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01
+      },
+      {
+        "name": "Release",
+        "parameter": "envelope.release",
+        "path": "tone.envelope.release",
+        "type": "float",
+        "unit": "s",
+        "default": 1.5,
+        "min": 0.01,
+        "max": 5.0,
+        "step": 0.01
+      },
+      {
+        "name": "Release Curve",
+        "parameter": "envelope.releaseCurve",
+        "path": "tone.envelope.releaseCurve",
+        "type": "string",
+        "unit": "curve",
+        "default": "exponential",
+        "options": [
+          "linear",
+          "exponential",
+          "sine",
+          "cosine",
+          "bounce",
+          "ripple",
+          "step"
+        ]
+      },
+      {
+        "name": "Oscillator Type",
+        "parameter": "oscillator.type",
+        "path": "tone.oscillator.type",
+        "type": "string",
+        "unit": "type",
+        "default": "amtriangle",
+        "options": [
+          "sine",
+          "square",
+          "triangle",
+          "sawtooth",
+          "pulse",
+          "pwm",
+          "fmsine",
+          "fmsquare",
+          "fmtriangle",
+          "fmsawtooth",
+          "amsine",
+          "amsquare",
+          "amtriangle",
+          "amsawtooth",
+          "fatsine",
+          "fatsquare",
+          "fattriangle",
+          "fatsawtooth"
+        ]
+      },
+      {
+        "name": "Modulation Type",
+        "parameter": "oscillator.modulationType",
+        "path": "tone.oscillator.modulationType",
+        "type": "string",
+        "unit": "type",
+        "default": "sine",
+        "options": [
+          "sine",
+          "square",
+          "triangle",
+          "sawtooth"
+        ]
+      },
+      {
+        "name": "Harmonicity",
+        "parameter": "oscillator.harmonicity",
+        "path": "tone.oscillator.harmonicity",
+        "type": "float",
+        "unit": "ratio",
+        "default": 0.5,
+        "min": 0,
+        "max": 4,
+        "step": 0.01
+      },
+      {
+        "name": "Oscillator Phase",
+        "parameter": "oscillator.phase",
+        "path": "tone.oscillator.phase",
+        "type": "float",
+        "unit": "degrees",
+        "default": 0,
+        "min": 0,
+        "max": 360,
+        "step": 1
+      },
+      {
+        "name": "Reverb Decay",
+        "parameter": "effects.0.decay",
+        "path": "tone.effects.0.decay",
+        "type": "float",
+        "unit": "s",
+        "default": 2.0,
+        "min": 0.1,
+        "max": 10.0,
+        "step": 0.1
+      },
+      {
+        "name": "Reverb PreDelay",
+        "parameter": "effects.0.preDelay",
+        "path": "tone.effects.0.preDelay",
+        "type": "float",
+        "unit": "s",
+        "default": 0.01,
+        "min": 0,
+        "max": 0.5,
+        "step": 0.001
+      },
+      {
+        "name": "Reverb Wet",
+        "parameter": "effects.0.wet",
+        "path": "tone.effects.0.wet",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.3,
+        "min": 0,
+        "max": 1.0,
+        "step": 0.01
+      }
+    ]
+  },
+  "haptic": {
+    "name": "Rhombus Feedback",
+    "description": "Haptic feedback tied to rhombus properties",
+    "meta_info": {
+      "category": "haptic",
+      "tags": [
+        "pulse",
+        "vibration"
+      ],
+      "complexity": "medium"
+    },
+    "device": {
+      "type": "generic",
+      "options": {
+        "maxIntensity": {
+          "value": 1.0,
+          "unit": "linear"
+        },
+        "maxFrequency": {
+          "value": 250.0,
+          "unit": "Hz"
+        }
+      }
+    },
+    "input_parameters": [
+      {
+        "name": "Intensity",
+        "parameter": "haptic.intensity",
+        "path": "haptic.intensity",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.7,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Frequency",
+        "parameter": "haptic.frequency",
+        "path": "haptic.frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 150.0,
+        "min": 20.0,
+        "max": 250.0,
+        "step": 1.0,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "control": {
+    "name": "Geometric Apex Controls6",
+    "description": "Interactive controls for manipulating rhombus visuals, audio synthesis, and haptic feedback",
+    "meta_info": {
+      "category": "control",
+      "tags": [
+        "interactive",
+        "multimodal",
+        "visual",
+        "audio",
+        "haptic"
+      ],
+      "complexity": "medium"
+    },
+    "control_parameters": [
+      {
+        "parameter": "shader.u_px",
+        "label": "Position X",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_py",
+        "label": "Position Y",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_initial_r",
+        "label": "Initial Size",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "wheel": true,
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.wheel",
+              "sensitivity": 0.01, "scale": 1.0,
+              "curve": "linear"
+            }
+          },
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_iterations",
+        "label": "Iterations",
+        "type": "int",
+        "unit": "linear",
+        "default": 5,
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "wheel": true,
+              "keys": [
+                "Control"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.wheel",
+              "sensitivity": 0.5, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_poX",
+        "label": "Pos Offset X",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -0.1,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": -0.005, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_poY",
+        "label": "Pos Offset Y",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.05,
+        "min": -0.1,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": 0.005, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_ro",
+        "label": "Size Offset",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.02,
+        "min": -0.05,
+        "max": 0.05,
+        "step": 0.001,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.0001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_str",
+        "label": "Initial Stroke",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.01,
+        "min": 0.0,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": 0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_stro",
+        "label": "Stroke Offset",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.005,
+        "min": 0.0,
+        "max": 0.05,
+        "step": 0.001,
+        "smoothingTime": 0.1,
+        "mappings": []
+      },
+      {
+        "parameter": "shader.u_m",
+        "label": "Initial M",
+        "type": "float",
+        "unit": "linear",
+        "default": 1.0,
+        "min": 0.1,
+        "max": 5.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": []
+      },
+      {
+        "parameter": "shader.u_mo",
+        "label": "M Offset",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -0.1,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1,
+        "mappings": []
+      },
+      {
+        "parameter": "shader.u_sub",
+        "label": "Initial Sub",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -0.1,
+        "max": 0.1,
+        "step": 0.001,
+        "smoothingTime": 0.1,
+        "mappings": []
+      },
+      {
+        "parameter": "shader.u_subo",
+        "label": "Sub Offset",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -0.05,
+        "max": 0.05,
+        "step": 0.001,
+        "smoothingTime": 0.1,
+        "mappings": []
+      },
+      {
+        "parameter": "tone.detune",
+        "label": "Detune",
+        "type": "float",
+        "unit": "cents",
+        "default": 0.0,
+        "min": -1200.0,
+        "max": 1200.0,
+        "step": 1.0,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 3.0, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "haptic.intensity",
+        "label": "Vibration Intensity",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.7,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Ctrl",
+                "Alt"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.01, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "haptic.frequency",
+        "label": "Vibration Frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 150.0,
+        "min": 10.0,
+        "max": 250.0,
+        "step": 1.0,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "right"
+              ],
+              "keys": [
+                "Ctrl"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.5, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "rule_bundle": {
+    "name": "SDF Grid Rules",
+    "description": "Example rule bundle",
+    "meta_info": {"category": "rule_bundle", "tags": []},
+    "rules": [
+      {
+        "id": "grid_to_multimodal_mapping",
+        "trigger": {"type": "grid_cell", "params": {"gridSize": 8, "cooldown": 100}},
+        "execution": "client",
+        "effects": []
+      }
+    ]
+  },
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "curve": [
+      "linear",
+      "exp",
+      "sigmoid",
+      "linear"
+    ],
+    "groups": {
+      "audioTrigger": {
+        "parameter": "audio.poly.trigger",
+        "duration": "8n"
+      },
+      "hapticPulse": {
+        "parameter": "haptic.intensity"
+      },
+      "visualNudge": {
+        "parameter": "shader.u_initial_r",
+        "offset": 0.1
+      }
+    },
+    "cells": [
+      {
+        "coord": [
+          0,
+          0
+        ],
+        "threshold": [
+          0.05,
+          null,
+          null,
+          null
+        ],
+        "scale": [
+          2.0,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "coord": [
+          3,
+          2
+        ],
+        "channels": [
+          "audioTrigger",
+          "hapticPulse",
+          "visualNudge",
+          "visualHue"
+        ],
+        "curve": [
+          "exp",
+          "linear",
+          null,
+          null
+        ]
+      }
+    ]
+  },
+  "modulations": [
+    {
+      "id": "size_pulse",
+      "target": "shader.u_initial_r",
+      "type": "additive",
+      "waveform": "triangle",
+      "frequency": 0.05,
+      "amplitude": 0.1,
+      "offset": 0.5,
+      "phase": 0.0,
+      "scale": 0.001,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "detune_pulse",
+      "target": "tone.detune",
+      "type": "additive",
+      "waveform": "triangle",
+      "frequency": 0.05,
+      "amplitude": 0.1,
+      "offset": 0.5,
+      "phase": 0.0,
+      "scale": 0.001,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 100.0
+    },
+    {
+      "id": "haptic_pulse",
+      "target": "haptic.intensity",
+      "type": "additive",
+      "waveform": "sine",
+      "frequency": 1.0,
+      "amplitude": 0.2,
+      "offset": 0.7,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "synesthetic-schemas",
+  "version": "1.0.0",
+  "description": "**Single Source of Truth (SSOT)** for Synesthetic asset and component schemas.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": "14.2.0",
+    "json-schema-to-typescript": "15.0.4"
+  }
+}

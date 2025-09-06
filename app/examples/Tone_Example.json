@@ -1,0 +1,309 @@
+{
+  "name": "Cosmic Pluck",
+  "description": "A bright, plucky tone with a spacey, resonant decay, enriched with effects and polyphonic sequencing",
+  "meta_info": {
+    "category": "tone",
+    "tags": ["pluck", "bright", "resonant", "spacey", "polyphonic"],
+    "complexity": "medium"
+  },
+  "synth": {
+    "type": "Tone.PolySynth",
+    "options": {
+      "voice": "Tone.MonoSynth",
+      "count": 4,
+      "oscillator": {
+        "type": "sawtooth",
+        "frequency": {"value": 220, "unit": "Hz"},
+        "detune": {"value": 10, "unit": "cents"},
+        "phase": {"value": 0, "unit": "degrees"},
+        "partialCount": {"value": 6, "unit": "linear"}
+      },
+      "envelope": {
+        "attack": {"value": 0.01, "unit": "s"},
+        "decay": {"value": 0.2, "unit": "s"},
+        "sustain": {"value": 0.1, "unit": "normalRange"},
+        "release": {"value": 1.5, "unit": "s"},
+        "attackCurve": "exponential",
+        "decayCurve": "exponential",
+        "releaseCurve": "linear"
+      },
+      "filter": {
+        "Q": {"value": 4, "unit": "linear"},
+        "type": "bandpass",
+        "rolloff": {"value": -24, "unit": "dB/octave"},
+        "frequency": {"value": 800, "unit": "Hz"},
+        "gain": {"value": 0, "unit": "dB"},
+        "detune": {"value": 0, "unit": "cents"}
+      },
+      "filterEnvelope": {
+        "attack": {"value": 0.02, "unit": "s"},
+        "decay": {"value": 0.5, "unit": "s"},
+        "sustain": {"value": 0.2, "unit": "normalRange"},
+        "release": {"value": 1.2, "unit": "s"},
+        "baseFrequency": {"value": 800, "unit": "Hz"},
+        "octaves": {"value": 3, "unit": "linear"},
+        "exponent": {"value": 1.5, "unit": "linear"},
+        "attackCurve": "exponential",
+        "decayCurve": "exponential",
+        "releaseCurve": "linear"
+      },
+      "portamento": {"value": 0.05, "unit": "s"},
+      "volume": {"value": -12, "unit": "dB"}
+    }
+  },
+  "effects": [
+    {
+      "type": "Tone.Reverb",
+      "options": {
+        "decay": {"value": 2.0, "unit": "s"},
+        "preDelay": {"value": 0.1, "unit": "s"},
+        "wet": {"value": 0.3, "unit": "normalRange"}
+      },
+      "order": 0
+    },
+    {
+      "type": "Tone.PingPongDelay",
+      "options": {
+        "delayTime": {"value": "8n", "unit": "time"},
+        "feedback": {"value": 0.5, "unit": "normalRange"},
+        "wet": {"value": 0.2, "unit": "normalRange"}
+      },
+      "order": 1
+    },
+    {
+      "type": "Tone.Chorus",
+      "options": {
+        "frequency": {"value": 0.5, "unit": "Hz"},
+        "delayTime": {"value": 3.5, "unit": "ms"},
+        "depth": {"value": 0.7, "unit": "normalRange"},
+        "type": "sine",
+        "spread": {"value": 180, "unit": "degrees"},
+        "wet": {"value": 0.4, "unit": "normalRange"}
+      },
+      "order": 2
+    }
+  ],
+  "patterns": [
+    {
+      "id": "main_arp",
+      "type": "Tone.Pattern",
+      "options": {
+        "pattern": "upDown",
+        "values": ["C4", "E4", "G4", "B4"],
+        "interval": {"value": "8n", "unit": "time"},
+        "probability": {"value": 0.9, "unit": "normalRange"},
+        "velocity": {"value": 0.8, "unit": "normalRange"},
+        "duration": {"value": "8n", "unit": "time"}
+      }
+    },
+    {
+      "id": "accent",
+      "type": "Tone.Pattern",
+      "options": {
+        "pattern": "random",
+        "values": ["D5", "F#5"],
+        "interval": {"value": "4n", "unit": "time"},
+        "probability": {"value": 0.3, "unit": "normalRange"},
+        "velocity": {"value": 0.6, "unit": "normalRange"},
+        "duration": {"value": "16n", "unit": "time"}
+      }
+    }
+  ],
+  "parts": [
+    {
+      "id": "intro",
+      "pattern": "main_arp",
+      "start": "0:0:0",
+      "duration": "8m"
+    },
+    {
+      "id": "loop",
+      "pattern": "main_arp",
+      "start": "8:0:0",
+      "duration": "16m",
+      "loop": true
+    },
+    {
+      "id": "accent_layer",
+      "pattern": "accent",
+      "start": "8:0:0",
+      "duration": "16m",
+      "loop": true
+    }
+  ],
+  "input_parameters": [
+    {
+      "name": "Oscillator Frequency",
+      "parameter": "oscillator.frequency",
+      "path": "tone.oscillator.frequency",
+      "type": "float",
+      "unit": "Hz",
+      "default": 220,
+      "min": 20,
+      "max": 20000,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Volume",
+      "parameter": "volume",
+      "path": "tone.volume",
+      "type": "float",
+      "unit": "dB",
+      "default": -12,
+      "min": -60,
+      "max": 0,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Oscillator Detune",
+      "parameter": "oscillator.detune",
+      "path": "tone.oscillator.detune",
+      "type": "float",
+      "unit": "cents",
+      "default": 10,
+      "min": -100,
+      "max": 100,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Tone Frequency",
+      "parameter": "filter.frequency",
+      "path": "tone.filter.frequency",
+      "type": "float",
+      "unit": "Hz",
+      "default": 800,
+      "min": 20,
+      "max": 20000,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Filter Q",
+      "parameter": "filter.Q",
+      "path": "tone.filter.Q",
+      "type": "float",
+      "unit": "linear",
+      "default": 4,
+      "min": 0,
+      "max": 10,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Envelope Attack",
+      "parameter": "envelope.attack",
+      "path": "tone.envelope.attack",
+      "type": "float",
+      "unit": "s",
+      "default": 0.01,
+      "min": 0.001,
+      "max": 2.0,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Envelope Decay",
+      "parameter": "envelope.decay",
+      "path": "tone.envelope.decay",
+      "type": "float",
+      "unit": "s",
+      "default": 0.2,
+      "min": 0.01,
+      "max": 2.0,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Reverb Wet",
+      "parameter": "effects.0.wet",
+      "path": "tone.effects.0.wet",
+      "type": "float",
+      "unit": "normalRange",
+      "default": 0.3,
+      "min": 0.0,
+      "max": 1.0,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Ping Pong Delay",
+      "parameter": "effects.1.delayTime",
+      "path": "tone.effects.1.delayTime",
+      "type": "string",
+      "unit": "time",
+      "default": "8n",
+      "options": ["16n", "8n", "4n", "2n"],
+      "smoothingTime": 0
+    },
+    {
+      "name": "Ping Pong Feedback",
+      "parameter": "effects.1.feedback",
+      "path": "tone.effects.1.feedback",
+      "type": "float",
+      "unit": "normalRange",
+      "default": 0.5,
+      "min": 0.0,
+      "max": 0.9,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Chorus Frequency",
+      "parameter": "effects.2.frequency",
+      "path": "tone.effects.2.frequency",
+      "type": "float",
+      "unit": "Hz",
+      "default": 0.5,
+      "min": 0.1,
+      "max": 5.0,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Chorus Depth",
+      "parameter": "effects.2.depth",
+      "path": "tone.effects.2.depth",
+      "type": "float",
+      "unit": "normalRange",
+      "default": 0.7,
+      "min": 0.0,
+      "max": 1.0,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Chorus Wet",
+      "parameter": "effects.2.wet",
+      "path": "tone.effects.2.wet",
+      "type": "string",
+      "unit": "time",
+      "default": "8n",
+      "options": ["16n", "8n", "4n", "2n"],
+      "smoothingTime": 0
+    },
+    {
+      "name": "Pattern 0 Probability",
+      "parameter": "patterns.0.probability",
+      "path": "tone.patterns.0.probability",
+      "type": "float",
+      "unit": "normalRange",
+      "default": 0.9,
+      "min": 0.0,
+      "max": 1.0,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Pattern 1 Interval",
+      "parameter": "patterns.1.interval",
+      "path": "tone.patterns.1.interval",
+      "type": "string",
+      "unit": "time",
+      "default": "4n",
+      "options": ["16n", "8n", "4n", "2n"],
+      "smoothingTime": 0
+    },
+    {
+      "name": "Pattern 1 Probability",
+      "parameter": "patterns.1.probability",
+      "path": "tone.patterns.1.probability",
+      "type": "float",
+      "unit": "normalRange",
+      "default": 0.3,
+      "min": 0.0,
+      "max": 1.0,
+      "smoothingTime": 0.1
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "$defs": {
+    "ActionType": {
+      "properties": {
+        "axis": {
+          "$ref": "#/$defs/AxisType"
+        },
+        "curve": {
+          "$ref": "#/$defs/CurveType",
+          "default": "linear"
+        },
+        "scale": {
+          "default": 1.0,
+          "title": "Scale",
+          "type": "number"
+        },
+        "sensitivity": {
+          "title": "Sensitivity",
+          "type": "number"
+        }
+      },
+      "required": [
+        "axis",
+        "sensitivity"
+      ],
+      "title": "ActionType",
+      "type": "object"
+    },
+    "AxisType": {
+      "enum": [
+        "mouse.x",
+        "mouse.y",
+        "mouse.wheel"
+      ],
+      "title": "AxisType",
+      "type": "string"
+    },
+    "ComboType": {
+      "properties": {
+        "keys": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Keys"
+        },
+        "mouseButtons": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mousebuttons"
+        },
+        "strict": {
+          "default": false,
+          "title": "Strict",
+          "type": "boolean"
+        },
+        "wheel": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Wheel"
+        }
+      },
+      "title": "ComboType",
+      "type": "object"
+    },
+    "CurveType": {
+      "enum": [
+        "linear",
+        "exponential",
+        "sine",
+        "discrete"
+      ],
+      "title": "CurveType",
+      "type": "string"
+    },
+    "DataType": {
+      "enum": [
+        "float",
+        "int",
+        "bool",
+        "string"
+      ],
+      "title": "DataType",
+      "type": "string"
+    },
+    "Mapping": {
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/ActionType"
+        },
+        "combo": {
+          "$ref": "#/$defs/ComboType"
+        }
+      },
+      "required": [
+        "combo",
+        "action"
+      ],
+      "title": "Mapping",
+      "type": "object"
+    }
+  },
+  "$id": "https://schemas.synesthetic.dev/control.schema.json",
+  "properties": {
+    "default": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ],
+      "title": "Default"
+    },
+    "label": {
+      "minLength": 1,
+      "title": "Label",
+      "type": "string"
+    },
+    "mappings": {
+      "items": {
+        "$ref": "#/$defs/Mapping"
+      },
+      "title": "Mappings",
+      "type": "array"
+    },
+    "max": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max"
+    },
+    "min": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Min"
+    },
+    "options": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Options"
+    },
+    "parameter": {
+      "minLength": 1,
+      "title": "Parameter",
+      "type": "string"
+    },
+    "smoothingTime": {
+      "default": 0.0,
+      "title": "Smoothingtime",
+      "type": "number"
+    },
+    "step": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Step"
+    },
+    "type": {
+      "$ref": "#/$defs/DataType"
+    },
+    "unit": {
+      "minLength": 1,
+      "title": "Unit",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parameter",
+    "label",
+    "type",
+    "unit",
+    "default",
+    "mappings"
+  ],
+  "title": "Control",
+  "type": "object"
+}

@@ -1,0 +1,778 @@
+{
+  "name": "Compound GeoPulse",
+  "description": "A dynamic compound shape blending a hexagon, circle, trapezoid, and equilateral triangle with pulsing and orbiting effects",
+  "meta_info": {
+    "category": "multimodal",
+    "tags": [
+      "geometric",
+      "sdf",
+      "compound",
+      "interactive",
+      "audio",
+      "haptic"
+    ],
+    "complexity": "high"
+  },
+  "shader": {
+    "name": "CompoundGeoSDF",
+    "vertex_shader": "void main() { gl_Position = vec4(position, 1.0); }",
+    "fragment_shader": "uniform vec2 u_resolution; uniform float u_time; uniform float u_px; uniform float u_py; uniform float u_r; float dot2(vec2 v) { return dot(v,v); } float circleSDF(vec2 p, float r) { return length(p) - r; } float hexagonSDF(vec2 p, float r) { const vec3 k = vec3(-0.866025404,0.5,0.577350269); p = abs(p); p -= 2.0*min(dot(k.xy,p),0.0)*k.xy; p -= vec2(clamp(p.x, -k.z*r, k.z*r), r); return length(p)*sign(p.y); } float trapezoidSDF(vec2 p, float r1, float r2, float he) { vec2 k1 = vec2(r2,he); vec2 k2 = vec2(r2-r1,2.0*he); p.x = abs(p.x); vec2 ca = vec2(p.x-min(p.x,(p.y<0.0)?r1:r2), abs(p.y)-he); vec2 cb = p - k1 + k2*clamp(dot(k1-p,k2)/dot2(k2), 0.0, 1.0); return sqrt(min(dot2(ca),dot2(cb))) * ((cb.x<0.0 && ca.y<0.0) ? -1.0 : 1.0); } float eTriangleSDF(vec2 p, float r) { const float k = sqrt(3.0); p.x = abs(p.x) - r; p.y = p.y + r/k; if(p.x+k*p.y>0.0) p = vec2(p.x-k*p.y,-k*p.x-p.y)/2.0; p.x -= clamp(p.x, -2.0*r, 0.0); return -length(p)*sign(p.y); } void main() { vec2 st = gl_FragCoord.xy / u_resolution.xy; st = st * 2.0 - 1.0; st.x *= u_resolution.x / u_resolution.y; vec2 p = st - vec2(u_px, u_py); float t = u_time * 0.5; float pulse = sin(t) * 0.1 + 0.9; float hex = hexagonSDF(p, u_r * 0.5 * pulse); float circ = circleSDF(p, u_r * 0.8 * (1.0 + sin(t) * 0.2)); vec2 trapOffset = vec2(cos(t) * 0.5, sin(t) * 0.5); float trap = trapezoidSDF(p - trapOffset, u_r * 0.3, u_r * 0.2, u_r * 0.25); vec2 triOffset = vec2(sin(-t) * 0.5, cos(-t) * 0.5); float tri = eTriangleSDF(p - triOffset, u_r * 0.35); float k = 0.1; float d = hex; d = -log(exp(-d/k) + exp(-circ/k) + exp(-trap/k) + exp(-tri/k)) * k; vec3 color = vec3(1.0 - smoothstep(-0.05, 0.05, d)); color *= mix(vec3(0.2, 0.8, 1.0), vec3(1.0, 0.3, 0.7), sin(t + d * 10.0) * 0.5 + 0.5); gl_FragColor = vec4(color, 1.0); }",
+    "uniforms": [
+      {
+        "name": "u_time",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_resolution",
+        "type": "vec2",
+        "stage": "fragment",
+        "default": [
+          800.0,
+          600.0
+        ]
+      },
+      {
+        "name": "u_backgroundColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": "#1a1a1a"
+      },
+      {
+        "name": "u_gridSize",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_gridColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": [
+          0.9,
+          0.9,
+          0.9
+        ]
+      },
+      {
+        "name": "u_px",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_py",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_r",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.5
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "positionX",
+        "parameter": "u_px",
+        "path": "u_px",
+        "type": "float",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "positionY",
+        "parameter": "u_py",
+        "path": "u_py",
+        "type": "float",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "radius",
+        "parameter": "u_r",
+        "path": "u_r",
+        "type": "float",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "tone": {
+    "name": "Compound Pulse Harmony",
+    "description": "A polyphonic, pulsing tone with rich harmonics and spatial effects, synchronized with compound shape dynamics",
+    "meta_info": {
+      "category": "tone",
+      "tags": [
+        "harmonic",
+        "pulse",
+        "rich",
+        "polyphonic",
+        "compound"
+      ],
+      "complexity": "high"
+    },
+    "synth": {
+      "type": "Tone.PolySynth",
+      "options": {
+        "voice": "Tone.MonoSynth",
+        "count": 4,
+        "oscillator": {
+          "type": "sine",
+          "frequency": {
+            "value": 440,
+            "unit": "Hz"
+          },
+          "detune": {
+            "value": 8,
+            "unit": "cents"
+          },
+          "phase": {
+            "value": 0,
+            "unit": "degrees"
+          }
+        },
+        "envelope": {
+          "attack": {
+            "value": 0.02,
+            "unit": "s"
+          },
+          "decay": {
+            "value": 0.25,
+            "unit": "s"
+          },
+          "sustain": {
+            "value": 0.3,
+            "unit": "normalRange"
+          },
+          "release": {
+            "value": 1.0,
+            "unit": "s"
+          },
+          "attackCurve": "exponential",
+          "decayCurve": "exponential",
+          "releaseCurve": "linear"
+        },
+        "filter": {
+          "Q": {
+            "value": 2,
+            "unit": "linear"
+          },
+          "type": "lowpass",
+          "rolloff": {
+            "value": -12,
+            "unit": "dB/octave"
+          },
+          "frequency": {
+            "value": 300,
+            "unit": "Hz"
+          }
+        },
+        "filterEnvelope": {
+          "attack": {
+            "value": 0.05,
+            "unit": "s"
+          },
+          "decay": {
+            "value": 0.4,
+            "unit": "s"
+          },
+          "sustain": {
+            "value": 0.4,
+            "unit": "normalRange"
+          },
+          "release": {
+            "value": 0.8,
+            "unit": "s"
+          },
+          "baseFrequency": {
+            "value": 300,
+            "unit": "Hz"
+          },
+          "octaves": {
+            "value": 2.5,
+            "unit": "linear"
+          },
+          "exponent": {
+            "value": 1.2,
+            "unit": "linear"
+          }
+        },
+        "portamento": {
+          "value": 0.03,
+          "unit": "s"
+        },
+        "volume": {
+          "value": -8,
+          "unit": "dB"
+        }
+      }
+    },
+    "effects": [
+      {
+        "type": "Tone.Reverb",
+        "options": {
+          "decay": {
+            "value": 2.5,
+            "unit": "s"
+          },
+          "preDelay": {
+            "value": 0.08,
+            "unit": "s"
+          },
+          "wet": {
+            "value": 0.35,
+            "unit": "normalRange"
+          }
+        },
+        "order": 0
+      },
+      {
+        "type": "Tone.PingPongDelay",
+        "options": {
+          "delayTime": {
+            "value": "8n",
+            "unit": "time"
+          },
+          "feedback": {
+            "value": 0.4,
+            "unit": "normalRange"
+          },
+          "wet": {
+            "value": 0.25,
+            "unit": "normalRange"
+          }
+        },
+        "order": 1
+      },
+      {
+        "type": "Tone.Chorus",
+        "options": {
+          "frequency": {
+            "value": 0.6,
+            "unit": "Hz"
+          },
+          "delayTime": {
+            "value": 4.0,
+            "unit": "ms"
+          },
+          "depth": {
+            "value": 0.6,
+            "unit": "normalRange"
+          },
+          "type": "sine",
+          "spread": {
+            "value": 180,
+            "unit": "degrees"
+          },
+          "wet": {
+            "value": 0.3,
+            "unit": "normalRange"
+          }
+        },
+        "order": 2
+      }
+    ],
+    "patterns": [
+      {
+        "id": "base_pulse",
+        "type": "Tone.Pattern",
+        "options": {
+          "pattern": "up",
+          "values": [
+            "G3",
+            "B3",
+            "D4",
+            "F4"
+          ],
+          "interval": {
+            "value": "8n",
+            "unit": "time"
+          },
+          "probability": {
+            "value": 0.9,
+            "unit": "normalRange"
+          },
+          "velocity": {
+            "value": 0.75,
+            "unit": "normalRange"
+          },
+          "duration": {
+            "value": "8n",
+            "unit": "time"
+          }
+        }
+      },
+      {
+        "id": "orbit_accent",
+        "type": "Tone.Pattern",
+        "options": {
+          "pattern": "random",
+          "values": [
+            "A4",
+            "C5",
+            "B3",
+            "E4",
+            "G4",
+            "D5",
+            "F4",
+            "C4"
+          ],
+          "interval": {
+            "value": "4n",
+            "unit": "time"
+          },
+          "probability": {
+            "value": 0.4,
+            "unit": "normalRange"
+          },
+          "velocity": {
+            "value": 0.6,
+            "unit": "normalRange"
+          },
+          "duration": {
+            "value": "8n",
+            "unit": "time"
+          }
+        }
+      }
+    ],
+    "parts": [
+      {
+        "id": "intro",
+        "pattern": "base_pulse",
+        "start": "0:0:0",
+        "duration": "4m",
+        "loop": false
+      },
+      {
+        "id": "main_loop",
+        "pattern": "base_pulse",
+        "start": "1:0:0",
+        "duration": "4m",
+        "loop": false
+      },
+      {
+        "id": "accent_layer",
+        "pattern": "orbit_accent",
+        "start": "2:0:0",
+        "duration": "16m",
+        "loop": false
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "Volume",
+        "parameter": "volume",
+        "path": "tone.volume",
+        "type": "float",
+        "unit": "dB",
+        "default": -10,
+        "min": -60,
+        "max": 1,
+        "step": 0.1,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Oscillator Detune",
+        "parameter": "oscillator.detune",
+        "path": "tone.oscillator.detune",
+        "type": "float",
+        "unit": "cents",
+        "default": 8,
+        "min": -100,
+        "max": 100,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Envelope Attack",
+        "parameter": "envelope.attack",
+        "path": "tone.envelope.attack",
+        "type": "float",
+        "unit": "s",
+        "default": 0.02,
+        "min": 0.01,
+        "max": 2.0,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Envelope Decay",
+        "parameter": "envelope.decay",
+        "path": "tone.envelope.decay",
+        "type": "float",
+        "unit": "s",
+        "default": 0.25,
+        "min": 0.01,
+        "max": 2.0,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Reverb Wet",
+        "parameter": "effects.0.wet",
+        "path": "tone.effects.0.wet",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.35,
+        "min": 0.0,
+        "max": 1.0,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Ping Pong Delay",
+        "parameter": "effects.1.delayTime",
+        "path": "tone.effects.1.delayTime",
+        "type": "string",
+        "unit": "time",
+        "default": "8n",
+        "options": [
+          "16n",
+          "8n",
+          "4n",
+          "2n"
+        ],
+        "smoothingTime": 0
+      },
+      {
+        "name": "Ping Pong Feedback",
+        "parameter": "effects.1.feedback",
+        "path": "tone.effects.1.feedback",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.4,
+        "min": 0.0,
+        "max": 0.9,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Chorus Frequency",
+        "parameter": "effects.2.frequency",
+        "path": "tone.effects.2.frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 0.6,
+        "min": 0.1,
+        "max": 5.0,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Chorus Depth",
+        "parameter": "effects.2.depth",
+        "path": "tone.effects.2.depth",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.6,
+        "min": 0.0,
+        "max": 1.0,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "haptic": {
+    "name": "Compound Feedback",
+    "description": "Haptic feedback that responds to the compound shape transformations and movements",
+    "meta_info": {
+      "category": "haptic",
+      "tags": [
+        "pulse",
+        "vibration",
+        "tactile",
+        "compound"
+      ],
+      "complexity": "high"
+    },
+    "device": {
+      "type": "generic",
+      "options": {
+        "maxIntensity": {
+          "value": 1.0,
+          "unit": "linear"
+        },
+        "maxFrequency": {
+          "value": 250.0,
+          "unit": "Hz"
+        }
+      }
+    },
+    "input_parameters": [
+      {
+        "name": "Intensity",
+        "parameter": "haptic.intensity",
+        "path": "haptic.intensity",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.7,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Frequency",
+        "parameter": "haptic.frequency",
+        "path": "haptic.frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 150.0,
+        "min": 20.0,
+        "max": 250.0,
+        "step": 1.0,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "control": {
+    "name": "Compound GeoPulse Controls3",
+    "description": "Interactive controls for manipulating compound geometric visuals, audio synthesis, and haptic feedback",
+    "meta_info": {
+      "category": "control",
+      "tags": [
+        "interactive",
+        "multimodal",
+        "visual",
+        "audio",
+        "haptic"
+      ],
+      "complexity": "high"
+    },
+    "control_parameters": [
+      {
+        "parameter": "visual.px",
+        "label": "Position X",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "visual.py",
+        "label": "Position Y",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "visual.r",
+        "label": "Base Radius",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "wheel": true,
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.wheel",
+              "sensitivity": 0.01, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "audio.osc_freq",
+        "label": "Oscillator Frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 440,
+        "min": 20,
+        "max": 20000,
+        "step": 1,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Alt"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.5, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "audio.volume",
+        "label": "Output Volume",
+        "type": "float",
+        "unit": "dB",
+        "default": -8,
+        "min": -60,
+        "max": 0,
+        "step": 0.1,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Ctrl"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.1, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "haptic.intensity",
+        "label": "Vibration Intensity",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.7,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Ctrl",
+                "Alt"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.01, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "haptic.vib_freq",
+        "label": "Vibration Frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 150.0,
+        "min": 20.0,
+        "max": 250.0,
+        "step": 1.0,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "right"
+              ],
+              "keys": [
+                "Ctrl"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.5, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "modulations": [
+    {
+      "id": "radius_pulse",
+      "target": "u_r",
+      "type": "additive",
+      "waveform": "sine",
+      "frequency": 0.33,
+      "amplitude": 0.1,
+      "offset": 0.5,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "haptic_pulse",
+      "target": "haptic.intensity",
+      "type": "additive",
+      "waveform": "sine",
+      "frequency": 1.0,
+      "amplitude": 0.2,
+      "offset": 0.7,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    }
+  ]
+}

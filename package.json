@@ -1,0 +1,10 @@
+{
+  "name": "sdfk-backend",
+  "private": true,
+  "scripts": {
+    "docops:apply": "node scripts/docops.js",
+    "docops:lint": "node scripts/docops.js --lint",
+    "route:audit": "PYTHONPATH=. python3 scripts/route_audit.py",
+    "route:audit:strict": "PYTHONPATH=. python3 scripts/route_audit.py --strict"
+  }
+}

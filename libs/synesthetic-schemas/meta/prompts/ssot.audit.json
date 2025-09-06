@@ -1,0 +1,194 @@
+{
+  "objective": "Audit the SSOT repository to produce a deterministic Markdown report confirming adherence to foundational, validation, codegen, and hygiene standards.",
+  "constraints": {
+    "style": "KISS, deterministic, minimal deps",
+    "python": "3.11",
+    "schema_draft": "2020-12",
+    "no_db_migrations": true,
+    "output": "Markdown only; write to meta/output/SSOT_AUDIT.md; do not print to stdout"
+  },
+  "inputs": {
+    "schemas": "jsonschema/*.schema.json",
+    "examples": [
+      "examples/*.json",
+      "examples/**/*.json"
+    ],
+    "version_json": "version.json",
+    "py_typed": "python/src/synesthetic_schemas/py.typed",
+    "ci": ".github/workflows/ci.yml",
+    "makefile": "Makefile",
+    "preflight": "preflight.sh",
+    "codegen": [
+      "codegen/gen_ts.sh",
+      "scripts/ensure_codegen_clean.sh"
+    ],
+    "validators": [
+      "scripts/schema_lint.py",
+      "scripts/normalize_schemas.py",
+      "scripts/validate_examples.py"
+    ]
+  },
+  "phases": [
+    {
+      "id": "A1",
+      "name": "Foundations"
+    },
+    {
+      "id": "A2",
+      "name": "Validation & Normalization"
+    },
+    {
+      "id": "A3",
+      "name": "Deterministic Codegen & CI"
+    },
+    {
+      "id": "A4",
+      "name": "Naming & Docs Hygiene"
+    }
+  ],
+  "work_items": [
+    {
+      "id": "C1",
+      "phase": "A1",
+      "summary": "Centralized schema version",
+      "deps": [],
+      "touches": [
+        "version.json",
+        "scripts/lib/version.py",
+        "codegen/lib/version.mjs"
+      ],
+      "audit": [
+        "Confirm `version.json` contains the `schemaVersion` key.",
+        "Verify all other code references this single source for the version."
+      ],
+      "acceptance": [
+        "The `schemaVersion` is defined exclusively in `version.json`.",
+        "All helper scripts in Python and TS correctly read from this file."
+      ],
+      "commands": [
+        "rg -l \"schemaVersion\" | grep -v 'version.json' && exit 1 || exit 0"
+      ]
+    },
+    {
+      "id": "C2",
+      "phase": "A1",
+      "summary": "Python type distribution",
+      "deps": [],
+      "touches": [
+        "python/src/synesthetic_schemas/py.typed"
+      ],
+      "audit": [
+        "Verify the `py.typed` marker file is present in the Python source directory."
+      ],
+      "acceptance": [
+        "The Python package is configured to correctly export inline types for tools like mypy."
+      ],
+      "commands": [
+        "test -f python/src/synesthetic_schemas/py.typed"
+      ]
+    },
+    {
+      "id": "C3",
+      "phase": "A2",
+      "summary": "Schema structural integrity",
+      "deps": [],
+      "touches": [
+        "jsonschema/*.schema.json"
+      ],
+      "audit": [
+        "Confirm every schema file contains a unique, non-empty `$id`.",
+        "Confirm every schema file specifies `$schema` as 'https://json-schema.org/draft/2020-12/schema'."
+      ],
+      "acceptance": [
+        "All schemas are uniquely identified and use the correct draft.",
+        "All schema `$id` values are unique across the project."
+      ],
+      "commands": [
+        "poetry run python scripts/normalize_schemas.py --check",
+        "poetry run python scripts/schema_lint.py"
+      ]
+    },
+    {
+      "id": "C4",
+      "phase": "A2",
+      "summary": "Example to schema linkage",
+      "deps": [],
+      "touches": [
+        "examples/**/*.json"
+      ],
+      "audit": [
+        "Confirm every example JSON file contains a top-level `\"$schemaRef\"` key pointing to a valid schema."
+      ],
+      "acceptance": [
+        "All examples pass strict validation against their linked schemas."
+      ],
+      "commands": [
+        "poetry run python scripts/validate_examples.py --strict --dir examples"
+      ]
+    },
+    {
+      "id": "C5",
+      "phase": "A3",
+      "summary": "Codegen and CI parity",
+      "deps": [],
+      "touches": [
+        "codegen/gen_ts.sh",
+        "scripts/ensure_codegen_clean.sh",
+        "Makefile",
+        "preflight.sh",
+        ".github/workflows/ci.yml"
+      ],
+      "audit": [
+        "Confirm codegen scripts use project-local dependencies.",
+        "Verify `ensure_codegen_clean.sh` exits with a non-zero code on diffs.",
+        "Confirm the CI workflow executes the same `preflight.sh` script used for local validation."
+      ],
+      "acceptance": [
+        "Codegen on a clean tree produces a zero-change diff.",
+        "Local and CI validation workflows execute identical steps."
+      ],
+      "commands": [
+        "bash scripts/ensure_codegen_clean.sh",
+        "bash ./preflight.sh"
+      ]
+    },
+    {
+      "id": "C6",
+      "phase": "A4",
+      "summary": "Naming and documentation clarity",
+      "deps": [],
+      "touches": [
+        "jsonschema/*.schema.json",
+        "README.md",
+        "CONTRIBUTING.md",
+        "scripts/validate_examples.py"
+      ],
+      "audit": [
+        "Verify `$defs` keys use canonical `PascalCase` names.",
+        "Verify top-level schema `title` matches the kebab-case filename stem (e.g., `synesthetic-asset`).",
+        "Verify each schema `$id` ends with the schema filename (e.g., `.../synesthetic-asset.schema.json`).",
+        "Confirm that reusable object structures are defined within a schema's `$defs` section (manual spot-check acceptable).",
+        "Verify that `README.md` and `CONTRIBUTING.md` describe the preflight and versioning workflows.",
+        "Optional: Manual/External — consider Spectral for extended style rules."
+      ],
+      "acceptance": [
+        "`$defs` names are PascalCase across schemas.",
+        "Top-level titles match file stem (kebab-case).",
+        "Each `$id` ends with its schema filename.",
+        "Reusable schema objects are defined centrally within `$defs`.",
+        "Contributor docs provide clear guidance for essential workflows."
+      ],
+      "commands": [
+        "rg -n '\"\\$id\"' jsonschema/*.schema.json",
+        "rg -n '\\| preflight' README.md CONTRIBUTING.md"
+      ]
+    }
+  ],
+  "done_definition": [
+    "The audit report is successfully generated at `meta/SSOT_AUDIT.md`.",
+    "Every schema contains a unique `$id` and declares the target JSON Schema draft.",
+    "Every example is valid and correctly linked to its schema via `$schemaRef`.",
+    "The codebase is in a clean state, proven by a passing codegen drift check.",
+    "Local preflight execution mirrors the passing CI workflow, ensuring parity."
+  ]
+}

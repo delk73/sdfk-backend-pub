@@ -1,0 +1,10 @@
+{
+  "typeCheckingMode": "basic",
+  "exclude": ["python/src/synesthetic_schemas", "typescript", "**/__pycache__"],
+  "diagnosticSeverityOverrides": {
+    "reportUnknownVariableType": "none",
+    "reportUnknownMemberType": "none",
+    "reportUnknownArgumentType": "none",
+    "reportUnknownParameterType": "none"
+  }
+}

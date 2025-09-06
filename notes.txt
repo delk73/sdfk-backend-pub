@@ -1,0 +1,16 @@
+docker compose exec -T web pytest --cov=app --cov-report=term-missing tests
+
+
+
+
+./local.sh init
+./local.sh db
+./local.sh smoke
+./local.sh routes
+./local.sh openapi
+./local.sh emit-ssot
+
+
+
+
+

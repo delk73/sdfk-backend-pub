@@ -1,0 +1,38 @@
+[
+  {
+    "file": "examples/SynestheticAsset_Example1.json",
+    "name": "Circle Harmony2"
+  },
+  {
+    "file": "examples/SynestheticAsset_Example2.json",
+    "name": "Iterative Harmony"
+  },
+  {
+    "file": "examples/SynestheticAsset_Example3.json",
+    "name": "Compound GeoPulse"
+  },
+  {
+    "file": "examples/SynestheticAsset_Example4.json",
+    "name": "Triad Pulse"
+  },
+  {
+    "file": "examples/SynestheticAsset_Example5.json",
+    "name": "Circle Harmony22"
+  },
+  {
+    "file": "examples/SynestheticAsset_Example6.json",
+    "name": "Iterative Apex"
+  },
+  {
+    "file": "examples/SynestheticAsset_Example7.json",
+    "name": "Circle Harmony7"
+  },
+  {
+    "file": "examples/SynestheticAsset_Example8.json",
+    "name": "Circle Harmony8"
+  },
+  {
+    "file": "examples/SynestheticAsset_Example9.json",
+    "name": "Iterative Harmony"
+  }
+]

@@ -1,0 +1,21 @@
+# General cache
+.cache/
+
+# Python cache and artifacts
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.venv/
+
+# Node.js
+node_modules/
+typescript/tmp/
+
+# IDE configuration
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db

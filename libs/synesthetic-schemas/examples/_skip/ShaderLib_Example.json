@@ -1,0 +1,62 @@
+{
+  "name": "ExampleLib",
+  "version": "1",
+  "reservedUniforms": [
+    "u_time",
+    "u_resolution",
+    "u_backgroundColor",
+    "u_gridSize",
+    "u_gridColor",
+    "u_px",
+    "u_py"
+  ],
+  "baseInputParametersSpec": [
+    {
+      "name": "positionX",
+      "parameter": "u_px",
+      "path": "u_px",
+      "type": "float",
+      "default": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "step": 0.01,
+      "smoothingTime": 0.05
+    },
+    {
+      "name": "positionY",
+      "parameter": "u_py",
+      "path": "u_py",
+      "type": "float",
+      "default": 0.0,
+      "min": -1.0,
+      "max": 1.0,
+      "step": 0.01,
+      "smoothingTime": 0.05
+    }
+  ],
+  "helpers": {
+    "sdHexagon": {
+      "glsl": "float sdHexagon(vec2 p){ return 0.; }",
+      "stage": "fragment",
+      "requires": {
+        "uniforms": ["u_r"],
+        "inputParametersSpec": [
+          {
+            "name": "radius",
+            "parameter": "u_r",
+            "path": "u_r",
+            "type": "float",
+            "default": 0.5,
+            "min": 0.1,
+            "max": 2.0,
+            "step": 0.01,
+            "smoothingTime": 0.05
+          }
+        ]
+      }
+    }
+  },
+  "templates": {
+    "fragment_shader": "// demo\nvoid main(){ sdHexagon(vec2(u_px, u_py)); }"
+  }
+}

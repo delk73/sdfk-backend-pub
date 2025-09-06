@@ -1,0 +1,226 @@
+{
+  "$defs": {
+    "DeviceConfig": {
+      "properties": {
+        "options": {
+          "additionalProperties": {
+            "$ref": "#/$defs/DeviceOptionValue"
+          },
+          "description": "Device-specific configuration options",
+          "title": "Options",
+          "type": "object"
+        },
+        "type": {
+          "description": "Type of haptic device",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "options"
+      ],
+      "title": "DeviceConfig",
+      "type": "object"
+    },
+    "DeviceOptionValue": {
+      "properties": {
+        "unit": {
+          "description": "Unit of measurement for the option",
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "description": "Value of the device option",
+          "title": "Value",
+          "type": "number"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "title": "DeviceOptionValue",
+      "type": "object"
+    },
+    "HapticParameter": {
+      "properties": {
+        "default": {
+          "description": "Default value",
+          "title": "Default"
+        },
+        "max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Maximum allowed value",
+          "title": "Max"
+        },
+        "min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Minimum allowed value",
+          "title": "Min"
+        },
+        "name": {
+          "description": "Name of the parameter",
+          "title": "Name",
+          "type": "string"
+        },
+        "options": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Available options for enum types",
+          "title": "Options"
+        },
+        "parameter": {
+          "description": "The parameter",
+          "title": "Parameter",
+          "type": "string"
+        },
+        "path": {
+          "description": "Path to the parameter",
+          "title": "Path",
+          "type": "string"
+        },
+        "smoothingTime": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Smoothing time in seconds",
+          "title": "Smoothingtime"
+        },
+        "step": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Step increment value",
+          "title": "Step"
+        },
+        "type": {
+          "description": "Data type of the parameter",
+          "title": "Type",
+          "type": "string"
+        },
+        "unit": {
+          "description": "Unit of measurement",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "parameter",
+        "path",
+        "type",
+        "unit",
+        "default"
+      ],
+      "title": "HapticParameter",
+      "type": "object"
+    }
+  },
+  "$id": "https://schemas.synesthetic.dev/haptic.schema.json",
+  "properties": {
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Description of the haptic configuration",
+      "title": "Description"
+    },
+    "device": {
+      "$ref": "#/$defs/DeviceConfig",
+      "description": "Device configuration"
+    },
+    "haptic_id": {
+      "title": "Haptic Id",
+      "type": "integer"
+    },
+    "input_parameters": {
+      "description": "List of input parameters",
+      "items": {
+        "$ref": "#/$defs/HapticParameter"
+      },
+      "title": "Input Parameters",
+      "type": "array"
+    },
+    "meta_info": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Metadata about the haptic configuration",
+      "examples": [
+        {
+          "category": "haptic",
+          "complexity": "medium",
+          "tags": [
+            "vibration",
+            "feedback"
+          ]
+        }
+      ],
+      "title": "Meta Info"
+    },
+    "name": {
+      "description": "Name of the haptic configuration",
+      "title": "Name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "device",
+    "input_parameters",
+    "haptic_id"
+  ],
+  "title": "Haptic",
+  "type": "object"
+}

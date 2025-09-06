@@ -1,0 +1,259 @@
+{
+  "prompt": {
+    "title": "System Interrogation — synesthetic-schemas (SSOT Repo)",
+    "objective": "Produce a deterministic Markdown audit that verifies the synesthetic-schemas repository is a clean SSOT for schemas, examples, and codegen (Python + TypeScript), with stable versioning, normalization, and CI parity.",
+    "constraints": {
+      "style": "KISS, deterministic, minimal deps",
+      "python": "3.11",
+      "schema_draft": "2020-12",
+      "no_db_migrations": true,
+      "output": "Markdown only; write to meta/output/SSOT_AUDIT.md; do not print to stdout",
+      "shell": "POSIX; use existing repo scripts where possible; avoid network calls"
+    },
+    "repo": "https://github.com/delk73/synesthetic-schemas",
+    "inputs": {
+      "schemas": [
+        "jsonschema/.schema.json",
+        "jsonschema/**/.schema.json"
+      ],
+      "examples": [
+        "examples/.json",
+        "examples/**/.json"
+      ],
+      "version_json": "version.json",
+      "py_pkg_root": "python/src/synesthetic_schemas/",
+      "py_typed": "python/src/synesthetic_schemas/py.typed",
+      "ts_dist": "typescript/dist/.d.ts",
+      "makefile": "Makefile",
+      "preflight": "preflight.sh",
+      "codegen": [
+        "scripts/ensure_codegen_clean.sh",
+        "codegen/gen_ts.sh"
+      ],
+      "validators": [
+        "scripts/normalize_schemas.py",
+        "scripts/schema_lint.py",
+        "scripts/validate_examples.py"
+      ],
+      "docs": [
+        "README.md",
+        "CONTRIBUTING.md",
+        "docs/**/.md"
+      ],
+      "ci": [
+        ".github/workflows/.yml",
+        ".github/workflows/.yaml"
+      ],
+      "helpers": [
+        "scripts/lib/version.py",
+        "codegen/lib/version.mjs"
+      ]
+    },
+    "phases": [
+      {
+        "id": "A1",
+        "name": "Foundations (Versioning & Packaging)"
+      },
+      {
+        "id": "A2",
+        "name": "Validation & Normalization (Schemas + Examples)"
+      },
+      {
+        "id": "A3",
+        "name": "Deterministic Codegen & Drift Checks (TS/Python)"
+      },
+      {
+        "id": "A4",
+        "name": "Reference Hygiene & Naming Consistency"
+      },
+      {
+        "id": "A5",
+        "name": "CI & Preflight Parity"
+      }
+    ],
+    "work_items": [
+      {
+        "id": "C1",
+        "phase": "A1",
+        "summary": "Single-source version and helper alignment",
+        "audit": [
+          "Confirm version.json contains schemaVersion.",
+          "Verify Python/TS helpers read from version.json (no hard-coded duplicates)."
+        ],
+        "commands": [
+          "test -f version.json && jq -er '.schemaVersion' version.json >/dev/null",
+          "rg -n \"schemaVersion\" | grep -v \"version.json\" || true"
+        ],
+        "acceptance": [
+          "schemaVersion lives in version.json.",
+          "Any other occurrences are reads, not re-definitions (otherwise WARN)."
+        ]
+      },
+      {
+        "id": "C2",
+        "phase": "A1",
+        "summary": "Python package typing marker",
+        "audit": [
+          "Ensure py.typed exists for inline typing support."
+        ],
+        "commands": [
+          "test -f python/src/synesthetic_schemas/py.typed"
+        ],
+        "acceptance": [
+          "py.typed present at the package root."
+        ]
+      },
+      {
+        "id": "C3",
+        "phase": "A2",
+        "summary": "Schema structural integrity",
+        "audit": [
+          "Every schema has non-empty unique $id.",
+          "Every schema declares $schema as JSON Schema draft 2020-12."
+        ],
+        "commands": [
+          "poetry run python scripts/normalize_schemas.py --check",
+          "poetry run python scripts/schema_lint.py"
+        ],
+        "acceptance": [
+          "Linters pass; uniqueness of $id confirmed; correct draft declared."
+        ]
+      },
+      {
+        "id": "C4",
+        "phase": "A2",
+        "summary": "Examples linked and validated",
+        "audit": [
+          "All examples contain top-level $schemaRef pointing to a valid schema.",
+          "Examples validate strictly against their linked schema."
+        ],
+        "commands": [
+          "poetry run python scripts/validate_examples.py --strict --dir examples"
+        ],
+        "acceptance": [
+          "All examples validate with no failures (else FAIL with offending paths)."
+        ]
+      },
+      {
+        "id": "C5",
+        "phase": "A3",
+        "summary": "Deterministic codegen (no-drift) and artifacts present",
+        "audit": [
+          "TS/Python codegen produces zero diff on a clean tree.",
+          "TS .d.ts artifacts exist in typescript/dist/."
+        ],
+        "commands": [
+          "bash scripts/ensure_codegen_clean.sh",
+          "ls -1 typescript/dist/.d.ts"
+        ],
+        "acceptance": [
+          "Codegen check exits zero; dist d.ts files are present."
+        ]
+      },
+      {
+        "id": "C6",
+        "phase": "A4",
+        "summary": "Reference hygiene: internal vs external $ref usage",
+        "audit": [
+          "Detect mixed $ref styles (e.g., internal #/defs/... vs external defs/...).",
+          "Flag any cross-file $ref patterns not sanctioned by repo guidelines."
+        ],
+        "commands": [
+          "rg -n '\"\\$ref\"\\s*:\\s*\"#\\/defs\\/' jsonschema || true",
+          "rg -n '\"\\$ref\"\\s*:\\s*\"defs\\/' jsonschema || true",
+          "rg -n '\"\\$ref\"\\s*:\\s*\"#\\/definitions\\/' jsonschema || true"
+        ],
+        "acceptance": [
+          "Single, consistent $ref style (or WARN with explicit file list if mixed)."
+        ]
+      },
+      {
+        "id": "C7",
+        "phase": "A4",
+        "summary": "Naming & docs clarity",
+        "audit": [
+          "$defs keys use PascalCase.",
+          "Top-level title matches kebab-case filename stem.",
+          "Each $id ends with its filename.",
+          "README/CONTRIBUTING explain preflight + versioning."
+        ],
+        "commands": [
+          "rg -n '\"title\"\\s*:\\s*\"' jsonschema/.schema.json",
+          "rg -n '\"\\$id\"\\s*:\\s*\"' jsonschema/.schema.json",
+          "rg -n '\\| preflight|preflight\\.sh' README.md CONTRIBUTING.md || true"
+        ],
+        "acceptance": [
+          "Spot-check passes for titles/ids; contributor docs mention preflight + versioning."
+        ]
+      },
+      {
+        "id": "C8",
+        "phase": "A5",
+        "summary": "CI & preflight parity",
+        "audit": [
+          "CI runs the same preflight steps as local (normalize, lint, validate, codegen drift).",
+          "CI checks out submodules if any exist (future-proofing)."
+        ],
+        "commands": [
+          "rg -n 'preflight\\.sh' .github/workflows || true",
+          "rg -n 'submodules:\\srecursive' .github/workflows || true",
+          "rg -n 'git submodule update --init --recursive' .github/workflows || true"
+        ],
+        "acceptance": [
+          "CI references preflight or equivalent explicit steps; submodules handled if used."
+        ]
+      },
+      {
+        "id": "C9",
+        "phase": "A2",
+        "summary": "Canonical schema does not leak DB identifiers",
+        "audit": [
+          "Guardrails: canonical JSON Schemas should not define database IDs (e.g., *_id)."
+        ],
+        "commands": [
+          "rg -n '\"[a-zA-Z0-9_]_id\"\\s*:\\s*\\{' jsonschema || true"
+        ],
+        "acceptance": [
+          "No DB-specific *_id fields found (else WARN with explicit file list)."
+        ]
+      }
+    ],
+    "report_spec": {
+      "path": "meta/output/SSOT_AUDIT.md",
+      "structure": [
+        "Objective",
+        "Constraints",
+        "Inputs",
+        "Method (how checks were run)",
+        "Findings",
+        "Results by Check (C1–C9)",
+        "Summary: PASS/WARN/FAIL",
+        "Next Actions (ordered, minimal)"
+      ],
+      "scoring": {
+        "C1": "PASS|WARN|FAIL",
+        "C2": "PASS|WARN|FAIL",
+        "C3": "PASS|WARN|FAIL",
+        "C4": "PASS|WARN|FAIL",
+        "C5": "PASS|WARN|FAIL",
+        "C6": "PASS|WARN|FAIL",
+        "C7": "PASS|WARN|FAIL",
+        "C8": "PASS|WARN|FAIL",
+        "C9": "PASS|WARN|FAIL"
+      },
+      "rules": [
+        "Write only to meta/output/SSOT_AUDIT.md.",
+        "Do not print the report to stdout.",
+        "If a command is unavailable, mark the check WARN and continue.",
+        "Include explicit file lists for any WARN/FAIL."
+      ]
+    },
+    "done_definition": [
+      "Audit written to meta/output/SSOT_AUDIT.md with sections specified in report_spec.structure.",
+      "C3/C4 validators run and results summarized with explicit failing paths if any.",
+      "Codegen drift check (C5) executed; outcome recorded.",
+      "CI parity observation included (C8).",
+      "Clear, ordered next actions provided for any WARN/FAIL."
+    ]
+  }
+}

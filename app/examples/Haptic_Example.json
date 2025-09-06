@@ -1,0 +1,74 @@
+{
+  "name": "Pulse Wave Feedback",
+  "description": "A pulsing haptic feedback pattern with adjustable intensity, frequency, and wave characteristics",
+  "meta_info": {
+    "category": "haptic",
+    "tags": ["pulse", "vibration", "tactile", "dynamic"],
+    "complexity": "medium"
+  },
+  "device": {
+    "type": "generic",
+    "options": {
+      "maxIntensity": {"value": 1.0, "unit": "linear"},
+      "maxFrequency": {"value": 250.0, "unit": "Hz"},
+      "defaultDuration": {"value": 0.25, "unit": "s"}
+    }
+  },
+  "input_parameters": [
+    { "name": "Intensity",
+      "parameter": "haptic.intensity",
+      "path": "haptic.intensity",
+      "type": "float",
+      "unit": "linear",
+      "default": 0.7,
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "smoothingTime": 0.1
+    },
+    { "name": "Intensity",
+      "parameter": "haptic.frequency",
+      "path": "haptic.intensity",
+      "type": "float",
+      "unit": "Hz",
+      "default": 150.0,
+      "min": 20.0,
+      "max": 250.0,
+      "step": 1,
+      "smoothingTime": 0.1
+    },
+    { "name": "Intensity",
+      "parameter": "haptic.duration",
+      "path": "haptic.duration",
+      "type": "float",
+      "unit": "s",
+      "default": 0.25,
+      "min": 0.05,
+      "max": 0.5,
+      "step": 0.01,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Rate",
+      "parameter": "haptic.rate",
+      "path": "haptic.rate",
+      "type": "float",
+      "unit": "Hz",
+      "default": 2.0,
+      "min": 0.5,
+      "max": 10.0,
+      "step": 0.1,
+      "smoothingTime": 0.1
+    },
+    {
+      "name": "Wave Type",
+      "parameter": "haptic.wave",
+      "path": "haptic.wave",
+      "type": "string",
+      "unit": "linear",
+      "default": "sine",
+      "options": ["sine", "square", "triangle"],
+      "smoothingTime": 0
+    }
+  ]
+}

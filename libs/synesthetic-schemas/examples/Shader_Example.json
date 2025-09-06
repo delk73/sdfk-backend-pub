@@ -1,0 +1,71 @@
+{
+  "$schemaRef": "jsonschema/shader.schema.json",
+  "description": "A simple circle shader",
+  "fragment_shader": "uniform vec2 u_resolution; uniform float u_time; uniform float u_gridSize; uniform vec3 u_gridColor; uniform float u_radius; void main() { vec2 st = gl_FragCoord.xy/u_resolution.xy; st = st * 2.0 - 1.0; st.x *= u_resolution.x/u_resolution.y; float d = length(st) - u_radius; gl_FragColor = vec4(vec3(1.0 - smoothstep(0.0, 0.01, d)), 1.0); }",
+  "input_parameters": [
+    {
+      "default": 0.5,
+      "max": 1.0,
+      "min": 0.1,
+      "name": "radius",
+      "parameter": "u_radius",
+      "path": "u_radius",
+      "type": "float"
+    }
+  ],
+  "meta_info": {
+    "category": "visual",
+    "complexity": "low",
+    "tags": [
+      "circle",
+      "basic"
+    ]
+  },
+  "name": "Test Circle",
+  "uniforms": [
+    {
+      "default": 0.0,
+      "name": "u_time",
+      "stage": "fragment",
+      "type": "float"
+    },
+    {
+      "default": [
+        800,
+        600
+      ],
+      "name": "u_resolution",
+      "stage": "fragment",
+      "type": "vec2"
+    },
+    {
+      "default": "#1a1a1a",
+      "name": "u_backgroundColor",
+      "stage": "fragment",
+      "type": "vec3"
+    },
+    {
+      "default": 0.0,
+      "name": "u_gridSize",
+      "stage": "fragment",
+      "type": "float"
+    },
+    {
+      "default": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "name": "u_gridColor",
+      "stage": "fragment",
+      "type": "vec3"
+    },
+    {
+      "default": 0.5,
+      "name": "u_radius",
+      "stage": "fragment",
+      "type": "float"
+    }
+  ],
+  "vertex_shader": "void main() { gl_Position = vec4(position, 1.0); }"
+}

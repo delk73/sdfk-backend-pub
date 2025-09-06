@@ -1,0 +1,79 @@
+services:
+  web:
+    build: .
+    network_mode: "host"  # Use host networking to access Ollama
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@localhost:5432/sdfk
+      - JWT_SECRET=your-secret-key-here
+      - OLLAMA_API_URL=http://127.0.0.1:11434
+      - REDIS_URL=redis://localhost:6379
+      - VECTOR_DB_URL=postgresql://postgres:postgres@localhost:5432/sdfk
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: ankane/pgvector:latest
+    network_mode: "host"  # Use host networking
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sdfk
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -h localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  redis:
+    image: redis:7-alpine
+    network_mode: "host"
+    command: >
+      redis-server 
+      --save 60 1 
+      --loglevel warning
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --appendonly yes
+    ulimits:
+      memlock: -1
+    volumes:
+      - ./data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  trainer:
+    build: .
+    network_mode: "host"
+    command: ["python", "-m", "lab.trainer.export", "--output", "/data/dataset.jsonl"]
+    volumes:
+      - ./data/trainer:/data
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@localhost:5432/sdfk
+    depends_on:
+      db:
+        condition: service_healthy
+
+  rlhf_worker:
+    build: .
+    network_mode: "host"
+    command: ["python", "-m", "lab.trainer.rlhf_worker"]
+    volumes:
+      - ./data/trainer:/data
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@localhost:5432/sdfk
+    depends_on:
+      db:
+        condition: service_healthy

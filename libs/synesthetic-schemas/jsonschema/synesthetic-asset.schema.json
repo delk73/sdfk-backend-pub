@@ -1,0 +1,162 @@
+{
+  "$id": "https://schemas.synesthetic.dev/0.7.3/synesthetic-asset.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "control": {
+      "anyOf": [
+        {
+          "$ref": "https://schemas.synesthetic.dev/0.7.3/control-bundle.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "created_at": {
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Description of the asset's purpose",
+      "examples": [
+        "A circle that pulses and changes color and sound frequency based on user controls"
+      ],
+      "title": "Description"
+    },
+    "haptic": {
+      "anyOf": [
+        {
+          "$ref": "https://schemas.synesthetic.dev/0.7.3/haptic.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "meta_info": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Metadata about the asset",
+      "examples": [
+        {
+          "category": "visual",
+          "complexity": "medium",
+          "tags": [
+            "geometric",
+            "reactive",
+            "audio"
+          ]
+        }
+      ],
+      "title": "Meta Info"
+    },
+    "modulation": {
+      "anyOf": [
+        {
+          "$ref": "modulation.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "modulations": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "modulation.schema.json#/$defs/ModulationItem"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Array of modulations for this asset",
+      "examples": [
+        {
+          "amplitude": 0.5,
+          "frequency": 0.5,
+          "id": "wave_speed_pulse",
+          "max": 1,
+          "min": 0,
+          "offset": 1,
+          "phase": 0,
+          "scale": 1,
+          "scaleProfile": "linear",
+          "target": "visual.u_wave_speed",
+          "type": "additive",
+          "waveform": "triangle"
+        }
+      ],
+      "title": "Modulations"
+    },
+    "name": {
+      "description": "Name of the synesthetic asset",
+      "examples": [
+        "Circle Pulsar"
+      ],
+      "minLength": 1,
+      "title": "Name",
+      "type": "string"
+    },
+    "rule_bundle": {
+      "$ref": "https://schemas.synesthetic.dev/0.7.3/rule-bundle.schema.json"
+    },
+    "shader": {
+      "anyOf": [
+        {
+          "$ref": "https://schemas.synesthetic.dev/0.7.3/shader.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "tone": {
+      "anyOf": [
+        {
+          "$ref": "https://schemas.synesthetic.dev/0.7.3/tone.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "updated_at": {
+      "format": "date-time",
+      "readOnly": true,
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "title": "synesthetic-asset",
+  "type": "object",
+  "x-schema-version": "0.7.3"
+}

@@ -1,0 +1,89 @@
+{
+  "name": "SDF Grid Rules",
+  "description": "A rule that maps interactions on a virtual grid to multimodal outputs by defining channels that link grid pressure to parameter changes.",
+  "meta_info": {
+    "category": "rule_bundle",
+    "tags": [
+      "grid",
+      "interaction",
+      "multimodal",
+      "mapping",
+      "client-side"
+    ],
+    "complexity": "high"
+  },
+  "rules": [
+    {
+      "id": "grid_to_multimodal_mapping",
+      "trigger": {
+        "type": "grid_cell",
+        "params": {
+          "gridSize": 8,
+          "cooldown": 100
+        }
+      },
+      "execution": "client",
+      "effects": [
+        {
+          "channel": "audioTrigger",
+          "target": "tone.synth",
+          "op": "triggerAttackRelease",
+          "value": {
+            "note": "<grid.note>",
+            "duration": "8n",
+            "velocity": {
+              "source": "grid.pressure",
+              "scale": 1.0,
+              "curve": "linear",
+              "threshold": 0.02,
+              "cell_overrides": [
+                {
+                  "coord": [0, 0],
+                  "threshold": 0.05,
+                  "scale": 2.0
+                },
+                {
+                  "coord": [3, 2],
+                  "curve": "exp"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "channel": "hapticPulse",
+          "target": "haptic.intensity",
+          "op": "set",
+          "value": {
+            "source": "grid.pressure",
+            "scale": 1.0,
+            "curve": "exp",
+            "threshold": 0.02,
+            "cell_overrides": [
+              {
+                "coord": [3, 2],
+                "curve": "linear"
+              }
+            ]
+          }
+        },
+        {
+          "channel": "visualNudge",
+          "target": "shader.u_r",
+          "op": "add_pulse",
+          "value": {
+            "source": "grid.pressure",
+            "scale": 0.1,
+            "curve": "sigmoid",
+            "threshold": 0.02
+          }
+        }
+      ]
+    }
+  ],
+  "fragment_shader": "uniform vec2 u_resolution; uniform float u_time; void main() { vec2 st = gl_FragCoord.xy/u_resolution.xy; st = st * 2.0 - 1.0; float grid = abs(st.x) - 0.1; grid = max(grid, abs(st.y) - 0.1); float color = 1.0 - smoothstep(0.0, 0.01, grid); gl_FragColor = vec4(color, color, color, 1.0); }",
+  "input_parameters": [
+    { "name": "u_resolution", "type": "vec2", "stage": "fragment", "default": [800.0, 600.0] },
+    { "name": "u_time", "type": "float", "stage": "fragment", "default": 0.0 }
+  ]
+}

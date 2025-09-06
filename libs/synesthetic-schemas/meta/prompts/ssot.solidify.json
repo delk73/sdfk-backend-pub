@@ -1,0 +1,92 @@
+{
+  "objective": "Remediate audit findings (C5 FAIL, C6 WARN) to solidify SSOT determinism: enforce drift guard in codegen and remove dual-class naming hedges while maintaining CI/local parity.",
+  "constraints": {
+    "style": "KISS, deterministic, minimal deps",
+    "python": "3.11",
+    "schema_draft": "2020-12",
+    "no_db_migrations": true
+  },
+  "phases": [
+    {
+      "id": "P3",
+      "name": "Deterministic Codegen & CI"
+    },
+    {
+      "id": "P4",
+      "name": "Naming/Schema Hygiene & Docs"
+    }
+  ],
+  "work_items": [
+    {
+      "id": "R1",
+      "phase": "P3",
+      "summary": "Fix codegen drift guard to fail on real diffs",
+      "deps": [],
+      "touches": [
+        "scripts/ensure_codegen_clean.sh"
+      ],
+      "changes": {
+        "ensure_codegen_clean.sh": [
+          "Modify the 'git diff' command on line 11 to include '--exit-code'. The command will correctly exit with a non-zero status code if there are uncommitted changes in the codegen directories.",
+          "Example update from 'git diff -I ...' to 'git diff --exit-code -I ...'."
+        ]
+      },
+      "acceptance": [
+        "On a clean tree after codegen, the script exits 0.",
+        "With uncommitted generated changes, the script exits with a non-zero code.",
+        "CI preflight continues to call this script and correctly fails on drift."
+      ],
+      "commands": [
+        "bash scripts/ensure_codegen_clean.sh",
+        "make codegen-check"
+      ]
+    },
+    {
+      "id": "R2",
+      "phase": "P4",
+      "summary": "Canonicalize names and remove dual-class hedging",
+      "deps": [
+        "R1"
+      ],
+      "touches": [
+        "scripts/validate_examples.py",
+        "jsonschema/rule-bundle.schema.json"
+      ],
+      "changes": {
+        "decision": "Standardize on canonical names (e.g., 'RuleBundle', 'ControlBundle', 'Control') and remove alternate forms like '*Schema' and 'ControlParameter' from logic and titles.",
+        "validate_examples.py": [
+          "Update the regular expressions or string comparisons on lines 49, 57, 64, 65, 70 to remove the '|' alternates (e.g., change 'RuleBundle|RuleBundleSchema' to just 'RuleBundle')."
+        ],
+        "schemas": [
+          "In 'jsonschema/rule-bundle.schema.json', change the 'title' on line 224 from 'RuleBundleSchema' to 'RuleBundle' to match the convention."
+        ],
+        "docs": [
+          "Consider adding a note to CONTRIBUTING.md documenting the standard naming convention to prevent future drift."
+        ]
+      },
+      "acceptance": [
+        "`rg -n \"RuleBundleSchema|ControlParameter|ControlBundleSchema\"` returns no matches in the specified code paths.",
+        "The example validation script passes after the changes: `python scripts/validate_examples.py`.",
+        "`./preflight.sh` passes locally and in CI after changes are committed."
+      ],
+      "commands": [
+        "rg -n 'RuleBundleSchema|ControlParameter|ControlBundleSchema'",
+        "python scripts/validate_examples.py",
+        "./preflight.sh"
+      ]
+    }
+  ],
+  "parallelization": {
+    "P3": [
+      "R1"
+    ],
+    "P4": [
+      "R2"
+    ]
+  },
+  "done_definition": [
+    "scripts/ensure_codegen_clean.sh uses '--exit-code' and fails correctly on drift.",
+    "No dual-class naming hedges remain in the codebase.",
+    "Preflight passes locally and in CI, confirming all changes are integrated and clean."
+  ]
+}

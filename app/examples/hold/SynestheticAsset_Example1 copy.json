@@ -1,0 +1,677 @@
+{
+  "name": "Circle Harmony2",
+  "description": "A circular pattern that pulses with polyphonic audio sequences, enriched with effects, and synchronized haptic feedback",
+  "meta_info": {
+    "category": "multimodal",
+    "tags": [
+      "circle",
+      "sdf",
+      "audio",
+      "interactive",
+      "haptic",
+      "polyphonic"
+    ],
+    "complexity": "medium"
+  },
+  "shader": {
+    "name": "CircleSDF",
+    "vertex_shader": "void main() { gl_Position = vec4(position, 1.0); }",
+    "fragment_shader": "uniform vec2 u_resolution; uniform float u_time; uniform vec3 u_backgroundColor; uniform float u_gridSize; uniform vec3 u_gridColor; uniform float u_px; uniform float u_py; uniform float u_r; float circleSDF(vec2 p, float r) { return length(p) - r; } void main() { vec2 st = gl_FragCoord.xy / u_resolution.xy; st = st * 2.0 - 1.0; st.x *= u_resolution.x / u_resolution.y; vec3 color = u_backgroundColor; if (u_gridSize > 0.0) {  vec2 grid = fract(st * u_resolution.xy / u_gridSize); float lineWidth = max(1.0, u_gridSize * 0.05) / u_gridSize; if (grid.x < lineWidth || grid.y < lineWidth) { color = mix(color, u_gridColor, 0.3); } } vec2 p = st - vec2(u_px, u_py); float d = circleSDF(p, u_r); vec3 circleColor = vec3(1.0 - smoothstep(-0.05, 0.05, d)); circleColor *= mix(vec3(0.3, 0.7, 1.0), vec3(1.0, 0.4, 0.6), sin(u_time + d * 10.0) * 0.5 + 0.5); color = mix(color, circleColor, circleColor.r); gl_FragColor = vec4(color, 1.0); } ",
+    "uniforms": [
+      {
+        "name": "u_time",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_resolution",
+        "type": "vec2",
+        "stage": "fragment",
+        "default": [
+          800.0,
+          600.0
+        ]
+      },
+      {
+        "name": "u_backgroundColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": "#1a1a1a"
+      },
+      {
+        "name": "u_gridSize",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_gridColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": [
+          0.9,
+          0.9,
+          0.9
+        ]
+      },
+      {
+        "name": "u_px",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_py",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_r",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.5
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "positionX",
+        "parameter": "u_px",
+        "path": "u_px",
+        "type": "float",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "positionY",
+        "parameter": "u_py",
+        "path": "u_py",
+        "type": "float",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "radius",
+        "parameter": "u_r",
+        "path": "u_r",
+        "type": "float",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "tone": {
+    "name": "Dreamy Pluck",
+    "description": "A polyphonic, ambient pluck sound with a warm texture and spatial effects",
+    "meta_info": {
+      "category": "tone",
+      "tags": [
+        "ambient",
+        "pluck",
+        "warm",
+        "polyphonic"
+      ],
+      "complexity": "medium"
+    },
+    "synth": {
+      "type": "Tone.PolySynth",
+      "polyphony": 4,
+      "volume": -10,
+      "voice": {
+        "type": "Tone.MonoSynth",
+        "options": {
+          "portamento": 0.02,
+          "oscillator": {
+            "type": "square",
+            "detune": 5,
+            "partials": 3
+          },
+          "envelope": {
+            "attack": 0.05,
+            "decay": 0.3,
+            "sustain": 0.2,
+            "release": 1.2,
+            "attackCurve": "exponential"
+          },
+          "filter": {
+            "Q": 2,
+            "type": "lowpass",
+            "frequency": 1200
+          },
+          "filterEnvelope": {
+            "attack": 0.1,
+            "decay": 0.5,
+            "sustain": 0.3,
+            "release": 1.0,
+            "baseFrequency": 1200,
+            "octaves": 2
+          }
+        }
+      }
+    },
+    "effects": [
+      {
+        "type": "Tone.Reverb",
+        "options": {
+          "decay": 1.5,
+          "preDelay": 0.05,
+          "wet": 0.3
+        },
+        "order": 0
+      },
+      {
+        "type": "Tone.PingPongDelay",
+        "options": {
+          "delayTime": "8n",
+          "feedback": 0.4,
+          "wet": 0.2
+        },
+        "order": 1
+      },
+      {
+        "type": "Tone.FeedbackDelay",
+        "options": {
+          "delayTime": "4n",
+          "feedback": 0.6,
+          "wet": 0.4,
+          "maxDelay": 1.0
+        },
+        "order": 2
+      },
+      {
+        "type": "Tone.Chorus",
+        "options": {
+          "frequency": 1.5,
+          "delayTime": 3.5,
+          "depth": 0.6,
+          "spread": 180,
+          "wet": 0.3
+        },
+        "order": 3
+      }
+    ],
+    "patterns": [
+      {
+        "id": "main_harmony",
+        "type": "Tone.Pattern",
+        "options": {
+          "pattern": "down",
+          "values": [
+            "C4",
+            "E4",
+            "G4",
+            "A3",
+            "F3"
+          ],
+          "interval": "8n",
+          "probability": 0.5,
+          "velocity": 0.7,
+          "duration": "8n"
+        }
+      }
+    ],
+    "parts": [
+      {
+        "id": "loop",
+        "pattern": "main_harmony",
+        "start": "0:0:0",
+        "duration": "12m",
+        "loop": false
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "Oscillator Detune",
+        "parameter": "oscillator.detune",
+        "path": "tone.oscillator.detune",
+        "type": "float",
+        "unit": "cents",
+        "default": 5,
+        "min": -100,
+        "max": 100,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Volume",
+        "parameter": "volume",
+        "path": "audio.volume",
+        "type": "float",
+        "unit": "dB",
+        "default": -10,
+        "min": -60,
+        "max": 1,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Attack",
+        "parameter": "envelope.attack",
+        "path": "tone.envelope.attack",
+        "type": "float",
+        "unit": "s",
+        "default": 0.05,
+        "min": 0.01,
+        "max": 2.0,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Reverb Wet",
+        "parameter": "effects.0.wet",
+        "path": "tone.effects.0.wet",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.3,
+        "min": 0.0,
+        "max": 1.0,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Ping Pong Delay Time",
+        "parameter": "effects.1.delayTime",
+        "path": "tone.effects.1.delayTime",
+        "type": "string",
+        "unit": "time",
+        "default": "8n",
+        "options": [
+          "16n",
+          "8n",
+          "4n",
+          "2n"
+        ],
+        "smoothingTime": 0
+      },
+      {
+        "name": "Feedback Delay Wet",
+        "parameter": "effects.2.wet",
+        "path": "tone.effects.2.wet",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.4,
+        "min": 0.0,
+        "max": 1.0,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Chorus Wet",
+        "parameter": "effects.3.wet",
+        "path": "tone.effects.3.wet",
+        "type": "float",
+        "unit": "normalRange",
+        "default": 0.3,
+        "min": 0.0,
+        "max": 1.0,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "haptic": {
+    "name": "Circle Feedback",
+    "description": "Haptic feedback tied to circle properties and audio rhythm",
+    "meta_info": {
+      "category": "haptic",
+      "tags": [
+        "pulse",
+        "vibration",
+        "rhythmic"
+      ],
+      "complexity": "medium"
+    },
+    "device": {
+      "type": "generic",
+      "options": {
+        "maxIntensity": {
+          "value": 1.0,
+          "unit": "linear"
+        },
+        "maxFrequency": {
+          "value": 250.0,
+          "unit": "Hz"
+        }
+      }
+    },
+    "input_parameters": [
+      {
+        "name": "Intensity",
+        "parameter": "haptic.intensity",
+        "path": "haptic.intensity",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.7,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      },
+      {
+        "name": "Frequency",
+        "parameter": "haptic.frequency",
+        "path": "haptic.frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 150.0,
+        "min": 10.0,
+        "max": 250.0,
+        "step": 1,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "control": {
+    "name": "Circle Harmony Controls",
+    "description": "Interactive controls for manipulating circle visuals, audio synthesis, and haptic feedback",
+    "meta_info": {
+      "category": "control",
+      "tags": [
+        "interactive",
+        "multimodal",
+        "visual",
+        "audio",
+        "haptic"
+      ],
+      "complexity": "medium"
+    },
+    "control_parameters": [
+      {
+        "parameter": "shader.u_px",
+        "label": "Position X",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_py",
+        "label": "Position Y",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.0,
+        "min": -1.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.001, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_r",
+        "label": "Radius",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.01, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "shader.u_r",
+        "label": "Radius",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.5,
+        "min": 0.1,
+        "max": 2.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "wheel": true,
+              "keys": [
+                "Shift"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.wheel",
+              "sensitivity": 0.01, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "haptic.intensity",
+        "label": "Vibration Intensity",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.7,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "keys": [
+                "Ctrl",
+                "Alt"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.y",
+              "sensitivity": -0.01, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      },
+      {
+        "parameter": "haptic.frequency",
+        "label": "Vibration Frequency",
+        "type": "float",
+        "unit": "Hz",
+        "default": 150.0,
+        "min": 10.0,
+        "max": 250.0,
+        "step": 1.0,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "right"
+              ],
+              "keys": [
+                "Ctrl"
+              ],
+              "strict": true
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.5, "scale": 1.0,
+              "curve": "exponential"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "rule_bundle": {
+    "name": "SDF Grid",
+    "type": "sdfGrid",
+    "gridSize": 8,
+    "cooldown": 100,
+    "channels": [
+      "audioTrigger",
+      "hapticPulse",
+      "visualNudge",
+      "visualHue"
+    ],
+    "threshold": [
+      0.02,
+      0.02,
+      0.02,
+      0.02
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "curve": [
+      "linear",
+      "exp",
+      "sigmoid",
+      "linear"
+    ],
+    "groups": {
+      "audioTrigger": {
+        "parameter": "audio.poly.trigger",
+        "duration": "8n"
+      },
+      "hapticPulse": {
+        "parameter": "haptic.intensity"
+      },
+      "visualNudge": {
+        "parameter": "shader.u_r",
+        "offset": 0.1
+      }
+    },
+    "cells": [
+      {
+        "coord": [
+          0,
+          0
+        ],
+        "threshold": [
+          0.05,
+          null,
+          null,
+          null
+        ],
+        "scale": [
+          2.0,
+          null,
+          null,
+          null
+        ]
+      },
+      {
+        "coord": [
+          3,
+          2
+        ],
+        "channels": [
+          "audioTrigger",
+          "hapticPulse",
+          "visualNudge",
+          "visualHue"
+        ],
+        "curve": [
+          "exp",
+          "linear",
+          null,
+          null
+        ]
+      }
+    ]
+  },
+  "modulations": [
+    {
+      "id": "radius_pulse",
+      "target": "shader.u_r",
+      "type": "additive",
+      "waveform": "triangle",
+      "frequency": 0.05,
+      "amplitude": 0.1,
+      "offset": 0.5,
+      "phase": 0.0,
+      "scale": 0.001,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "reverb_wet",
+      "target": "tone.effects.0.wet",
+      "type": "additive",
+      "waveform": "triangle",
+      "frequency": 0.25,
+      "amplitude": 0.5,
+      "offset": 0.0,
+      "phase": 0.0,
+      "scale": 0.1,
+      "scaleProfile": "exponential",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "haptic_pulse",
+      "target": "haptic.intensity",
+      "type": "additive",
+      "waveform": "sine",
+      "frequency": 1.0,
+      "amplitude": 0.2,
+      "offset": 0.7,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    }
+  ]
+}

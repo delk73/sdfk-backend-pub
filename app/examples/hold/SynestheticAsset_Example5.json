@@ -1,0 +1,251 @@
+{
+  "name": "Signal Weave",
+  "description": "A cross-domain field of recursive perception\u2014driven by constraint, tuned by emergence, rendered in continuous feedback.",
+  "meta_info": {
+    "category": "multimodal",
+    "tags": [
+      "signal",
+      "resonance",
+      "recursive",
+      "synesthetic",
+      "collaboration"
+    ],
+    "complexity": "high"
+  },
+  "shader": {
+    "name": "SignalWeaveSDF",
+    "vertex_shader": "void main() { gl_Position = vec4(position, 1.0); }",
+    "fragment_shader": "uniform vec2 u_resolution; uniform float u_time; float field(vec2 p) { return sin(p.x * 10.0 + u_time) * cos(p.y * 10.0 + u_time); } void main() { vec2 st = gl_FragCoord.xy / u_resolution.xy; st = st * 2.0 - 1.0; float d = field(st); vec3 color = vec3(0.5 + 0.5 * sin(u_time + d * 10.0), 0.3, 0.8 - d); gl_FragColor = vec4(color, 1.0); }",
+    "uniforms": [
+      {
+        "name": "u_time",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_resolution",
+        "type": "vec2",
+        "stage": "fragment",
+        "default": [
+          800.0,
+          600.0
+        ]
+      },
+      {
+        "name": "u_backgroundColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": "#1a1a1a"
+      },
+      {
+        "name": "u_gridSize",
+        "type": "float",
+        "stage": "fragment",
+        "default": 0.0
+      },
+      {
+        "name": "u_gridColor",
+        "type": "vec3",
+        "stage": "fragment",
+        "default": [
+          0.9,
+          0.9,
+          0.9
+        ]
+      }
+    ],
+    "input_parameters": [
+      {
+        "name": "Waveform Complexity",
+        "parameter": "u_wave_complexity",
+        "path": "shader.u_wave_complexity",
+        "type": "float",
+        "default": 1.0,
+        "min": 0.1,
+        "max": 10.0,
+        "step": 0.1,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "tone": {
+    "name": "Perceptual Thread",
+    "description": "A slow-evolving pad that pulses in harmony with visual and haptic signal fields.",
+    "meta_info": {
+      "category": "tone",
+      "tags": [
+        "ambient",
+        "drone",
+        "feedback",
+        "emergent"
+      ],
+      "complexity": "medium"
+    },
+    "synth": {
+      "type": "Tone.PolySynth",
+      "polyphony": 3,
+      "volume": -8,
+      "voice": {
+        "type": "Tone.AMSynth",
+        "options": {
+          "modulationType": "sine",
+          "harmonicity": 1.5,
+          "envelope": {
+            "attack": 0.8,
+            "decay": 0.2,
+            "sustain": 0.6,
+            "release": 1.2
+          }
+        }
+      }
+    },
+    "effects": [
+      {
+        "type": "Tone.FeedbackDelay",
+        "options": {
+          "delayTime": "4n",
+          "feedback": 0.6,
+          "wet": 0.25
+        },
+        "order": 0
+      },
+      {
+        "type": "Tone.Reverb",
+        "options": {
+          "decay": 3.5,
+          "wet": 0.4
+        },
+        "order": 1
+      }
+    ],
+    "patterns": [],
+    "parts": [],
+    "input_parameters": [
+      {
+        "name": "Harmonicity",
+        "parameter": "harmonicity",
+        "path": "tone.synth.voice.options.harmonicity",
+        "type": "float",
+        "unit": "ratio",
+        "default": 1.5,
+        "min": 0.5,
+        "max": 5.0,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "haptic": {
+    "name": "Resonant Tension",
+    "description": "A pulse-based feedback field that mimics internal rhythm and symbolic loop sync.",
+    "meta_info": {
+      "category": "haptic",
+      "tags": [
+        "pulse",
+        "symbolic",
+        "sync",
+        "gradient"
+      ],
+      "complexity": "medium"
+    },
+    "device": {
+      "type": "generic",
+      "options": {
+        "maxIntensity": {
+          "value": 1.0,
+          "unit": "linear"
+        },
+        "maxFrequency": {
+          "value": 200.0,
+          "unit": "Hz"
+        }
+      }
+    },
+    "input_parameters": [
+      {
+        "name": "Pulse Depth",
+        "parameter": "haptic.depth",
+        "path": "haptic.depth",
+        "type": "float",
+        "unit": "linear",
+        "default": 0.6,
+        "min": 0.0,
+        "max": 1.0,
+        "step": 0.01,
+        "smoothingTime": 0.1
+      }
+    ]
+  },
+  "modulations": [
+    {
+      "id": "haptic_from_visual",
+      "target": "haptic.depth",
+      "type": "additive",
+      "source": "shader",
+      "waveform": "sine",
+      "frequency": 1.0,
+      "amplitude": 0.3,
+      "offset": 0.6,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    },
+    {
+      "id": "audio_harmonicity",
+      "target": "tone.synth.voice.options.harmonicity",
+      "type": "additive",
+      "source": "shader",
+      "waveform": "triangle",
+      "frequency": 0.2,
+      "amplitude": 1.0,
+      "offset": 1.5,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "min": 0.0,
+      "max": 1.0
+    }
+  ],
+  "control": {
+    "name": "Signal Weave Controls",
+    "description": "Minimal control mappings to enable full system activation",
+    "meta_info": {
+      "category": "control",
+      "tags": [
+        "modulation",
+        "multimodal",
+        "sync"
+      ],
+      "complexity": "low"
+    },
+    "control_parameters": [
+      {
+        "parameter": "shader.u_wave_complexity",
+        "label": "Waveform Complexity",
+        "type": "float",
+        "unit": "linear",
+        "default": 1.0,
+        "min": 0.1,
+        "max": 10.0,
+        "step": 0.1,
+        "smoothingTime": 0.1,
+        "mappings": [
+          {
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ]
+            },
+            "action": {
+              "axis": "mouse.x",
+              "sensitivity": 0.01, "scale": 1.0,
+              "curve": "linear"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "blessed_index_path": "meta/output/BLESSED_EXAMPLES.json",
+  "draft_emitted": false,
+  "duplicates": {
+    "Iterative Harmony": [
+      "examples/SynestheticAsset_Example2.json",
+      "examples/SynestheticAsset_Example9.json"
+    ]
+  },
+  "files": {},
+  "schema_path": "jsonschema/synesthetic-asset.schema.json",
+  "spec_status": "PRESENT",
+  "totals": {
+    "duplicates": 2,
+    "files_total": 9,
+    "invalid": 0,
+    "valid": 9
+  }
+}

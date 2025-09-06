@@ -1,0 +1,171 @@
+{
+  "objective": "Audit the backend service to produce a deterministic Markdown report confirming robust integration with the 'synesthetic-schemas' repository, covering versioning, validation, persistence, and operational best practices.",
+  "constraints": {
+    "style": "KISS, deterministic, minimal deps",
+    "target_repo": "synesthetic-schemas",
+    "consumer_framework": "FastAPI",
+    "output": "Markdown only; write to meta/schemas_integration_audit.md; do not print to stdout"
+  },
+  "inputs": {
+    "poetry_lock": "poetry.lock",
+    "pyproject_toml": "pyproject.toml",
+    "main_app_file": "src/app/main.py",
+    "api_routers": "src/app/api/v1/*.py",
+    "db_models": "src/app/db/models.py",
+    "alembic_config": "alembic.ini",
+    "alembic_migrations": "src/alembic/versions/*.py",
+    "ci_workflow": ".github/workflows/ci.yml",
+    "deploy_workflow": ".github/workflows/deploy.yml"
+  },
+  "phases": [
+    {
+      "id": "B1",
+      "name": "Package & Versioning"
+    },
+    {
+      "id": "B2",
+      "name": "Model Import & Validation"
+    },
+    {
+      "id": "B3",
+      "name": "API & Middleware Integration"
+    },
+    {
+      "id": "B4",
+      "name": "Database & Persistence"
+    },
+    {
+      "id": "B5",
+      "name": "CI & Operational Hygiene"
+    }
+  ],
+  "work_items": [
+    {
+      "id": "D1",
+      "phase": "B1",
+      "summary": "Pinned schema dependency",
+      "audit": [
+        "Confirm 'synesthetic-schemas' is a dependency in `pyproject.toml`.",
+        "Verify the dependency is pinned to a specific, immutable git tag/commit (VCS) or a fixed version (PyPI)."
+      ],
+      "acceptance": [
+        "The backend has a deterministic dependency on a single version of the schemas, preventing silent updates."
+      ],
+      "commands": [
+        "grep 'synesthetic-schemas' pyproject.toml"
+      ]
+    },
+    {
+      "id": "D2",
+      "phase": "B1",
+      "summary": "Runtime schema version enforcement",
+      "audit": [
+        "Confirm the service loads the `version.json` from the schemas package on startup.",
+        "Verify that incoming API requests are checked for a matching `x-schema-version` header or payload key.",
+        "Confirm that mismatched versions result in a client error (e.g., 409 Conflict or 422 Unprocessable Entity)."
+      ],
+      "acceptance": [
+        "The service is protected against processing payloads that don't match its compiled schema version."
+      ],
+      "commands": [
+        "rg 'version.json|x-schema-version' src/app/"
+      ]
+    },
+    {
+      "id": "D3",
+      "phase": "B2",
+      "summary": "Correct model validation",
+      "audit": [
+        "Verify Pydantic models are imported directly from the `synesthetic_schemas` package.",
+        "Confirm that validation is performed using Pydantic's `model_validate()` or FastAPI's model binding.",
+        "Check that any transport-only metadata (like `$schemaRef`) is stripped from the payload *before* validation and persistence."
+      ],
+      "acceptance": [
+        "Payloads are validated against the canonical Pydantic models from the source of truth.",
+        "Only the canonical document, not transport metadata, is processed by business logic."
+      ],
+      "commands": [
+        "rg 'from synesthetic_schemas import' src/app/api/",
+        "rg '\\$schemaRef' src/app/"
+      ]
+    },
+    {
+      "id": "D4",
+      "phase": "B3",
+      "summary": "FastAPI integration",
+      "audit": [
+        "Confirm API endpoints use the imported schema models in type hints for request bodies (e.g., `asset: SynestheticAsset`).",
+        "Verify endpoints use `response_model` to ensure consistent output shapes and OpenAPI documentation.",
+        "Check for a middleware or dependency that handles cross-cutting concerns (version checks, metadata stripping)."
+      ],
+      "acceptance": [
+        "FastAPI leverages the schemas for automatic request validation, response serialization, and OpenAPI spec generation."
+      ],
+      "commands": [
+        "rg 'response_model\\s*=' src/app/api/",
+        "rg 'app\\.add_middleware' src/app/main.py"
+      ]
+    },
+    {
+      "id": "D5",
+      "phase": "B4",
+      "summary": "Database schema management strategy",
+      "audit": [
+        "Verify a declarative method (`Base.metadata.create_all`) is available for fast setup in development and testing environments.",
+        "Verify an incremental migration system (Alembic) is configured for managing schema changes in production.",
+        "Confirm the production deployment process exclusively uses migrations (`alembic upgrade head`) and NEVER the declarative `create_all` method.",
+        "Check Alembic migrations for the creation of the core table(s) with a `JSONB` column and appropriate envelope fields (`id`, `created_at`)."
+      ],
+      "acceptance": [
+        "The project supports a fast, declarative setup for ephemeral environments (dev, test, CI).",
+        "All schema changes intended for stateful environments (staging, production) are managed through versioned, non-destructive Alembic migrations."
+      ],
+      "commands": [
+        "rg 'create_all' src/app/",
+        "test -f alembic.ini",
+        "grep 'alembic upgrade head' .github/workflows/deploy.yml"
+      ]
+    },
+    {
+      "id": "D6",
+      "phase": "B5",
+      "summary": "CI compatibility gate",
+      "audit": [
+        "Verify the backend's CI workflow does *not* regenerate models and instead installs them via the package manager.",
+        "Check for a dedicated 'schema compatibility check' step in the CI pipeline.",
+        "This step should, at minimum, import the models and validate a known-good example payload to catch packaging or major breaking changes."
+      ],
+      "acceptance": [
+        "The backend CI pipeline can fail early if a proposed schema version bump is incompatible, preventing runtime errors in production."
+      ],
+      "commands": [
+        "grep 'synesthetic-schemas' .github/workflows/ci.yml"
+      ]
+    },
+    {
+      "id": "D7",
+      "phase": "B5",
+      "summary": "Operational safety",
+      "audit": [
+        "Check for enforcement of limits on large, user-provided fields (e.g., GLSL code strings) to prevent abuse.",
+        "Verify that schema versions and types are included in structured logs, especially for validation errors.",
+        "Confirm that validator objects (like a `jsonschema.Validator`) are initialized once at the module level to optimize performance."
+      ],
+      "acceptance": [
+        "The service is hardened against oversized payloads and provides good observability for debugging client-side data issues."
+      ],
+      "commands": [
+        "rg -i 'maxlen|max_length|payload_size' src/app/",
+        "rg -i 'logger.*extra=.*schema_version' src/app/"
+      ]
+    }
+  ],
+  "done_definition": [
+    "The audit report is generated at `meta/output/schemas_integration_audit.md`.",
+    "The backend is pinned to a specific, immutable version of the schema package.",
+    "All API ingress points validate incoming data against the correct schema version and models.",
+    "The persistence layer correctly stores the canonical document in a `JSONB` column.",
+    "The CI pipeline includes a dedicated check to ensure compatibility with the pinned schema version.",
+    "The database management strategy correctly separates fast, declarative setup for development from safe, migration-based evolution for production."
+  ]
+}

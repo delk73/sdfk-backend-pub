@@ -1,0 +1,13 @@
+[project]
+name = "synesthetic-schemas"
+version = "0.1.0"
+description = "SSOT: Synesthetic JSON Schemas -> generated Pydantic models"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.7"]
+
+[tool.setuptools.package-data]
+synesthetic_schemas = ["py.typed"]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

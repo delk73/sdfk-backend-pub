@@ -1,0 +1,149 @@
+{
+  "objective": "QC all example JSON files and bless them against the canonical spec. If a canonical spec is missing or incomplete, emit a deterministic draft spec from the examples, then validate and produce reports. No silent mutations: fixes happen in-repo.",
+  "constraints": {
+    "style": "KISS, deterministic, minimal deps",
+    "target_repo": "synesthetic-schemas",
+    "python": "3.11",
+    "schema_draft": "2020-12",
+    "no_new_deps": true,
+    "idempotence": "Same inputs -> identical ordering, contents, and exit code",
+    "output": "Write reports to meta/output; do not print to stdout by default; return a single unified git diff only (no prose)."
+  },
+  "inputs": {
+    "examples_root": "examples/**/*.json",
+    "primary_examples_glob": "examples/**/SynestheticAsset_Example*.json",
+    "schemas_root": "schemas/**/*.json",
+    "canonical_schema_candidates": [
+      "schemas/synesthetic-asset.json",
+      "schemas/synesthetic-asset.schema.json",
+      "schemas/canonical/synesthetic-asset.json"
+    ],
+    "allow_metadata_keys": ["$schemaRef"],
+    "forbid_envelope_keys": ["id", "schemaVersion"],
+    "report_paths": {
+      "json": "meta/output/SCHEMAS_EXAMPLES_QA.json",
+      "markdown": "meta/output/SCHEMAS_EXAMPLES_QA.md",
+      "blessed_index": "meta/output/BLESSED_EXAMPLES.json",
+      "field_matrix": "meta/output/EXAMPLE_FIELD_MATRIX.json"
+    }
+  },
+  "phases": [
+    { "id": "S1", "name": "Spec Discovery" },
+    { "id": "S2", "name": "Spec Draft (if missing)" },
+    { "id": "S3", "name": "Validation Sweep" },
+    { "id": "S4", "name": "Blessing & Duplicates" },
+    { "id": "S5", "name": "Reports (JSON + Markdown)" },
+    { "id": "S6", "name": "CLI & CI Gate" },
+    { "id": "S7", "name": "Tests" }
+  ],
+  "work_items": [
+    {
+      "id": "Q1",
+      "phase": "S1",
+      "summary": "Discover canonical spec or declare absence",
+      "audit": [
+        "Search canonical_schema_candidates; if one exists, load it as the source of truth.",
+        "If none found, mark SPEC_ABSENT and proceed to S2."
+      ],
+      "acceptance": [
+        "SPEC_PRESENT or SPEC_ABSENT recorded deterministically in QA JSON report."
+      ]
+    },
+    {
+      "id": "Q2",
+      "phase": "S2",
+      "summary": "Emit draft spec from examples when SPEC_ABSENT",
+      "audit": [
+        "Scan primary SynestheticAsset examples; compute structural field matrix (presence %, type set, enum candidates).",
+        "Emit draft JSON Schema to schemas/_draft/synesthetic-asset.generated.json (no overwrite of any canonical file).",
+        "Emit human-readable spec note to docs/specs/SynestheticAsset_SPEC.md (clearly labeled DRAFT) describing required/optional fields with rationale."
+      ],
+      "acceptance": [
+        "Draft JSON Schema and Markdown spec exist only when SPEC_ABSENT.",
+        "Draft schema contains $schema=2020-12 and stable $id."
+      ]
+    },
+    {
+      "id": "Q3",
+      "phase": "S3",
+      "summary": "Strict validation with top-level $schemaRef tolerance",
+      "audit": [
+        "Validate all primary examples against canonical schema (or draft if SPEC_ABSENT).",
+        "Ignore ONLY top-level $schemaRef; do not alter buffers used for error locations.",
+        "Aggregate all errors with JSONPointer paths; stable, lexicographic ordering."
+      ],
+      "acceptance": [
+        "Top-level $schemaRef allowed; any other unknown top-level key fails with JSONPointer.",
+        "Multiple errors per file aggregated deterministically."
+      ]
+    },
+    {
+      "id": "Q4",
+      "phase": "S4",
+      "summary": "Bless valid examples and detect duplicate names",
+      "audit": [
+        "A SynestheticAsset example is 'blessed' if it validates and has a non-empty asset.name (string).",
+        "Detect duplicate asset.name across blessed set (case-sensitive).",
+        "Forbid envelope keys at top level in examples (id, schemaVersion)."
+      ],
+      "acceptance": [
+        "meta/output/BLESSED_EXAMPLES.json lists all blessed file paths and their asset.name.",
+        "Duplicates listed in QA reports with colliding names and file lists."
+      ]
+    },
+    {
+      "id": "Q5",
+      "phase": "S5",
+      "summary": "Emit reports",
+      "audit": [
+        "Write machine-readable QA to meta/output/SCHEMAS_EXAMPLES_QA.json (spec status, totals, per-file errors, duplicates, blessed index path).",
+        "Write Markdown summary to meta/output/SCHEMAS_EXAMPLES_QA.md with sections: Overview, Spec Status (PRESENT/DRAFT), Totals, Blessed, Duplicates, Failures (by file with JSONPointer), Next Actions.",
+        "Emit field occurrence/type matrix to meta/output/EXAMPLE_FIELD_MATRIX.json to aid spec hardening.",
+        "No timestamps; create meta/output if missing; do not print to stdout by default."
+      ],
+      "acceptance": [
+        "All three artifacts exist and are byte-identical across identical inputs."
+      ]
+    },
+    {
+      "id": "Q6",
+      "phase": "S6",
+      "summary": "CLI & CI gate",
+      "audit": [
+        "Provide CLI scripts/examples_qc.py with flags: --print, --fail-fast, --ci.",
+        "Exit codes: 0 (all blessed, no duplicates, no failures), 2 (validation/semantic failures or duplicates), 3 (script/setup error).",
+        "Add .github/workflows/examples_qc.yml to run the CLI with --ci on push/PR."
+      ],
+      "acceptance": [
+        "CI fails on any validation failure or duplicate.",
+        "Local CLI behavior matches flags and exit codes."
+      ]
+    },
+    {
+      "id": "Q7",
+      "phase": "S7",
+      "summary": "Tests",
+      "audit": [
+        "Unit tests cover: allows_top_level_schema_ref_only; rejects_unknown_top_level_keys; detects_duplicate_asset_names; flags_envelope_keys_in_examples; produces_deterministic_reports; emits_draft_spec_when_missing.",
+        "Tests avoid modifying real examples; use fixtures."
+      ],
+      "acceptance": [
+        "All new tests pass; deterministic ordering asserted."
+      ]
+    }
+  ],
+  "commands": [
+    "python scripts/examples_qc.py --ci || true",
+    "test -f meta/output/SCHEMAS_EXAMPLES_QA.json",
+    "test -f meta/output/SCHEMAS_EXAMPLES_QA.md",
+    "test -f meta/output/BLESSED_EXAMPLES.json",
+    "test -f meta/output/EXAMPLE_FIELD_MATRIX.json"
+  ],
+  "done_definition": [
+    "If canonical spec exists: examples are validated against it; blessed index is produced; duplicates and violations are enumerated.",
+    "If canonical spec is absent: a deterministic draft JSON Schema and companion Markdown spec are emitted, and examples are validated against the draft; blessed index is produced.",
+    "Reports are written to meta/output and are deterministic (no timestamps, stable ordering).",
+    "No example files are mutated; fixes happen in synesthetic-schemas via PR.",
+    "CI gate blocks merges on invalid examples or duplicates until addressed."
+  ]
+}

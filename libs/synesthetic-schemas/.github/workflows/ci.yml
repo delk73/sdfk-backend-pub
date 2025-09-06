@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Nix and configure Cachix
+        uses: cachix/install-nix-action@v26
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+          cachix_name: synesthetic # IMPORTANT: Replace with your Cachix cache name
+          cachix_auth_token: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+      - name: Cache Poetry virtual environment
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install project dependencies
+        run: |
+          nix develop --command bash -c "
+            echo '--- Installing project dependencies for CI ---'
+            poetry install
+            npm install
+          "
+
+      - name: Check for codegen-related file changes
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            codegen:
+              - 'jsonschema/**'
+              - 'codegen/**'
+              - 'scripts/**'
+              - 'pyproject.toml'
+              - 'poetry.lock'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'Makefile'
+
+      - name: Run preflight (with codegen-check)
+        if: steps.changes.outputs.codegen == 'true'
+        run: |
+          nix develop --command ./preflight.sh
+
+      - name: Run preflight (skip codegen-check)
+        if: steps.changes.outputs.codegen != 'true'
+        run: |
+          nix develop --command bash -c "SKIP_CODEGEN_CHECK=1 ./preflight.sh"

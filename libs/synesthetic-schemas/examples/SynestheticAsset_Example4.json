@@ -1,0 +1,554 @@
+{
+  "$schemaRef": "jsonschema/synesthetic-asset.schema.json",
+  "control": {
+    "control_parameters": [
+      {
+        "default": 0.0,
+        "label": "Position X",
+        "mappings": [
+          {
+            "action": {
+              "axis": "mouse.x",
+              "curve": "linear",
+              "scale": 1.0,
+              "sensitivity": 0.001
+            },
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            }
+          }
+        ],
+        "max": 1.0,
+        "min": -1.0,
+        "parameter": "visual.px",
+        "smoothingTime": 0.1,
+        "step": 0.01,
+        "type": "float",
+        "unit": "linear"
+      },
+      {
+        "default": 0.0,
+        "label": "Position Y",
+        "mappings": [
+          {
+            "action": {
+              "axis": "mouse.y",
+              "curve": "linear",
+              "scale": 1.0,
+              "sensitivity": -0.001
+            },
+            "combo": {
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            }
+          }
+        ],
+        "max": 1.0,
+        "min": -1.0,
+        "parameter": "visual.py",
+        "smoothingTime": 0.1,
+        "step": 0.01,
+        "type": "float",
+        "unit": "linear"
+      },
+      {
+        "default": 0.5,
+        "label": "Base Radius",
+        "mappings": [
+          {
+            "action": {
+              "axis": "mouse.wheel",
+              "curve": "linear",
+              "scale": 1.0,
+              "sensitivity": 0.01
+            },
+            "combo": {
+              "strict": true,
+              "wheel": true
+            }
+          }
+        ],
+        "max": 1.0,
+        "min": 0.1,
+        "parameter": "visual.r",
+        "smoothingTime": 0.1,
+        "step": 0.01,
+        "type": "float",
+        "unit": "linear"
+      },
+      {
+        "default": 300,
+        "label": "Oscillator Frequency",
+        "mappings": [
+          {
+            "action": {
+              "axis": "mouse.x",
+              "curve": "exponential",
+              "scale": 1.0,
+              "sensitivity": 0.5
+            },
+            "combo": {
+              "keys": [
+                "Alt"
+              ],
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            }
+          }
+        ],
+        "max": 20000,
+        "min": 20,
+        "parameter": "audio.osc_freq",
+        "smoothingTime": 0.1,
+        "step": 1,
+        "type": "float",
+        "unit": "Hz"
+      },
+      {
+        "default": -12,
+        "label": "Output Volume",
+        "mappings": [
+          {
+            "action": {
+              "axis": "mouse.y",
+              "curve": "linear",
+              "scale": 1.0,
+              "sensitivity": -0.1
+            },
+            "combo": {
+              "keys": [
+                "Ctrl"
+              ],
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            }
+          }
+        ],
+        "max": 0,
+        "min": -60,
+        "parameter": "audio.volume",
+        "smoothingTime": 0.1,
+        "step": 0.1,
+        "type": "float",
+        "unit": "dB"
+      },
+      {
+        "default": 800,
+        "label": "Filter Frequency",
+        "mappings": [
+          {
+            "action": {
+              "axis": "mouse.x",
+              "curve": "exponential",
+              "scale": 1.0,
+              "sensitivity": 0.5
+            },
+            "combo": {
+              "keys": [
+                "Alt"
+              ],
+              "mouseButtons": [
+                "right"
+              ],
+              "strict": true
+            }
+          }
+        ],
+        "max": 20000,
+        "min": 20,
+        "parameter": "audio.filterFreq",
+        "smoothingTime": 0.1,
+        "step": 1,
+        "type": "float",
+        "unit": "Hz"
+      },
+      {
+        "default": 0.6,
+        "label": "Vibration Intensity",
+        "mappings": [
+          {
+            "action": {
+              "axis": "mouse.y",
+              "curve": "exponential",
+              "scale": 1.0,
+              "sensitivity": -0.01
+            },
+            "combo": {
+              "keys": [
+                "Ctrl",
+                "Alt"
+              ],
+              "mouseButtons": [
+                "left"
+              ],
+              "strict": true
+            }
+          }
+        ],
+        "max": 1.0,
+        "min": 0.0,
+        "parameter": "haptic.intensity",
+        "smoothingTime": 0.1,
+        "step": 0.01,
+        "type": "float",
+        "unit": "linear"
+      },
+      {
+        "default": 120.0,
+        "label": "Vibration Frequency",
+        "mappings": [
+          {
+            "action": {
+              "axis": "mouse.x",
+              "curve": "exponential",
+              "scale": 1.0,
+              "sensitivity": 0.5
+            },
+            "combo": {
+              "keys": [
+                "Ctrl"
+              ],
+              "mouseButtons": [
+                "right"
+              ],
+              "strict": true
+            }
+          }
+        ],
+        "max": 250.0,
+        "min": 20.0,
+        "parameter": "haptic.vib_freq",
+        "smoothingTime": 0.1,
+        "step": 1,
+        "type": "float",
+        "unit": "Hz"
+      }
+    ],
+    "description": "Interactive controls for manipulating triad visuals, audio synthesis, and haptic feedback",
+    "meta_info": {
+      "category": "control",
+      "complexity": "medium",
+      "tags": [
+        "interactive",
+        "multimodal",
+        "visual",
+        "audio",
+        "haptic"
+      ]
+    },
+    "name": "Triad Pulse Controls"
+  },
+  "description": "A pulsating dance of triangle, pentagon, and circle shapes with synchronized audio and haptic responses",
+  "haptic": {
+    "description": "Haptic feedback pulsing in sync with the geometric shapes",
+    "device": {
+      "options": {
+        "maxFrequency": {
+          "unit": "Hz",
+          "value": 250.0
+        },
+        "maxIntensity": {
+          "unit": "linear",
+          "value": 1.0
+        }
+      },
+      "type": "generic"
+    },
+    "input_parameters": [
+      {
+        "default": 0.6,
+        "max": 1.0,
+        "min": 0.0,
+        "name": "Intensity",
+        "parameter": "haptic.intensity",
+        "path": "haptic.intensity",
+        "smoothingTime": 0.1,
+        "step": 0.01,
+        "type": "float",
+        "unit": "linear"
+      },
+      {
+        "default": 120.0,
+        "max": 250.0,
+        "min": 20.0,
+        "name": "haptic.frequency",
+        "parameter": "haptic.frequency",
+        "path": "haptic.frequency",
+        "smoothingTime": 0.1,
+        "step": 1,
+        "type": "float",
+        "unit": "Hz"
+      }
+    ],
+    "meta_info": {
+      "category": "haptic",
+      "complexity": "medium",
+      "tags": [
+        "pulse",
+        "vibration",
+        "tactile"
+      ]
+    },
+    "name": "Triad Vibration"
+  },
+  "meta_info": {
+    "category": "multimodal",
+    "complexity": "high",
+    "tags": [
+      "geometric",
+      "sdf",
+      "interactive",
+      "audio",
+      "haptic",
+      "pulse"
+    ]
+  },
+  "modulations": [
+    {
+      "amplitude": 0.15,
+      "frequency": 0.75,
+      "id": "radius_pulse",
+      "max": 1.0,
+      "min": 0.0,
+      "offset": 0.5,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "target": "u_r",
+      "type": "additive",
+      "waveform": "sine"
+    },
+    {
+      "amplitude": 400,
+      "frequency": 0.5,
+      "id": "filter_sweep",
+      "max": 1.0,
+      "min": 0.0,
+      "offset": 800,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "exponential",
+      "target": "tone.filter.frequency",
+      "type": "additive",
+      "waveform": "triangle"
+    },
+    {
+      "amplitude": 0.3,
+      "frequency": 1.5,
+      "id": "haptic_pulse",
+      "max": 1.0,
+      "min": 0.0,
+      "offset": 0.6,
+      "phase": 0.0,
+      "scale": 1.0,
+      "scaleProfile": "linear",
+      "target": "haptic.intensity",
+      "type": "additive",
+      "waveform": "sine"
+    }
+  ],
+  "name": "Triad Pulse",
+  "shader": {
+    "fragment_shader": "uniform vec2 u_resolution; uniform float u_time; uniform float u_px; uniform float u_py; uniform float u_r; float triangleSDF(vec2 p, float r) { const float k = 0.866025404; p.y -= r * 0.5; p = abs(p); float d = max(p.x - k * r, p.y - r * 0.5); return d; } float pentagonSDF(vec2 p, float r) { const vec3 k = vec3(0.809016994, 0.587785252, 0.726542528); p = abs(p); p -= 2.0 * min(dot(vec2(-k.x, k.y), p), 0.0) * vec2(-k.x, k.y); p -= 2.0 * min(dot(vec2(k.x, k.y), p), 0.0) * vec2(k.x, k.y); p -= vec2(clamp(p.x, -r * k.z, r * k.z), r); return length(p) * sign(p.y); } float circleSDF(vec2 p, float r) { return length(p) - r; } void main() { vec2 st = gl_FragCoord.xy / u_resolution.xy; st = st * 2.0 - 1.0; st.x *= u_resolution.x / u_resolution.y; vec2 p = st - vec2(u_px, u_py); float t = u_time * 1.5; vec2 triOffset = vec2(cos(t) * 0.3, sin(t) * 0.3); vec2 pentOffset = vec2(cos(t * 0.8) * 0.3, sin(t * 0.8) * 0.3); vec2 circOffset = vec2(cos(t * 1.2) * 0.3, sin(t * 1.2) * 0.3); float tri_d = triangleSDF(p - triOffset, u_r * (0.7 + sin(t) * 0.2)); float pent_d = pentagonSDF(p - pentOffset, u_r * (0.6 + cos(t * 0.8) * 0.15)); float circ_d = circleSDF(p - circOffset, u_r * (0.5 + sin(t * 1.2) * 0.1)); float d = min(min(tri_d, pent_d), circ_d); vec3 color = vec3(1.0 - smoothstep(-0.05, 0.05, d)); color *= mix(vec3(0.8, 0.2, 0.9), vec3(0.2, 0.9, 0.5), sin(t + d * 20.0) * 0.5 + 0.5); gl_FragColor = vec4(color, 1.0); }",
+    "input_parameters": [
+      {
+        "default": 0.0,
+        "max": 1.0,
+        "min": -1.0,
+        "name": "positionX",
+        "parameter": "u_px",
+        "path": "u_px",
+        "smoothingTime": 0.1,
+        "step": 0.01,
+        "type": "float"
+      },
+      {
+        "default": 0.0,
+        "max": 1.0,
+        "min": -1.0,
+        "name": "positionY",
+        "parameter": "u_py",
+        "path": "u_py",
+        "smoothingTime": 0.1,
+        "step": 0.01,
+        "type": "float"
+      },
+      {
+        "default": 0.5,
+        "max": 1.0,
+        "min": 0.1,
+        "name": "radius",
+        "parameter": "u_r",
+        "path": "u_r",
+        "smoothingTime": 0.1,
+        "step": 0.01,
+        "type": "float"
+      }
+    ],
+    "name": "TriadSDF",
+    "uniforms": [
+      {
+        "default": 0.0,
+        "name": "u_time",
+        "stage": "fragment",
+        "type": "float"
+      },
+      {
+        "default": [
+          800.0,
+          600.0
+        ],
+        "name": "u_resolution",
+        "stage": "fragment",
+        "type": "vec2"
+      },
+      {
+        "default": "#1a1a1a",
+        "name": "u_backgroundColor",
+        "stage": "fragment",
+        "type": "vec3"
+      },
+      {
+        "default": 0.0,
+        "name": "u_gridSize",
+        "stage": "fragment",
+        "type": "float"
+      },
+      {
+        "default": [
+          0.9,
+          0.9,
+          0.9
+        ],
+        "name": "u_gridColor",
+        "stage": "fragment",
+        "type": "vec3"
+      },
+      {
+        "default": 0.0,
+        "name": "u_px",
+        "stage": "fragment",
+        "type": "float"
+      },
+      {
+        "default": 0.0,
+        "name": "u_py",
+        "stage": "fragment",
+        "type": "float"
+      },
+      {
+        "default": 0.5,
+        "name": "u_r",
+        "stage": "fragment",
+        "type": "float"
+      }
+    ],
+    "vertex_shader": "void main() { gl_Position = vec4(position, 1.0); }"
+  },
+  "tone": {
+    "description": "A rich, pulsating synth sound with shifting harmonics synchronized to the visual pulse",
+    "effects": [],
+    "input_parameters": [
+      {
+        "default": 300,
+        "max": 2000,
+        "min": 20,
+        "name": "Oscillator Frequency",
+        "parameter": "oscillator.frequency",
+        "path": "tone.oscillator.frequency",
+        "smoothingTime": 0.1,
+        "type": "float",
+        "unit": "Hz"
+      },
+      {
+        "default": -10,
+        "max": 1,
+        "min": -60,
+        "name": "Volume",
+        "parameter": "volume",
+        "path": "volume",
+        "smoothingTime": 0.1,
+        "type": "float",
+        "unit": "dB"
+      },
+      {
+        "default": 800,
+        "max": 2000,
+        "min": 20,
+        "name": "Filter Frequency",
+        "parameter": "filter.frequency",
+        "path": "tone.filter.frequency",
+        "smoothingTime": 0.1,
+        "type": "float",
+        "unit": "Hz"
+      }
+    ],
+    "meta_info": {
+      "category": "tone",
+      "complexity": "medium",
+      "tags": [
+        "pulse",
+        "synth",
+        "harmonic",
+        "interactive"
+      ]
+    },
+    "name": "Pulsing Triad",
+    "parts": [],
+    "patterns": [],
+    "synth": {
+      "options": {
+        "envelope": {
+          "attack": {
+            "unit": "s",
+            "value": 0.1
+          },
+          "decay": {
+            "unit": "s",
+            "value": 0.5
+          },
+          "release": {
+            "unit": "s",
+            "value": 1.0
+          },
+          "sustain": {
+            "unit": "normalRange",
+            "value": 0.6
+          }
+        },
+        "filter": {
+          "Q": {
+            "unit": "linear",
+            "value": 2.0
+          },
+          "frequency": {
+            "unit": "Hz",
+            "value": 800
+          },
+          "type": "bandpass"
+        },
+        "oscillator": {
+          "frequency": {
+            "unit": "Hz",
+            "value": 300
+          },
+          "type": "sawtooth"
+        },
+        "volume": {
+          "unit": "dB",
+          "value": -12
+        }
+      },
+      "type": "Tone.MonoSynth"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+syntax = "proto3";
+package asset;
+
+message Uniform {
+  string name = 1;
+  string type = 2;
+  string stage = 3;
+  string default_value = 4;
+}
+
+message Shader {
+  string name = 1;
+  string vertex_shader = 2;
+  string fragment_shader = 3;
+  int32 shader_lib_id = 4;
+  repeated Uniform uniforms = 5;
+}
+
+message Envelope {
+  double attack = 1;
+  string attackCurve = 2;
+  double decay = 3;
+  string decayCurve = 4;
+  double sustain = 5;
+  double release = 6;
+  string releaseCurve = 7;
+}
+
+message Oscillator {
+  string type = 1;
+  string modulationType = 2;
+  double harmonicity = 3;
+  repeated string partials = 4;
+  double phase = 5;
+}
+
+message ToneSynth {
+  string type = 1;
+  double volume = 2;
+  double detune = 3;
+  double portamento = 4;
+  Envelope envelope = 5;
+  Oscillator oscillator = 6;
+}
+
+message Tone {
+  string name = 1;
+  ToneSynth synth = 2;
+}
+
+message Asset {
+  string name = 1;
+  string description = 2;
+  Shader shader = 3;
+  Tone tone = 4;
+}

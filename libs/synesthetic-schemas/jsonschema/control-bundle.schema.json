@@ -1,0 +1,45 @@
+{
+  "$id": "https://schemas.synesthetic.dev/0.7.3/control-bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "control_parameters": {
+      "items": {
+        "$ref": "https://schemas.synesthetic.dev/0.7.3/control.schema.json"
+      },
+      "title": "Control Parameters",
+      "type": "array"
+    },
+    "description": {
+      "default": null,
+      "title": "Description",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "meta_info": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Meta Info"
+    },
+    "name": {
+      "title": "Name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "control_parameters"
+  ],
+  "title": "control-bundle",
+  "type": "object",
+  "x-schema-version": "0.7.3"
+}

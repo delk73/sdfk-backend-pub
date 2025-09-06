@@ -1,0 +1,96 @@
+{
+  "$id": "https://schemas.synesthetic.dev/0.7.3/rule.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "effects": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Effects applied when the rule is triggered",
+      "title": "Effects"
+    },
+    "execution": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Execution environment for the rule",
+      "title": "Execution"
+    },
+    "expr": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "contentMediaType": "application/json",
+          "contentSchema": {
+            "type": "object"
+          },
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Expression defining the rule logic",
+      "title": "Expr"
+    },
+    "id": {
+      "description": "Unique rule identifier",
+      "title": "Id",
+      "type": "string"
+    },
+    "target": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Parameter path the rule targets",
+      "title": "Target"
+    },
+    "trigger": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Trigger configuration for the rule",
+      "title": "Trigger"
+    }
+  },
+  "required": [
+    "id"
+  ],
+  "title": "rule",
+  "type": "object",
+  "x-schema-version": "0.7.3"
+}
