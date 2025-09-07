@@ -1,0 +1,323 @@
+{
+  "prompt": {
+    "title": "Loader Rework — SSOT Synesthetic Examples (Backend)",
+    "objective": "Deterministically import nested SynestheticAsset examples from the synesthetic-schemas submodule into the backend via /synesthetic-assets/nested. Treat synesthetic-schemas as the SSOT. Ignore only top-level $schemaRef, serialize with model_dump(mode=\"json\"), send X-Schema-Version, and ensure idempotence. Default run imports assets only; standalone component imports are gated and non-duplicating. Provide a precise, stable summary and add targeted tests.",
+    "constraints": {
+      "style": "KISS, deterministic, minimal edits",
+      "python": "3.11",
+      "framework": "FastAPI + Pydantic v2",
+      "ssot_only": true,
+      "no_db_migrations": true,
+      "no_new_deps": true,
+      "idempotence": "Re-running on identical inputs creates zero new rows",
+      "mutation_policy": "Strip ONLY top-level $schemaRef before POST; no other field rewrites",
+      "posting_scope_default": "SynestheticAsset examples only",
+      "component_imports_gated": true,
+      "execution_mode": "In-process TestClient by default; optional HTTP mode"
+    },
+    "inputs": {
+      "examples_default_dir": "libs/synesthetic-schemas/examples",
+      "env": {
+        "EXAMPLES_DIR": "override examples root (optional)",
+        "ONLY_ASSETS": "0|1 (default 0) — when 1, import only SynestheticAsset examples",
+        "INCLUDE_COMPONENTS": "0|1 (default 0) — when 1, also import Shader/Tone/Haptic/ControlBundle/RuleBundle after assets",
+        "INCLUDE_SKIP": "0|1 (default 0) — include files under **skip dirs when 1",
+        "DRY_RUN": "0|1 (default 0) — validate/plan only; no POSTs or mirroring",
+        "API_MODE": "inproc|http (default inproc)",
+        "API_BASE_URL": "used when API_MODE=http (default http://localhost:8000)",
+        "DISABLE_SCHEMA_HEADER": "0|1 (default 0) — when 1, omit X-Schema-Version header"
+      },
+      "patterns": {
+        "assets": [
+          "SynestheticAsset**.json",
+          "SynestheticAsset_Example*.json"
+        ],
+        "shader_lib": [
+          "ShaderLib_*.json",
+          "ShaderLib_Example*.json"
+        ],
+        "components_optional": {
+          "shader": [
+            "Shader_*.json",
+            "Shader_Example*.json"
+          ],
+          "tone": [
+            "Tone_*.json",
+            "Tone_Example*.json"
+          ],
+          "haptic": [
+            "Haptic_*.json",
+            "Haptic_Example*.json"
+          ],
+          "modulation": [
+            "Modulation_*.json",
+            "Modulation_Example*.json"
+          ],
+          "rule_bundle": [
+            "RuleBundle_*.json",
+            "RuleBundle_Example*.json"
+          ],
+          "control_bundle": [
+            "ControlBundle_*.json",
+            "Control_Example*.json"
+          ]
+        }
+      },
+      "routes": {
+        "post_nested_asset": "POST /synesthetic-assets/nested",
+        "components": {
+          "shader_lib": "POST /shader_libs/",
+          "shader": "POST /shaders/",
+          "tone": "POST /tones/",
+          "haptic": "POST /haptics/",
+          "modulation": "POST /modulations/",
+          "rule_bundle": "POST /rule-bundles/",
+          "control_bundle": "POST /controls/"
+        },
+        "status_endpoints_optional": [
+          "GET /shader_libs/",
+          "GET /shaders/",
+          "GET /tones/",
+          "GET /haptics/",
+          "GET /controls/",
+          "GET /synesthetic-assets/"
+        ],
+        "exists_strategy": "Prefer GET-by-name if available; otherwise rely on 409 Conflict as idempotence signal"
+      }
+    },
+    "phases": [
+      {
+        "id": "P1",
+        "name": "Deterministic Discovery (SSOT-only)"
+      },
+      {
+        "id": "P2",
+        "name": "Strict Validation & Metadata Handling (SSOT models)"
+      },
+      {
+        "id": "P3",
+        "name": "Idempotent Asset Import (Assets-first)"
+      },
+      {
+        "id": "P4",
+        "name": "Optional Components (Gated, Non-duplicating)"
+      },
+      {
+        "id": "P5",
+        "name": "Deterministic Summary"
+      },
+      {
+        "id": "P6",
+        "name": "Targeted Tests & Doc"
+      }
+    ],
+    "algorithm_spec": {
+      "discovery": [
+        "examples_dir := ENV.EXAMPLES_DIR or inputs.examples_default_dir",
+        "require os.path.isdir(examples_dir); else fail fast with clear error",
+        "collect asset_files := glob(examples_dir/**/[SynestheticAsset_*.json | SynestheticAsset_Example*.json]), sorted lexicographically",
+        "if ENV.INCLUDE_COMPONENTS == '1': collect component_files per type (shader/tone/haptic/modulation/rule_bundle/control_bundle), each sorted lexicographically; else component_files := {}",
+        "if ENV.INCLUDE_SKIP != '1': exclude any path containing a directory ending with '_skip'"
+      ],
+      "validation": [
+        "Load JSON UTF-8; top-level must be dict (arrays allowed only if file intentionally contains list of dicts — validate each item independently)",
+        "Permit presence of top-level '$schemaRef' ONLY",
+        "For validation: use synesthetic_schemas models (SynestheticAsset, Shader, Tone, Haptic, Modulation, RuleBundle, ControlBundle); ShaderLib stays local model",
+        "Use model_cls.model_validate(candidate) — extra fields forbidden by model definitions"
+      ],
+      "prepare_payload": [
+        "payload := deepcopy(candidate)",
+        "if '$schemaRef' in payload: del payload['$schemaRef']",
+        "payload := model_instance.model_dump(mode='json')"
+      ],
+      "idempotent_import": [
+        "name := extract canonical name per entity (for asset: payload['asset']['name']; for others: payload['name']); if missing/empty → record error and skip",
+        "If API supports GET-by-name: probe before posting; if exists → mark skipped_existing",
+        "Else POST and treat HTTP 409 as skipped_existing",
+        "On POST: include X-Schema-Version header unless DISABLE_SCHEMA_HEADER=1",
+        "Treat 200/201/202 as success; 409 as skipped_existing; other statuses are failures captured with body snippet"
+      ],
+      "components_optional": [
+        "Only when INCLUDE_COMPONENTS == '1': process after assets",
+        "For each component file: validate with SSOT model, prepare payload (mode='json'), dedupe by name (GET-by-name if available, else rely on 409), POST to its canonical route",
+        "Never import components before assets; avoid creating duplicates"
+      ],
+      "summary": [
+        "Maintain counters per entity type: imported, skipped_existing, failed",
+        "Optionally fetch counts from status endpoints for cross-check (non-fatal if unavailable)",
+        "Emit a deterministic summary block with fixed ordering and totals"
+      ]
+    },
+    "work_items": [
+      {
+        "id": "W1",
+        "phase": "P1",
+        "summary": "Refactor loader to SSOT-only, single-source discovery",
+        "edits": [
+          {
+            "file": "app/load_examples.py",
+            "action": "rewrite_module",
+            "content_spec": [
+              "Resolve examples_root strictly to libs/synesthetic-schemas/examples unless EXAMPLES_DIR overrides",
+              "Emit startup banner with examples_root, model_source=SSOT, active flags (ONLY_ASSETS, INCLUDE_COMPONENTS, INCLUDE_SKIP, DRY_RUN)",
+              "Discovery functions that return stable, sorted file lists per pattern"
+            ]
+          }
+        ],
+        "acceptance": [
+          "Fails fast with clear error when SSOT directory missing",
+          "Stable lexicographic discovery across runs"
+        ]
+      },
+      {
+        "id": "W2",
+        "phase": "P2",
+        "summary": "SSOT validation & JSON-mode serialization",
+        "edits": [
+          {
+            "file": "app/load_examples.py",
+            "action": "augment",
+            "instructions": [
+              "Import SSOT models; keep ShaderLibCreate local",
+              "Strip ONLY top-level $schemaRef prior to validation dump",
+              "Use model_dump(mode='json') everywhere before POST"
+            ]
+          }
+        ],
+        "acceptance": [
+          "No python-mode dumps reach persistence or API",
+          "Top-level $schemaRef tolerated; nested or extra keys fail with precise error"
+        ]
+      },
+      {
+        "id": "W3",
+        "phase": "P3",
+        "summary": "Idempotent asset import via /synesthetic-assets/nested",
+        "edits": [
+          {
+            "file": "app/load_examples.py",
+            "action": "augment",
+            "instructions": [
+              "Attempt GET-by-name if available; otherwise rely on 409 handling",
+              "POST with X-Schema-Version unless disabled",
+              "DRY_RUN skips POST and protobuf mirroring"
+            ]
+          }
+        ],
+        "acceptance": [
+          "Second run on identical inputs reports only skipped_existing",
+          "At least one asset imported on first run when valid examples exist"
+        ]
+      },
+      {
+        "id": "W4",
+        "phase": "P4",
+        "summary": "Component imports gated behind INCLUDE_COMPONENTS",
+        "edits": [
+          {
+            "file": "app/load_examples.py",
+            "action": "augment",
+            "instructions": [
+              "Process components only when INCLUDE_COMPONENTS == '1'",
+              "Run components after asset import; dedupe by name; rely on GET-by-name or 409"
+            ]
+          }
+        ],
+        "acceptance": [
+          "Default run does not import standalone components",
+          "With INCLUDE_COMPONENTS=1, components import once without duplication"
+        ]
+      },
+      {
+        "id": "W5",
+        "phase": "P5",
+        "summary": "Deterministic end-of-run summary",
+        "edits": [
+          {
+            "file": "app/load_examples.py",
+            "action": "augment",
+            "instructions": [
+              "Emit fixed-order summary with imported/skipped_existing/failed per category and totals",
+              "Optionally cross-check counts via status endpoints when present"
+            ]
+          }
+        ],
+        "acceptance": [
+          "Summary is stable across identical re-runs and matches DB state"
+        ]
+      },
+      {
+        "id": "W6",
+        "phase": "P6",
+        "summary": "Targeted unit tests for loader behavior",
+        "edits": [
+          {
+            "file": "tests/test_load_examples.py",
+            "action": "create",
+            "content_spec": [
+              "test_strip_schema_ref_top_level_only()",
+              "test_validate_allows_top_level_schema_ref()",
+              "test_import_idempotent_assets()",
+              "test_default_excludes_components()",
+              "test_summary_counts_stable()"
+            ]
+          }
+        ],
+        "acceptance": [
+          "All new tests pass alongside the existing suite"
+        ]
+      },
+      {
+        "id": "W7",
+        "phase": "P6",
+        "summary": "Developer doc (loader usage and switches)",
+        "edits": [
+          {
+            "file": "docs/dev/load_examples.md",
+            "action": "create",
+            "content_spec": [
+              "Overview of SSOT-only behavior, env flags, discovery rules, idempotence strategy",
+              "Examples for DRY_RUN and INCLUDE_COMPONENTS"
+            ]
+          }
+        ],
+        "acceptance": [
+          "Doc accurately reflects implemented behavior; no placeholders"
+        ]
+      }
+    ],
+    "validation_rules": [
+      "Only top-level $schemaRef is ignored; any other unknown field (including nested $schemaRef) triggers a validation error",
+      "Asset name must be a non-empty string at payload.asset.name or validation fails",
+      "Deduplication key is the entity name unless server enforces a stricter unique key; do not introduce migrations"
+    ],
+    "error_handling": [
+      "On read/parse/validation failure: record file path and reason; skip POST",
+      "On POST non-2xx (except 409): capture status and response snippet; continue",
+      "Exit code remains success when at least one item is imported or skipped_existing; non-zero only if zero successes occur"
+    ],
+    "logging": [
+      "Startup banner: examples_root, model_source=SSOT, flags (ONLY_ASSETS, INCLUDE_COMPONENTS, INCLUDE_SKIP, DRY_RUN)",
+      "Per-pattern discovery counts",
+      "Per-file import logs: importing <filename> as <name>, skipped existing, or error with brief reason",
+      "Single final summary block with fixed ordering"
+    ],
+    "acceptance_criteria": [
+      "At least one SynestheticAsset is imported from valid SSOT examples (non-zero count) on first run",
+      "Re-run with same inputs yields zero new rows and logs only skipped_existing",
+      "No standalone component duplication occurs in default mode",
+      "Top-level $schemaRef tolerated; any other extra field surfaces a precise error",
+      "Deterministic, lexicographically ordered processing and summary output",
+      "All tests (existing + new) pass"
+    ],
+    "done_definition": [
+      "SSOT-only: examples_root resolves to libs/synesthetic-schemas/examples (or EXAMPLES_DIR override); no legacy fallback paths remain",
+      "Validation uses synesthetic_schemas models; ShaderLib remains local until SSOT equivalent exists",
+      "Serialization uses model_dump(mode=\"json\") universally before persistence or POST",
+      "X-Schema-Version header is sent (unless explicitly disabled); 409 is treated as idempotent skip",
+      "Default run imports only assets; component imports require INCLUDE_COMPONENTS=1 and are deduplicated by name",
+      "End-of-run summary is stable and accurate; at least one asset is imported when valid examples exist; subsequent runs report skipped_existing only",
+      "No DB migrations or new dependencies introduced; tests validate the behavior end-to-end"
+    ]
+  }
+}

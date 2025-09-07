@@ -63,6 +63,7 @@ def create_crud_router(
         _: None = Depends(require_schema_version),
     ) -> ModelT | dict[str, Any]:
         try:
+            # Ensure JSON-safe (no Enums/Pydantic objects) for JSON columns
             data = payload.model_dump(mode="json")
             # Normalize control bundle structures to avoid None/null pitfalls
             if getattr(model, "__name__", "") == "Control":
@@ -184,6 +185,7 @@ def create_crud_router(
         if instance is None:
             raise HTTPException(status_code=404, detail=f"{model.__name__} not found")
         try:
+            # Ensure JSON-safe (no Enums/Pydantic objects) for JSON columns
             for key, value in payload.model_dump(mode="json", exclude_unset=True).items():
                 setattr(instance, key, value)
             db.commit()

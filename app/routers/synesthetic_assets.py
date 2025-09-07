@@ -205,11 +205,19 @@ def create_nested_synesthetic_asset(
     meta_info = asset.meta_info.copy() if asset.meta_info else {}
     modulation_id = None
     if asset.modulations:
+        # Normalize to JSON-safe structures
+        try:
+            mods = [
+                m.model_dump(mode="json") if hasattr(m, "model_dump") else m
+                for m in asset.modulations
+            ]
+        except Exception:
+            mods = asset.modulations
         db_mod = models.Modulation(
             name=f"{asset.name} Modulations",
             description=None,
             meta_info={},
-            modulations=asset.modulations,
+            modulations=mods,
         )
         db.add(db_mod)
         db.commit()
